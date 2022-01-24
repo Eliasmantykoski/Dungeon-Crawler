@@ -1,0 +1,156 @@
+\hypertarget{classChasingEnemy}{}\doxysection{Chasing\+Enemy Class Reference}
+\label{classChasingEnemy}\index{ChasingEnemy@{ChasingEnemy}}
+
+
+{\ttfamily \#include $<$enemy.\+hpp$>$}
+
+
+
+Inheritance diagram for Chasing\+Enemy\+:
+% FIG 0
+
+
+Collaboration diagram for Chasing\+Enemy\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classChasingEnemy_a6d56bc161f0013648620ae790b680854}{Chasing\+Enemy}} (\mbox{\hyperlink{classAnimation}{Animation}} $\ast$enemy\+\_\+animation, sf\+::\+Vector2f spawn\+Pos, float speed)
+\item 
+\mbox{\hyperlink{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}{$\sim$\+Chasing\+Enemy}} ()
+\item 
+virtual void \mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{Update}} (float time, sf\+::\+Vector2f player\+\_\+position) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class for enemy that chases the player 
+
+Definition at line \mbox{\hyperlink{enemy_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{enemy_8hpp_source}{enemy.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classChasingEnemy_a6d56bc161f0013648620ae790b680854}\label{classChasingEnemy_a6d56bc161f0013648620ae790b680854}} 
+\index{ChasingEnemy@{ChasingEnemy}!ChasingEnemy@{ChasingEnemy}}
+\index{ChasingEnemy@{ChasingEnemy}!ChasingEnemy@{ChasingEnemy}}
+\doxysubsubsection{\texorpdfstring{ChasingEnemy()}{ChasingEnemy()}}
+{\footnotesize\ttfamily Chasing\+Enemy\+::\+Chasing\+Enemy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{enemy\+\_\+animation,  }\item[{sf\+::\+Vector2f}]{spawn\+Pos,  }\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{enemy_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{enemy_8cpp_source}{enemy.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055  : \mbox{\hyperlink{classEnemy_a24605b1ab3387e0a6b8a11314451cefc}{Enemy}}(enemy\_animation, spawnPos, speed) \{\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}\label{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}} 
+\index{ChasingEnemy@{ChasingEnemy}!````~ChasingEnemy@{$\sim$ChasingEnemy}}
+\index{````~ChasingEnemy@{$\sim$ChasingEnemy}!ChasingEnemy@{ChasingEnemy}}
+\doxysubsubsection{\texorpdfstring{$\sim$ChasingEnemy()}{~ChasingEnemy()}}
+{\footnotesize\ttfamily Chasing\+Enemy\+::$\sim$\+Chasing\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{enemy_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{enemy_8cpp_source}{enemy.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}\label{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}} 
+\index{ChasingEnemy@{ChasingEnemy}!Update@{Update}}
+\index{Update@{Update}!ChasingEnemy@{ChasingEnemy}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Chasing\+Enemy\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{time,  }\item[{sf\+::\+Vector2f}]{player\+\_\+position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Virtual function for updating enemy position 
+
+Implements \mbox{\hyperlink{classEnemy_aff50813cdd7f2d2a4cadc1136f2730c9}{Enemy}}.
+
+
+
+Definition at line \mbox{\hyperlink{enemy_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{enemy_8cpp_source}{enemy.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059                                                                 \{}
+\DoxyCodeLine{00060   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00061   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00062   \textcolor{comment}{//std::cout << "Interval timer: " << actionTimer\_ << "\(\backslash\)n";}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}})\{}
+\DoxyCodeLine{00067     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00068     \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} ? false : \textcolor{keyword}{true}; \textcolor{comment}{//tenary operator}}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070     \textcolor{comment}{/*}}
+\DoxyCodeLine{00071 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00072 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00073 \textcolor{comment}{}}
+\DoxyCodeLine{00074 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00075 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00076 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00077 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00078 \textcolor{comment}{    */}}
+\DoxyCodeLine{00079     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} == \textcolor{keyword}{false})\{}
+\DoxyCodeLine{00082       \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].resetCurrentFrame();}
+\DoxyCodeLine{00083       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00084     \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00085       \mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} = (rand() \% 3) == 1; \textcolor{comment}{//Enemies randomly attack sometimes}}
+\DoxyCodeLine{00086       \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = 0.7;}
+\DoxyCodeLine{00087     \}}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00090     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00091       sf::Vector2f direction\_vector = player\_position -\/ \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition();}
+\DoxyCodeLine{00092       \textcolor{keywordtype}{float} vector\_magnitude = sqrt(pow(direction\_vector.x, 2.0) + pow(direction\_vector.y, 2.0));}
+\DoxyCodeLine{00093       direction\_vector.x = direction\_vector.x / vector\_magnitude;}
+\DoxyCodeLine{00094       direction\_vector.y = direction\_vector.y / vector\_magnitude;}
+\DoxyCodeLine{00095       \textcolor{comment}{//std::cout << direction\_vector.x << " " << direction\_vector.y << " " << vector\_magnitude << "\(\backslash\)n";}}
+\DoxyCodeLine{00096       movement.x *= time * direction\_vector.x * 2.f;}
+\DoxyCodeLine{00097       movement.y *= time * direction\_vector.y * 2.f;}
+\DoxyCodeLine{00098     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00099       \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00100       \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00101       movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00102       movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00103     \}}
+\DoxyCodeLine{00104     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00105   \}}
+\DoxyCodeLine{00106   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}})\{}
+\DoxyCodeLine{00107     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{Update}}(time))\{}
+\DoxyCodeLine{00108       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00109     \}}
+\DoxyCodeLine{00110     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00111     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00112 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00113 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00114 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00115 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00116 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00117 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00118 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00119 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00120 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00121 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00122   \}}
+\DoxyCodeLine{00123 \};}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{enemy_8hpp}{enemy.\+hpp}}\item 
+src/\mbox{\hyperlink{enemy_8cpp}{enemy.\+cpp}}\end{DoxyCompactItemize}

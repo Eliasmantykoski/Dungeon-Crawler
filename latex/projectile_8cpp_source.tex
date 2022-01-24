@@ -1,0 +1,83 @@
+\hypertarget{projectile_8cpp_source}{}\doxysection{projectile.\+cpp}
+\label{projectile_8cpp_source}\index{src/projectile.cpp@{src/projectile.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{projectile_8hpp}{projectile.hpp}}"}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{player_8hpp}{player.hpp}}"}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{comment}{//\#include <iostream>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{comment}{/*}}
+\DoxyCodeLine{00007 \textcolor{comment}{* Constructor of projectile, texture is the texture of the projectile.}}
+\DoxyCodeLine{00008 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00009}\mbox{\hyperlink{classProjectile_af07a55670c55524eb3a1d9cffee81a55}{00009}} \mbox{\hyperlink{classProjectile_af07a55670c55524eb3a1d9cffee81a55}{Projectile::Projectile}}(sf::Texture* texture) \{}
+\DoxyCodeLine{00010   \textcolor{comment}{//friendly\_ = true;}}
+\DoxyCodeLine{00011   \textcolor{comment}{//friendly\_.push\_back(1);}}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}} = texture;}
+\DoxyCodeLine{00013 \};}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \textcolor{comment}{//Projectile::Projectile(sf::Texture* texture, bool friendly)}}
+\DoxyCodeLine{00016 \textcolor{comment}{//: friendly\_(friendly), projectile\_texture\_(texture) \{\};}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00018}\mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{00018}} \mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{Projectile::\string~Projectile}}() \{\};}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020 \textcolor{comment}{/*}}
+\DoxyCodeLine{00021 \textcolor{comment}{* Method for drawing the projectile}}
+\DoxyCodeLine{00022 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00023}\mbox{\hyperlink{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}{00023}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}{Projectile::Draw}}(sf::RenderWindow\& window) \{ window.draw(\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}); \};}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \textcolor{comment}{/*}}
+\DoxyCodeLine{00026 \textcolor{comment}{* Method for updating the projectile location; moves the projectile towards its trajectory}}
+\DoxyCodeLine{00027 \textcolor{comment}{* Checks if projectile hits wall or enemy}}
+\DoxyCodeLine{00028 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00029}\mbox{\hyperlink{classProjectile_af8056d4fda5c307ec62b591076bab4ef}{00029}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProjectile_af8056d4fda5c307ec62b591076bab4ef}{Projectile::Update}}(\textcolor{keywordtype}{float} time, \mbox{\hyperlink{classMap}{Map}}\& map, \mbox{\hyperlink{classPlayer}{Player}}\& player) \{}
+\DoxyCodeLine{00030   \mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{actionTimer\_}} += time;}
+\DoxyCodeLine{00031   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{actionTimer\_}} > 1.0) \{}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00033   \}}
+\DoxyCodeLine{00034   \mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.move(\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}});}
+\DoxyCodeLine{00035   \mbox{\hyperlink{classCollider}{Collider}} col = this-\/>\mbox{\hyperlink{classProjectile_a0cd3444b7315765ee29465ead770311f}{getCollider}}();}
+\DoxyCodeLine{00036   \textcolor{comment}{//std::cout << friendly\_;}}
+\DoxyCodeLine{00037   \textcolor{comment}{//if(friendly\_ == 1) \{}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \textcolor{comment}{//secret\_size is used for determining who the projectile harms, because otherwise there will be memory issues.}}
+\DoxyCodeLine{00040   sf::Vector2u secret\_size = this-\/>\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}}-\/>getSize();}
+\DoxyCodeLine{00041   \textcolor{keywordflow}{if}(secret\_size.x < 500) \{ \textcolor{comment}{//Enemy projectile textures happen to be, by coincidence, larger than player projectile textures}}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.\mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}) \{}
+\DoxyCodeLine{00043     \mbox{\hyperlink{classCollider}{Collider}} enemyCollider = enemy-\/>getCollider();}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (col.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(enemyCollider, 0)) \{}
+\DoxyCodeLine{00045         enemy-\/>Damage(15);}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \}}
+\DoxyCodeLine{00049   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00050     \mbox{\hyperlink{classCollider}{Collider}} playerCollider = player.\mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{getCollider}}();}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{if} (col.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(playerCollider, 0)) \{}
+\DoxyCodeLine{00052         player.\mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}}(2);}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00054     \}}
+\DoxyCodeLine{00055   \}}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} room : map.\mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}) \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} wall : room.walls) \{}
+\DoxyCodeLine{00058       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} w : wall) \{}
+\DoxyCodeLine{00059         \textcolor{keywordflow}{if} (w.type\_ == 1) \{}
+\DoxyCodeLine{00060           \mbox{\hyperlink{classCollider}{Collider}} wallCollider = w.getCollider();}
+\DoxyCodeLine{00061           \textcolor{keywordflow}{if} (wallCollider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(col, 1)) \{}
+\DoxyCodeLine{00062             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00063           \}}
+\DoxyCodeLine{00064         \}}
+\DoxyCodeLine{00065       \}}
+\DoxyCodeLine{00066     \}}
+\DoxyCodeLine{00067   \}}
+\DoxyCodeLine{00068   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00069   \textcolor{comment}{//std::cout << projectile\_trajectory\_.x << "\(\backslash\)t" << projectile\_trajectory\_.y << "\(\backslash\)n";}}
+\DoxyCodeLine{00070   \textcolor{comment}{//std::cout << body\_.getPosition().x << "\(\backslash\)t" << body\_.getPosition().y << "\(\backslash\)n";}}
+\DoxyCodeLine{00071 \};}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 \textcolor{comment}{/*}}
+\DoxyCodeLine{00074 \textcolor{comment}{* Method for activating and deactivating the projectile. In main only active projectiles are drawn and updated on the SFML window.}}
+\DoxyCodeLine{00075 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00076}\mbox{\hyperlink{classProjectile_a4589c7cefb019408e92d355f30fcfb49}{00076}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_a4589c7cefb019408e92d355f30fcfb49}{Projectile::activate}}() \{\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{true};\};}
+\DoxyCodeLine{\Hypertarget{projectile_8cpp_source_l00077}\mbox{\hyperlink{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}{00077}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}{Projectile::deActivate}}() \{\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{false};\};}
+
+\end{DoxyCode}

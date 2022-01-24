@@ -1,0 +1,220 @@
+\hypertarget{player_8cpp_source}{}\doxysection{player.\+cpp}
+\label{player_8cpp_source}\index{src/player.cpp@{src/player.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{player_8hpp}{player.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Audio/Sound.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00007}\mbox{\hyperlink{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}{00007}} \mbox{\hyperlink{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}{Player::Player}}(sf::Texture* texture, sf::Texture* dead\_texture,}
+\DoxyCodeLine{00008                sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed, \mbox{\hyperlink{classWeapon}{Weapon}}* starting\_weapon)}
+\DoxyCodeLine{00009     : speed\_(speed) \{}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}} = dead\_texture;}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}.push\_back(*starting\_weapon);}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setSize(sf::Vector2f(40.0f, 40.0f));}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setOrigin(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setPosition(spawnPos);}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setTexture(texture);}
+\DoxyCodeLine{00016 \};}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00018}\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{00018}} \mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{Player::\string~Player}}()\{\};}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00020}\mbox{\hyperlink{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}{00020}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}{Player::Draw}}(sf::RenderWindow\& window) \{ window.draw(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}); \};}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00022}\mbox{\hyperlink{classPlayer_a23356f99a9de86d3d47eadb679b332dc}{00022}} sf::Vector2f \mbox{\hyperlink{classPlayer_a23356f99a9de86d3d47eadb679b332dc}{Player::getPosition}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition(); \};}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00024}\mbox{\hyperlink{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}{00024}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}{Player::isAlive}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}}; \};}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00026}\mbox{\hyperlink{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}{00026}} \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}{Player::getHp}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}}; \}}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00028}\mbox{\hyperlink{classPlayer_a02085f7d675fd8feaad09df0912c054c}{00028}} \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a02085f7d675fd8feaad09df0912c054c}{Player::getShield}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}}; \}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00030}\mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{00030}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{Player::useItem}}() \{}
+\DoxyCodeLine{00031   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) \{}
+\DoxyCodeLine{00032     \textcolor{keyword}{auto} i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.begin();}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{while} (i != \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.end()) \{}
+\DoxyCodeLine{00034       \textcolor{keywordflow}{if} (i-\/>type == \textcolor{stringliteral}{"hp\_pot"} \&\& \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} > 0.5) \{}
+\DoxyCodeLine{00035         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} < 6) \{}
+\DoxyCodeLine{00036           \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} += 1;}
+\DoxyCodeLine{00037           i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.erase(i);}
+\DoxyCodeLine{00038           \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} = 0;}
+\DoxyCodeLine{00039           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00040         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00041           \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00042         \}}
+\DoxyCodeLine{00043       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00044         ++i;}
+\DoxyCodeLine{00045       \}}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047   \}}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) \{}
+\DoxyCodeLine{00050     \textcolor{keyword}{auto} i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.begin();}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{while} (i != \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.end()) \{}
+\DoxyCodeLine{00052       \textcolor{keywordflow}{if} (i-\/>type == \textcolor{stringliteral}{"speed\_pot"} \&\& \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} > 0.5) \{}
+\DoxyCodeLine{00053         \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}} += 10;}
+\DoxyCodeLine{00054         \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} = 15;}
+\DoxyCodeLine{00055         i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.erase(i);}
+\DoxyCodeLine{00056         \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} = 0;}
+\DoxyCodeLine{00057         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00058       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00059         ++i;}
+\DoxyCodeLine{00060       \}}
+\DoxyCodeLine{00061     \}}
+\DoxyCodeLine{00062   \}}
+\DoxyCodeLine{00063 \}}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00065}\mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{00065}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Player::Damage}}(\textcolor{keywordtype}{float} damage) \{}
+\DoxyCodeLine{00066   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} > 0) \{}
+\DoxyCodeLine{00067     \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} -\/= damage;}
+\DoxyCodeLine{00068     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} < 0) \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} = 0;}
+\DoxyCodeLine{00069   \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00070     \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} -\/= damage;}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} <= 0) \{}
+\DoxyCodeLine{00072     std::cout << \textcolor{stringliteral}{"The player has died!"} << std::endl;}
+\DoxyCodeLine{00073     \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00074   \}}
+\DoxyCodeLine{00075 \}}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00077}\mbox{\hyperlink{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}{00077}} std::vector<int> \mbox{\hyperlink{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}{Player::Update}}(\textcolor{keywordtype}{float} time, \mbox{\hyperlink{classMap}{Map}}\& map,}
+\DoxyCodeLine{00078                                 std::vector<Projectile>\& active\_projectiles) \{}
+\DoxyCodeLine{00079   std::vector<int> ret = \{0, 0, 0, 0\};}
+\DoxyCodeLine{00080   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}} == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\_}} == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00082       sf::Vector2u texture\_size = \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}}-\/>getSize();}
+\DoxyCodeLine{00083       sf::Vector2f texture\_size\_f(\textcolor{keywordtype}{float}(texture\_size.x), \textcolor{keywordtype}{float}(texture\_size.y));}
+\DoxyCodeLine{00084       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setSize(texture\_size\_f);}
+\DoxyCodeLine{00085       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setOrigin(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00086       sf::Vector2f temp\_position = \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition();}
+\DoxyCodeLine{00087       std::cout << \textcolor{stringliteral}{"Death position: "} << temp\_position.x << \textcolor{stringliteral}{" "}}
+\DoxyCodeLine{00088                 << temp\_position.y << std::endl;}
+\DoxyCodeLine{00089       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setPosition(temp\_position);}
+\DoxyCodeLine{00090       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setTexture(\mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}});}
+\DoxyCodeLine{00091       \mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00092     \}}
+\DoxyCodeLine{00093     \textcolor{comment}{// return active\_projectiles;}}
+\DoxyCodeLine{00094   \}}
+\DoxyCodeLine{00095   \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{useItem}}()) \{}
+\DoxyCodeLine{00096     ret[2] = 1;}
+\DoxyCodeLine{00097   \}}
+\DoxyCodeLine{00098   \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} = \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}};}
+\DoxyCodeLine{00099   \mbox{\hyperlink{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}{actionTimer\_}} += time;}
+\DoxyCodeLine{00100   \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} += time;  \textcolor{comment}{// cooldown for firing weapon}}
+\DoxyCodeLine{00101   \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} += time;}
+\DoxyCodeLine{00102   sf::Vector2f movement(0.0f, 0.0f);}
+\DoxyCodeLine{00103   \textcolor{keywordtype}{float} firerate = \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}[\mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\_weapon\_}}].fire\_rate\_;}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} > 0) \{}
+\DoxyCodeLine{00106     \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} -\/= time;}
+\DoxyCodeLine{00107   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} < 0) \{}
+\DoxyCodeLine{00108     \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} = 0;}
+\DoxyCodeLine{00109     \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}} -\/= 10;}
+\DoxyCodeLine{00110   \}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) \{}
+\DoxyCodeLine{00113     movement.y -\/= \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00114     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00115   \}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) \{}
+\DoxyCodeLine{00118     movement.x -\/= \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00119     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00120   \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) \{}
+\DoxyCodeLine{00123     movement.y += \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00124     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00125   \}}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) \{}
+\DoxyCodeLine{00128     movement.x += \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00129     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00130   \}}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) \&\&}
+\DoxyCodeLine{00133       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Up arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00134     sf::Vector2f direction = sf::Vector2f(0.0f, -\/10.0f);}
+\DoxyCodeLine{00135     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00136     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00137     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00138     ret[0] = 1;}
+\DoxyCodeLine{00139   \}}
+\DoxyCodeLine{00140   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) \&\&}
+\DoxyCodeLine{00141       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Down arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00142     sf::Vector2f direction = sf::Vector2f(0.0f, 10.0f);}
+\DoxyCodeLine{00143     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00144     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00145     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00146     ret[0] = 1;}
+\DoxyCodeLine{00147   \}}
+\DoxyCodeLine{00148   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) \&\&}
+\DoxyCodeLine{00149       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Left arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00150     sf::Vector2f direction = sf::Vector2f(-\/10.0f, 0.0f);}
+\DoxyCodeLine{00151     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00152     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00153     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00154     ret[0] = 1;}
+\DoxyCodeLine{00155   \}}
+\DoxyCodeLine{00156   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) \&\&}
+\DoxyCodeLine{00157       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Right arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00158     sf::Vector2f direction = sf::Vector2f(10.0f, 0.0f);}
+\DoxyCodeLine{00159     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00160     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00161     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00162     ret[0] = 1;}
+\DoxyCodeLine{00163   \}}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165   \mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{Traverse}}(map);}
+\DoxyCodeLine{00166   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(movement);}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168   \textcolor{comment}{// check that player is not colliding with any of the enemies and take damage}}
+\DoxyCodeLine{00169   \textcolor{comment}{// if colliding}}
+\DoxyCodeLine{00170   \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} += time;}
+\DoxyCodeLine{00171   \mbox{\hyperlink{classCollider}{Collider}} collider = this-\/>\mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{getCollider}}();}
+\DoxyCodeLine{00172   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.\mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}) \{}
+\DoxyCodeLine{00173     \mbox{\hyperlink{classCollider}{Collider}} EnemyCollider = enemy-\/>getCollider();}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{if} (collider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(EnemyCollider, 0.5) \&\& \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} >= 1.5) \{}
+\DoxyCodeLine{00175       this-\/>\mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}}(enemy-\/>damage\_);}
+\DoxyCodeLine{00176       \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} = 0.0;}
+\DoxyCodeLine{00177       ret[1] = 1;}
+\DoxyCodeLine{00178     \}}
+\DoxyCodeLine{00179   \}}
+\DoxyCodeLine{00180   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.size(); i++) \{}
+\DoxyCodeLine{00181     \mbox{\hyperlink{classCollider}{Collider}} itemCollider = map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}[i].getCollider();}
+\DoxyCodeLine{00182     \textcolor{keywordflow}{if} (collider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(itemCollider, 0)) \{}
+\DoxyCodeLine{00183       \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.push\_back(map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}[i]);}
+\DoxyCodeLine{00184       map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.erase(map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.begin() + i);}
+\DoxyCodeLine{00185       ret[3] = 1;}
+\DoxyCodeLine{00186     \}}
+\DoxyCodeLine{00187   \}}
+\DoxyCodeLine{00188   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{00189 \};}
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00191}\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{00191}} \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{Player::UseWeapon}}(sf::Vector2f\& direction) \{}
+\DoxyCodeLine{00192   \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}[\mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\_weapon\_}}].Fire(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition(), direction);}
+\DoxyCodeLine{00193 \};}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{\Hypertarget{player_8cpp_source_l00195}\mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{00195}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{Player::Traverse}}(\mbox{\hyperlink{classMap}{Map}}\& map) \{}
+\DoxyCodeLine{00196   sf::Vector2f pos = \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition();}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198   \textcolor{keywordflow}{if} (pos.x < 25) \{}
+\DoxyCodeLine{00199     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(1);}
+\DoxyCodeLine{00200     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(500, 0));}
+\DoxyCodeLine{00201   \}}
+\DoxyCodeLine{00202   \textcolor{keywordflow}{if} (pos.x > 25 + 10 * 50) \{}
+\DoxyCodeLine{00203     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(3);}
+\DoxyCodeLine{00204     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(-\/500, 0));}
+\DoxyCodeLine{00205   \}}
+\DoxyCodeLine{00206   \textcolor{keywordflow}{if} (pos.y < 25) \{}
+\DoxyCodeLine{00207     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(2);}
+\DoxyCodeLine{00208     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(0, 500));}
+\DoxyCodeLine{00209   \}}
+\DoxyCodeLine{00210   \textcolor{keywordflow}{if} (pos.y > 25 + 10 * 50) \{}
+\DoxyCodeLine{00211     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(0);}
+\DoxyCodeLine{00212     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(0, -\/500));}
+\DoxyCodeLine{00213   \}}
+\DoxyCodeLine{00214 \}}
+
+\end{DoxyCode}

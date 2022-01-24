@@ -1,0 +1,261 @@
+\hypertarget{classProjectile}{}\doxysection{Projectile Class Reference}
+\label{classProjectile}\index{Projectile@{Projectile}}
+
+
+{\ttfamily \#include $<$projectile.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProjectile_af07a55670c55524eb3a1d9cffee81a55}{Projectile}} (sf\+::\+Texture $\ast$texture)
+\item 
+\mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{$\sim$\+Projectile}} ()
+\item 
+void \mbox{\hyperlink{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}{Draw}} (sf\+::\+Render\+Window \&window)
+\item 
+bool \mbox{\hyperlink{classProjectile_af8056d4fda5c307ec62b591076bab4ef}{Update}} (float time, \mbox{\hyperlink{classMap}{Map}} \&map, \mbox{\hyperlink{classPlayer}{Player}} \&player)
+\item 
+void \mbox{\hyperlink{classProjectile_a4589c7cefb019408e92d355f30fcfb49}{activate}} ()
+\item 
+void \mbox{\hyperlink{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}{de\+Activate}} ()
+\item 
+\mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classProjectile_a0cd3444b7315765ee29465ead770311f}{get\+Collider}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Texture $\ast$ \mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\+\_\+texture\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\+\_\+}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\+\_\+trajectory\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\+\_\+}} = false
+\item 
+float \mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{action\+Timer\+\_\+}} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for projectiles 
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classProjectile_af07a55670c55524eb3a1d9cffee81a55}\label{classProjectile_af07a55670c55524eb3a1d9cffee81a55}} 
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Projectile()}{Projectile()}}
+{\footnotesize\ttfamily Projectile\+::\+Projectile (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+Constructor 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009                                          \{}
+\DoxyCodeLine{00010   \textcolor{comment}{//friendly\_ = true;}}
+\DoxyCodeLine{00011   \textcolor{comment}{//friendly\_.push\_back(1);}}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}} = texture;}
+\DoxyCodeLine{00013 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProjectile_a94903e021fa2edab60ba3836ca0b937d}\label{classProjectile_a94903e021fa2edab60ba3836ca0b937d}} 
+\index{Projectile@{Projectile}!````~Projectile@{$\sim$Projectile}}
+\index{````~Projectile@{$\sim$Projectile}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{$\sim$Projectile()}{~Projectile()}}
+{\footnotesize\ttfamily Projectile\+::$\sim$\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProjectile_a4589c7cefb019408e92d355f30fcfb49}\label{classProjectile_a4589c7cefb019408e92d355f30fcfb49}} 
+\index{Projectile@{Projectile}!activate@{activate}}
+\index{activate@{activate}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void Projectile\+::activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Changes active\+\_\+ to true 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076 \{\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{true};\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}\label{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}} 
+\index{Projectile@{Projectile}!deActivate@{deActivate}}
+\index{deActivate@{deActivate}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{deActivate()}{deActivate()}}
+{\footnotesize\ttfamily void Projectile\+::de\+Activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Changes active\+\_\+ to false 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077 \{\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{false};\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}\label{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}} 
+\index{Projectile@{Projectile}!Draw@{Draw}}
+\index{Draw@{Draw}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Projectile\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Renders the projectile 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{ window.draw(\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}); \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProjectile_a0cd3444b7315765ee29465ead770311f}\label{classProjectile_a0cd3444b7315765ee29465ead770311f}} 
+\index{Projectile@{Projectile}!getCollider@{getCollider}}
+\index{getCollider@{getCollider}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{getCollider()}{getCollider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCollider}{Collider}} Projectile\+::get\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the projectile collider 
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029                          \{}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}});}
+\DoxyCodeLine{00031   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProjectile_af8056d4fda5c307ec62b591076bab4ef}\label{classProjectile_af8056d4fda5c307ec62b591076bab4ef}} 
+\index{Projectile@{Projectile}!Update@{Update}}
+\index{Update@{Update}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool Projectile\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{time,  }\item[{\mbox{\hyperlink{classMap}{Map}} \&}]{map,  }\item[{\mbox{\hyperlink{classPlayer}{Player}} \&}]{player }\end{DoxyParamCaption})}
+
+Updates attributes 
+
+Definition at line \mbox{\hyperlink{projectile_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{projectile_8cpp_source}{projectile.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029                                                             \{}
+\DoxyCodeLine{00030   \mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{actionTimer\_}} += time;}
+\DoxyCodeLine{00031   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{actionTimer\_}} > 1.0) \{}
+\DoxyCodeLine{00032     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00033   \}}
+\DoxyCodeLine{00034   \mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.move(\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}});}
+\DoxyCodeLine{00035   \mbox{\hyperlink{classCollider}{Collider}} col = this-\/>\mbox{\hyperlink{classProjectile_a0cd3444b7315765ee29465ead770311f}{getCollider}}();}
+\DoxyCodeLine{00036   \textcolor{comment}{//std::cout << friendly\_;}}
+\DoxyCodeLine{00037   \textcolor{comment}{//if(friendly\_ == 1) \{}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039     \textcolor{comment}{//secret\_size is used for determining who the projectile harms, because otherwise there will be memory issues.}}
+\DoxyCodeLine{00040   sf::Vector2u secret\_size = this-\/>\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}}-\/>getSize();}
+\DoxyCodeLine{00041   \textcolor{keywordflow}{if}(secret\_size.x < 500) \{ \textcolor{comment}{//Enemy projectile textures happen to be, by coincidence, larger than player projectile textures}}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.\mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}) \{}
+\DoxyCodeLine{00043     \mbox{\hyperlink{classCollider}{Collider}} enemyCollider = enemy-\/>getCollider();}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (col.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(enemyCollider, 0)) \{}
+\DoxyCodeLine{00045         enemy-\/>Damage(15);}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \}}
+\DoxyCodeLine{00049   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00050     \mbox{\hyperlink{classCollider}{Collider}} playerCollider = player.\mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{getCollider}}();}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{if} (col.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(playerCollider, 0)) \{}
+\DoxyCodeLine{00052         player.\mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}}(2);}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00054     \}}
+\DoxyCodeLine{00055   \}}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} room : map.\mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}) \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} wall : room.walls) \{}
+\DoxyCodeLine{00058       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} w : wall) \{}
+\DoxyCodeLine{00059         \textcolor{keywordflow}{if} (w.type\_ == 1) \{}
+\DoxyCodeLine{00060           \mbox{\hyperlink{classCollider}{Collider}} wallCollider = w.getCollider();}
+\DoxyCodeLine{00061           \textcolor{keywordflow}{if} (wallCollider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(col, 1)) \{}
+\DoxyCodeLine{00062             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00063           \}}
+\DoxyCodeLine{00064         \}}
+\DoxyCodeLine{00065       \}}
+\DoxyCodeLine{00066     \}}
+\DoxyCodeLine{00067   \}}
+\DoxyCodeLine{00068   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00069   \textcolor{comment}{//std::cout << projectile\_trajectory\_.x << "\(\backslash\)t" << projectile\_trajectory\_.y << "\(\backslash\)n";}}
+\DoxyCodeLine{00070   \textcolor{comment}{//std::cout << body\_.getPosition().x << "\(\backslash\)t" << body\_.getPosition().y << "\(\backslash\)n";}}
+\DoxyCodeLine{00071 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classProjectile_a64a62e162b56bceb7efa832fca456d0a}\label{classProjectile_a64a62e162b56bceb7efa832fca456d0a}} 
+\index{Projectile@{Projectile}!actionTimer\_@{actionTimer\_}}
+\index{actionTimer\_@{actionTimer\_}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{actionTimer\_}{actionTimer\_}}
+{\footnotesize\ttfamily float Projectile\+::action\+Timer\+\_\+ = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+\mbox{\Hypertarget{classProjectile_a8434261e5dd1345bb8ae31c11325040a}\label{classProjectile_a8434261e5dd1345bb8ae31c11325040a}} 
+\index{Projectile@{Projectile}!active\_@{active\_}}
+\index{active\_@{active\_}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{active\_}{active\_}}
+{\footnotesize\ttfamily bool Projectile\+::active\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+\mbox{\Hypertarget{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}\label{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}} 
+\index{Projectile@{Projectile}!body\_@{body\_}}
+\index{body\_@{body\_}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{body\_}{body\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Projectile\+::body\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+\mbox{\Hypertarget{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}\label{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}} 
+\index{Projectile@{Projectile}!projectile\_texture\_@{projectile\_texture\_}}
+\index{projectile\_texture\_@{projectile\_texture\_}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{projectile\_texture\_}{projectile\_texture\_}}
+{\footnotesize\ttfamily sf\+::\+Texture$\ast$ Projectile\+::projectile\+\_\+texture\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00033}{33}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+\mbox{\Hypertarget{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}\label{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}} 
+\index{Projectile@{Projectile}!projectile\_trajectory\_@{projectile\_trajectory\_}}
+\index{projectile\_trajectory\_@{projectile\_trajectory\_}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{projectile\_trajectory\_}{projectile\_trajectory\_}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Projectile\+::projectile\+\_\+trajectory\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{projectile_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{projectile_8hpp_source}{projectile.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{projectile_8hpp}{projectile.\+hpp}}\item 
+src/\mbox{\hyperlink{projectile_8cpp}{projectile.\+cpp}}\end{DoxyCompactItemize}

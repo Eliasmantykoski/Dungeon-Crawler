@@ -1,0 +1,324 @@
+\hypertarget{classRoom}{}\doxysection{Room Class Reference}
+\label{classRoom}\index{Room@{Room}}
+
+
+{\ttfamily \#include $<$room.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRoom_a02c1f68574743272ce133bf29dac53bf}{Room}} (sf\+::\+Texture $\ast$texture, sf\+::\+Vector2f spawn\+Pos, std\+::vector$<$ int $>$ openings, int depth)
+\item 
+void \mbox{\hyperlink{classRoom_a010ce57c8a5bf3c4c914fec055286ef0}{Display}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{classCollider}{Collider}} player\+Collider, std\+::vector$<$ \mbox{\hyperlink{classEnemy}{Enemy}} $\ast$ $>$ \&enemies)
+\item 
+void \mbox{\hyperlink{classRoom_ac49263bd5e0d57166391803f6032fb13}{check\+Collision}} (sf\+::\+Rectangle\+Shape \&other\+\_\+body)
+\item 
+void \mbox{\hyperlink{classRoom_a35567d2b09fa16c2bba706604f0d6522}{Move\+Room}} (int direction, std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \&items)
+\item 
+\mbox{\hyperlink{classRoom_a67d5da09983cc53097807fd43ba5481a}{$\sim$\+Room}} ()
+\item 
+void \mbox{\hyperlink{classRoom_af670461ff00a43beaf71a7ce93c66fc9}{Activate}} ()
+\item 
+void \mbox{\hyperlink{classRoom_a02cfe79807da1c17cd5519b36a4c1096}{Deactivate}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{active}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{max\+Size}} = sf\+::\+Vector2f(10.\+0f, 10.\+0f)
+\item 
+float \mbox{\hyperlink{classRoom_aa8cb4af13053e2dce4f77936722dffba}{x\+Bound1}}
+\item 
+float \mbox{\hyperlink{classRoom_ada45ff5e1973161df68ea0945f675ab4}{x\+Bound2}}
+\item 
+float \mbox{\hyperlink{classRoom_ac54028f80211b29f275dbfae4738e55a}{y\+Bound1}}
+\item 
+float \mbox{\hyperlink{classRoom_a083eb316d0038211707a90f13892f054}{y\+Bound2}}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classWall}{Wall}} $>$ $>$ \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}
+\item 
+int \mbox{\hyperlink{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}{depth\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRoom_a02c1f68574743272ce133bf29dac53bf}\label{classRoom_a02c1f68574743272ce133bf29dac53bf}} 
+\index{Room@{Room}!Room@{Room}}
+\index{Room@{Room}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Room()}{Room()}}
+{\footnotesize\ttfamily Room\+::\+Room (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{sf\+::\+Vector2f}]{spawn\+Pos,  }\item[{std\+::vector$<$ int $>$}]{openings,  }\item[{int}]{depth }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013     : \mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{active}}(\textcolor{keyword}{false}), \mbox{\hyperlink{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}{depth\_}}(depth) \{}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classRoom_aa8cb4af13053e2dce4f77936722dffba}{xBound1}} = spawnPos.x;}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classRoom_ada45ff5e1973161df68ea0945f675ab4}{xBound2}} = spawnPos.x + \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.x * 50.0f;}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017   \mbox{\hyperlink{classRoom_ac54028f80211b29f275dbfae4738e55a}{yBound1}} = spawnPos.y;}
+\DoxyCodeLine{00018   \mbox{\hyperlink{classRoom_a083eb316d0038211707a90f13892f054}{yBound2}} = spawnPos.y + \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.y * 50.0f;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   sf::Texture *floortexture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00021   floortexture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/floor\_1.png"});}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.x; x++) \{}
+\DoxyCodeLine{00024     \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}.push\_back(std::vector<Wall>());}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.y; y++) \{}
+\DoxyCodeLine{00027       \textcolor{keywordflow}{if} (y == floor(\mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.y / 2) \&\&}
+\DoxyCodeLine{00028           ((x == 0 \&\& openings[3] == 1) ||}
+\DoxyCodeLine{00029            (x == \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.x -\/ 1 \&\& openings[1] == 1))) \{}
+\DoxyCodeLine{00030         \mbox{\hyperlink{classWall}{Wall}} wall(floortexture, sf::Vector2f(50.0f, 50.f),}
+\DoxyCodeLine{00031                   spawnPos + sf::Vector2f(50.0f * x, 50.0f * y), 2);}
+\DoxyCodeLine{00032         \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[x].push\_back(wall);}
+\DoxyCodeLine{00033       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == floor(\mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.x / 2) \&\&}
+\DoxyCodeLine{00034                  ((y == 0 \&\& openings[0] == 1) ||}
+\DoxyCodeLine{00035                   (y == \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.y -\/ 1 \&\& openings[2] == 1))) \{}
+\DoxyCodeLine{00036         \mbox{\hyperlink{classWall}{Wall}} wall(floortexture, sf::Vector2f(50.0f, 50.f),}
+\DoxyCodeLine{00037                   spawnPos + sf::Vector2f(50.0f * x, 50.0f * y), 2);}
+\DoxyCodeLine{00038         \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[x].push\_back(wall);}
+\DoxyCodeLine{00039       \}}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x == 0 || x == \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.x -\/ 1 || y == 0 || y == \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}}.y -\/ 1) \{}
+\DoxyCodeLine{00042         \mbox{\hyperlink{classWall}{Wall}} wall(texture, sf::Vector2f(50.0f, 50.f),}
+\DoxyCodeLine{00043                   spawnPos + sf::Vector2f(50.0f * x, 50.0f * y), 1);}
+\DoxyCodeLine{00044         \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[x].push\_back(wall);}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00047         \mbox{\hyperlink{classWall}{Wall}} wall(floortexture, sf::Vector2f(50.0f, 50.f),}
+\DoxyCodeLine{00048                   spawnPos + sf::Vector2f(50.0f * x, 50.0f * y), 0);}
+\DoxyCodeLine{00049         \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[x].push\_back(wall);}
+\DoxyCodeLine{00050       \}}
+\DoxyCodeLine{00051     \}}
+\DoxyCodeLine{00052   \}}
+\DoxyCodeLine{00053 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRoom_a67d5da09983cc53097807fd43ba5481a}\label{classRoom_a67d5da09983cc53097807fd43ba5481a}} 
+\index{Room@{Room}!````~Room@{$\sim$Room}}
+\index{````~Room@{$\sim$Room}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{$\sim$Room()}{~Room()}}
+{\footnotesize\ttfamily Room\+::$\sim$\+Room (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00032}{32}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRoom_af670461ff00a43beaf71a7ce93c66fc9}\label{classRoom_af670461ff00a43beaf71a7ce93c66fc9}} 
+\index{Room@{Room}!Activate@{Activate}}
+\index{Activate@{Activate}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Activate()}{Activate()}}
+{\footnotesize\ttfamily void Room\+::\+Activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122 \{ \mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{active}} = \textcolor{keyword}{true}; \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRoom_ac49263bd5e0d57166391803f6032fb13}\label{classRoom_ac49263bd5e0d57166391803f6032fb13}} 
+\index{Room@{Room}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily void Room\+::check\+Collision (\begin{DoxyParamCaption}\item[{sf\+::\+Rectangle\+Shape \&}]{other\+\_\+body }\end{DoxyParamCaption})}
+
+Checks collisions with walls \mbox{\Hypertarget{classRoom_a02cfe79807da1c17cd5519b36a4c1096}\label{classRoom_a02cfe79807da1c17cd5519b36a4c1096}} 
+\index{Room@{Room}!Deactivate@{Deactivate}}
+\index{Deactivate@{Deactivate}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Deactivate()}{Deactivate()}}
+{\footnotesize\ttfamily void Room\+::\+Deactivate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123 \{ \mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{active}} = \textcolor{keyword}{false}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRoom_a010ce57c8a5bf3c4c914fec055286ef0}\label{classRoom_a010ce57c8a5bf3c4c914fec055286ef0}} 
+\index{Room@{Room}!Display@{Display}}
+\index{Display@{Display}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily void Room\+::\+Display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{classCollider}{Collider}}}]{player\+Collider,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classEnemy}{Enemy}} $\ast$ $>$ \&}]{enemies }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060                                                 \{}
+\DoxyCodeLine{00061   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} r : \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}) \{}
+\DoxyCodeLine{00062     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} w : r) \{}
+\DoxyCodeLine{00063       w.Draw(window);}
+\DoxyCodeLine{00064       \mbox{\hyperlink{classCollider}{Collider}} wallCollider = w.getCollider();}
+\DoxyCodeLine{00065       \textcolor{keywordflow}{if} (w.type\_ == 1) \{}
+\DoxyCodeLine{00066         wallCollider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(playerCollider, 1);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < enemies.size(); i++) \{}
+\DoxyCodeLine{00069           \mbox{\hyperlink{classCollider}{Collider}} enemyCollider = enemies[i]-\/>getCollider();}
+\DoxyCodeLine{00070           wallCollider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(enemyCollider, 1);}
+\DoxyCodeLine{00071         \}}
+\DoxyCodeLine{00072       \}}
+\DoxyCodeLine{00073       \textcolor{keywordflow}{if} (w.type\_ == 2) \{}
+\DoxyCodeLine{00074         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < enemies.size(); i++) \{}
+\DoxyCodeLine{00075           \mbox{\hyperlink{classCollider}{Collider}} enemyCollider = enemies[i]-\/>getCollider();}
+\DoxyCodeLine{00076           wallCollider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(enemyCollider, 1);}
+\DoxyCodeLine{00077         \}}
+\DoxyCodeLine{00078       \}}
+\DoxyCodeLine{00079     \}}
+\DoxyCodeLine{00080   \}}
+\DoxyCodeLine{00081 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRoom_a35567d2b09fa16c2bba706604f0d6522}\label{classRoom_a35567d2b09fa16c2bba706604f0d6522}} 
+\index{Room@{Room}!MoveRoom@{MoveRoom}}
+\index{MoveRoom@{MoveRoom}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{MoveRoom()}{MoveRoom()}}
+{\footnotesize\ttfamily void Room\+::\+Move\+Room (\begin{DoxyParamCaption}\item[{int}]{direction,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \&}]{items }\end{DoxyParamCaption})}
+
+Moves the room when player traverses 
+
+Definition at line \mbox{\hyperlink{room_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{room_8cpp_source}{room.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00097                                                          \{}
+\DoxyCodeLine{00098   sf::Vector2f dir;}
+\DoxyCodeLine{00099   \textcolor{keywordflow}{if} (direction == 0) \{}
+\DoxyCodeLine{00100     dir = sf::Vector2f(0, -\/10 * 50);}
+\DoxyCodeLine{00101   \}}
+\DoxyCodeLine{00102   \textcolor{keywordflow}{if} (direction == 1) \{}
+\DoxyCodeLine{00103     dir = sf::Vector2f(10 * 50, 0);}
+\DoxyCodeLine{00104   \}}
+\DoxyCodeLine{00105   \textcolor{keywordflow}{if} (direction == 2) \{}
+\DoxyCodeLine{00106     dir = sf::Vector2f(0, 10 * 50);}
+\DoxyCodeLine{00107   \}}
+\DoxyCodeLine{00108   \textcolor{keywordflow}{if} (direction == 3) \{}
+\DoxyCodeLine{00109     dir = sf::Vector2f(-\/10 * 50, 0);}
+\DoxyCodeLine{00110   \}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}.size(); i++) \{}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = 0; j < \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[i].size(); j++) \{}
+\DoxyCodeLine{00114       \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}}[i][j].Move2(dir);}
+\DoxyCodeLine{00115     \}}
+\DoxyCodeLine{00116   \}}
+\DoxyCodeLine{00117   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0; i < items.size(); i++) \{}
+\DoxyCodeLine{00118     items[i].body.move(dir);}
+\DoxyCodeLine{00119   \}}
+\DoxyCodeLine{00120 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}\label{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}} 
+\index{Room@{Room}!active@{active}}
+\index{active@{active}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{active}{active}}
+{\footnotesize\ttfamily bool Room\+::active}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00035}{35}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}\label{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}} 
+\index{Room@{Room}!depth\_@{depth\_}}
+\index{depth\_@{depth\_}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{depth\_}{depth\_}}
+{\footnotesize\ttfamily int Room\+::depth\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_adf65190cc2e4e041cff82d4b3622c87d}\label{classRoom_adf65190cc2e4e041cff82d4b3622c87d}} 
+\index{Room@{Room}!maxSize@{maxSize}}
+\index{maxSize@{maxSize}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{maxSize}{maxSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Room\+::max\+Size = sf\+::\+Vector2f(10.\+0f, 10.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00036}{36}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_a41370b2f65375983ae8595e0e9dc0718}\label{classRoom_a41370b2f65375983ae8595e0e9dc0718}} 
+\index{Room@{Room}!walls@{walls}}
+\index{walls@{walls}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{walls}{walls}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{classWall}{Wall}}$>$ $>$ Room\+::walls}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_aa8cb4af13053e2dce4f77936722dffba}\label{classRoom_aa8cb4af13053e2dce4f77936722dffba}} 
+\index{Room@{Room}!xBound1@{xBound1}}
+\index{xBound1@{xBound1}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{xBound1}{xBound1}}
+{\footnotesize\ttfamily float Room\+::x\+Bound1}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_ada45ff5e1973161df68ea0945f675ab4}\label{classRoom_ada45ff5e1973161df68ea0945f675ab4}} 
+\index{Room@{Room}!xBound2@{xBound2}}
+\index{xBound2@{xBound2}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{xBound2}{xBound2}}
+{\footnotesize\ttfamily float Room\+::x\+Bound2}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00038}{38}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_ac54028f80211b29f275dbfae4738e55a}\label{classRoom_ac54028f80211b29f275dbfae4738e55a}} 
+\index{Room@{Room}!yBound1@{yBound1}}
+\index{yBound1@{yBound1}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{yBound1}{yBound1}}
+{\footnotesize\ttfamily float Room\+::y\+Bound1}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+\mbox{\Hypertarget{classRoom_a083eb316d0038211707a90f13892f054}\label{classRoom_a083eb316d0038211707a90f13892f054}} 
+\index{Room@{Room}!yBound2@{yBound2}}
+\index{yBound2@{yBound2}!Room@{Room}}
+\doxysubsubsection{\texorpdfstring{yBound2}{yBound2}}
+{\footnotesize\ttfamily float Room\+::y\+Bound2}
+
+
+
+Definition at line \mbox{\hyperlink{room_8hpp_source_l00040}{40}} of file \mbox{\hyperlink{room_8hpp_source}{room.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{room_8hpp}{room.\+hpp}}\item 
+src/\mbox{\hyperlink{room_8cpp}{room.\+cpp}}\end{DoxyCompactItemize}

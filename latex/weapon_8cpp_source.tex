@@ -1,0 +1,40 @@
+\hypertarget{weapon_8cpp_source}{}\doxysection{weapon.\+cpp}
+\label{weapon_8cpp_source}\index{src/weapon.cpp@{src/weapon.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{weapon_8hpp}{weapon.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{comment}{/*}}
+\DoxyCodeLine{00004 \textcolor{comment}{* Constructor of weapon with textures for weapon displayed on ground/inventory and projectile texture that}}
+\DoxyCodeLine{00005 \textcolor{comment}{* is shown on the projectile when the weapon is fired.}}
+\DoxyCodeLine{00006 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{weapon_8cpp_source_l00007}\mbox{\hyperlink{classWeapon_a345df9755278624480f7c41f036734ba}{00007}} \mbox{\hyperlink{classWeapon_a345df9755278624480f7c41f036734ba}{Weapon::Weapon}}(sf::Texture* texture, sf::Texture* proj\_texture) \{}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}{weapon\_body\_}}.setTexture(texture);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = \mbox{\hyperlink{classProjectile}{Projectile}}(proj\_texture);}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\_projectile\_}}.push\_back(new\_projectile);}
+\DoxyCodeLine{00011 \};}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{\Hypertarget{weapon_8cpp_source_l00013}\mbox{\hyperlink{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}{00013}} \mbox{\hyperlink{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}{Weapon::\string~Weapon}}() \{\};}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 \textcolor{comment}{/*}}
+\DoxyCodeLine{00016 \textcolor{comment}{* Method for firing a single projectile that corresponds to the weapon.}}
+\DoxyCodeLine{00017 \textcolor{comment}{*}}
+\DoxyCodeLine{00018 \textcolor{comment}{* As the first parameter this method receives the position from where the weapon is being fired at, }}
+\DoxyCodeLine{00019 \textcolor{comment}{* the projectile will be located at this location initially.}}
+\DoxyCodeLine{00020 \textcolor{comment}{*}}
+\DoxyCodeLine{00021 \textcolor{comment}{* As the second parameter this method receives the trajectory for projectile,}}
+\DoxyCodeLine{00022 \textcolor{comment}{* it describes the speed and direction of the projectile.}}
+\DoxyCodeLine{00023 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{weapon_8cpp_source_l00024}\mbox{\hyperlink{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}{00024}} \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}{Weapon::Fire}}(sf::Vector2f fire\_position, sf::Vector2f fire\_trajectory) \{}
+\DoxyCodeLine{00025   \mbox{\hyperlink{classProjectile}{Projectile}} proj(\mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\_projectile\_}}[0].projectile\_texture\_);}
+\DoxyCodeLine{00026   proj.\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00027   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setTexture(proj.\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}});}
+\DoxyCodeLine{00028   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setOrigin(proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00029   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setPosition(fire\_position);}
+\DoxyCodeLine{00030   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setSize(sf::Vector2f(25.0f, 25.0f));}
+\DoxyCodeLine{00031   proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}} = fire\_trajectory\textcolor{comment}{/* * proj.velocity\_multiplier\_*/};}
+\DoxyCodeLine{00032   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.move(proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}});}
+\DoxyCodeLine{00033   \textcolor{keywordflow}{return} proj;}
+\DoxyCodeLine{00034 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,29 @@
+\hypertarget{item_8hpp_source}{}\doxysection{item.\+hpp}
+\label{item_8hpp_source}\index{src/item.hpp@{src/item.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics/RectangleShape.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{collider_8hpp}{collider.hpp}}"}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#ifndef ITEM\_CLASS}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#define ITEM\_CLASS}}
+\DoxyCodeLine{00008 \textcolor{comment}{}}
+\DoxyCodeLine{00009 \textcolor{comment}{/**Class for handling items*/}}
+\DoxyCodeLine{\Hypertarget{item_8hpp_source_l00010}\mbox{\hyperlink{classItem}{00010}} \textcolor{keyword}{class }\mbox{\hyperlink{classItem}{Item}} \{}
+\DoxyCodeLine{00011  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00012 \textcolor{comment}{  /**Constructor for Item oject*/}}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classItem_ae5d61f936464a032eb68dc7911db241c}{Item}}(sf::Texture* texture, sf::Vector2f position, std::string \mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}});\textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{  /**Default destructor for item*/}}
+\DoxyCodeLine{\Hypertarget{item_8hpp_source_l00015}\mbox{\hyperlink{classItem_a11663c84075b78c3ae5e30fdfcd7c458}{00015}}   \mbox{\hyperlink{classItem_a11663c84075b78c3ae5e30fdfcd7c458}{\string~Item}}()\{\};\textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{  /**Used for rendering the items*/}}
+\DoxyCodeLine{00017   \textcolor{keywordtype}{void} \mbox{\hyperlink{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}{Draw}}(sf::RenderWindow\& window);\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Returns the item collider*/}}
+\DoxyCodeLine{\Hypertarget{item_8hpp_source_l00019}\mbox{\hyperlink{classItem_a282eeb46afbaec6fc3a925345f8aca51}{00019}}   \mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classItem_a282eeb46afbaec6fc3a925345f8aca51}{getCollider}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}); \}}
+\DoxyCodeLine{\Hypertarget{item_8hpp_source_l00020}\mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{00020}}   sf::RectangleShape \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}};}
+\DoxyCodeLine{\Hypertarget{item_8hpp_source_l00021}\mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{00021}}   std::string \mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}};}
+\DoxyCodeLine{00022 \};}
+\DoxyCodeLine{00023 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

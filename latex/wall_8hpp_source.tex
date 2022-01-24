@@ -1,0 +1,35 @@
+\hypertarget{wall_8hpp_source}{}\doxysection{wall.\+hpp}
+\label{wall_8hpp_source}\index{src/wall.hpp@{src/wall.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef WALL\_CLASS}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define WALL\_CLASS}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/Graphics/RectangleShape.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{collider_8hpp}{collider.hpp}}"}\textcolor{comment}{}}
+\DoxyCodeLine{00010 \textcolor{comment}{/**Class for walls*/}}
+\DoxyCodeLine{\Hypertarget{wall_8hpp_source_l00011}\mbox{\hyperlink{classWall}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{classWall}{Wall}} \{}
+\DoxyCodeLine{00012  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00013 \textcolor{comment}{  /**Constructor*/}}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}{Wall}}(sf::Texture* texture, sf::Vector2f size, sf::Vector2f position,}
+\DoxyCodeLine{00015        \textcolor{keywordtype}{int} type);\textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{  /**Renders the wall*/}}
+\DoxyCodeLine{00017   \textcolor{keywordtype}{void} \mbox{\hyperlink{classWall_a766c0c563fcea21b5f5c9a87a4e66611}{Draw}}(sf::RenderWindow\& window);\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Moves the wall*/}}
+\DoxyCodeLine{00019   \textcolor{keywordtype}{void} \mbox{\hyperlink{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}{Move2}}(sf::Vector2f dir);\textcolor{comment}{}}
+\DoxyCodeLine{00020 \textcolor{comment}{  /**Checks for collisions*/}}
+\DoxyCodeLine{00021   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}{checkCollision}}(sf::RectangleShape other\_body);\textcolor{comment}{}}
+\DoxyCodeLine{00022 \textcolor{comment}{  /**Returns collider*/}}
+\DoxyCodeLine{\Hypertarget{wall_8hpp_source_l00023}\mbox{\hyperlink{classWall_abddc051f573b445294f4b04e016dec4e}{00023}}   \mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classWall_abddc051f573b445294f4b04e016dec4e}{getCollider}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}); \}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{wall_8hpp_source_l00025}\mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{00025}}   sf::RectangleShape \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}};}
+\DoxyCodeLine{\Hypertarget{wall_8hpp_source_l00026}\mbox{\hyperlink{classWall_aa051fcaf918d3c19c0e18232b4802718}{00026}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{classWall_aa051fcaf918d3c19c0e18232b4802718}{type\_}};}
+\DoxyCodeLine{00027 \};}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\hypertarget{projectile_8hpp_source}{}\doxysection{projectile.\+hpp}
+\label{projectile_8hpp_source}\index{src/projectile.hpp@{src/projectile.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{map_8hpp}{map.hpp}}"}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{enemy_8hpp}{enemy.hpp}}"}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#ifndef PROJECTILE\_CLASS}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#define PROJECTILE\_CLASS}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{keyword}{class }\mbox{\hyperlink{classPlayer}{Player}}; \textcolor{comment}{//Forward declaration is used here to avoid circular dependency with player class}\textcolor{comment}{}}
+\DoxyCodeLine{00013 \textcolor{comment}{/**Class for projectiles */}}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00014}\mbox{\hyperlink{classProjectile}{00014}} \textcolor{keyword}{class }\mbox{\hyperlink{classProjectile}{Projectile}} \{}
+\DoxyCodeLine{00015  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{  /**Constructor*/}}
+\DoxyCodeLine{00017   \mbox{\hyperlink{classProjectile_af07a55670c55524eb3a1d9cffee81a55}{Projectile}}(sf::Texture* texture);\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00019   \mbox{\hyperlink{classProjectile_a94903e021fa2edab60ba3836ca0b937d}{\string~Projectile}}();\textcolor{comment}{}}
+\DoxyCodeLine{00020 \textcolor{comment}{  /**Renders the projectile*/}}
+\DoxyCodeLine{00021   \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_a0c13be2f57f656bae015fa3ecfffa572}{Draw}}(sf::RenderWindow\& window);\textcolor{comment}{}}
+\DoxyCodeLine{00022 \textcolor{comment}{  /**Updates attributes*/}}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProjectile_af8056d4fda5c307ec62b591076bab4ef}{Update}}(\textcolor{keywordtype}{float} time, \mbox{\hyperlink{classMap}{Map}}\& map, \mbox{\hyperlink{classPlayer}{Player}}\& player);\textcolor{comment}{}}
+\DoxyCodeLine{00024 \textcolor{comment}{  /**Changes active\_ to true*/}}
+\DoxyCodeLine{00025   \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_a4589c7cefb019408e92d355f30fcfb49}{activate}}();\textcolor{comment}{}}
+\DoxyCodeLine{00026 \textcolor{comment}{  /**Changes active\_ to false*/}}
+\DoxyCodeLine{00027   \textcolor{keywordtype}{void} \mbox{\hyperlink{classProjectile_ad7bcd1f1796e53394e487791b185c8b9}{deActivate}}();\textcolor{comment}{}}
+\DoxyCodeLine{00028 \textcolor{comment}{  /**Returns the projectile collider*/}}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00029}\mbox{\hyperlink{classProjectile_a0cd3444b7315765ee29465ead770311f}{00029}}   \mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classProjectile_a0cd3444b7315765ee29465ead770311f}{getCollider}}() \{}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}});}
+\DoxyCodeLine{00031   \}}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00033}\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{00033}}   sf::Texture* \mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}};}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00034}\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{00034}}   sf::RectangleShape \mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}};}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00035}\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{00035}}   sf::Vector2f \mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}};}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00036}\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{00036}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{projectile_8hpp_source_l00037}\mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{00037}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classProjectile_a64a62e162b56bceb7efa832fca456d0a}{actionTimer\_}} = 0.0;}
+\DoxyCodeLine{00038 \};}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

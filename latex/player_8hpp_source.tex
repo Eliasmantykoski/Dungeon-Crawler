@@ -1,0 +1,72 @@
+\hypertarget{player_8hpp_source}{}\doxysection{player.\+hpp}
+\label{player_8hpp_source}\index{src/player.hpp@{src/player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{item_8hpp}{item.hpp}}"}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{map_8hpp}{map.hpp}}"}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{projectile_8hpp}{projectile.hpp}}"}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{weapon_8hpp}{weapon.hpp}}"}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#ifndef PLAYER\_CLASS}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#define PLAYER\_CLASS}}
+\DoxyCodeLine{00014 \textcolor{comment}{/**Class for the player object*/}}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00015}\mbox{\hyperlink{classPlayer}{00015}} \textcolor{keyword}{class }\mbox{\hyperlink{classPlayer}{Player}} \{}
+\DoxyCodeLine{00016  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00017 \textcolor{comment}{  /**Constructor for player*/}}
+\DoxyCodeLine{00018   \mbox{\hyperlink{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}{Player}}(sf::Texture* texture, sf::Texture* dead\_texture, sf::Vector2f spawnPos,}
+\DoxyCodeLine{00019          \textcolor{keywordtype}{float} speed, \mbox{\hyperlink{classWeapon}{Weapon}}* starting\_weapon);\textcolor{comment}{}}
+\DoxyCodeLine{00020 \textcolor{comment}{  /**Default constructor*/}}
+\DoxyCodeLine{00021   \mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();\textcolor{comment}{}}
+\DoxyCodeLine{00022 \textcolor{comment}{  /**Renders the player*/}}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}{Draw}}(sf::RenderWindow\& window);}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025   \textcolor{comment}{// void GiveWeapon(Weapon weapon) \{player\_weapon\_ = weapon;\};}\textcolor{comment}{}}
+\DoxyCodeLine{00026 \textcolor{comment}{  /**Returns player position*/}}
+\DoxyCodeLine{00027   sf::Vector2f \mbox{\hyperlink{classPlayer_a23356f99a9de86d3d47eadb679b332dc}{getPosition}}();\textcolor{comment}{}}
+\DoxyCodeLine{00028 \textcolor{comment}{  /**Return alive*/}}
+\DoxyCodeLine{00029   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}{isAlive}}();\textcolor{comment}{}}
+\DoxyCodeLine{00030 \textcolor{comment}{  /**Return healh*/}}
+\DoxyCodeLine{00031   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}{getHp}}();}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a02085f7d675fd8feaad09df0912c054c}{getShield}}();\textcolor{comment}{}}
+\DoxyCodeLine{00034 \textcolor{comment}{  /**Uses item from inventory*/}}
+\DoxyCodeLine{00035   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{useItem}}();\textcolor{comment}{}}
+\DoxyCodeLine{00036 \textcolor{comment}{  /**Decrease health*/}}
+\DoxyCodeLine{00037   \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}}(\textcolor{keywordtype}{float} dmg);\textcolor{comment}{}}
+\DoxyCodeLine{00038 \textcolor{comment}{  /**Update attributes*/}}
+\DoxyCodeLine{00039   std::vector<int> \mbox{\hyperlink{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}{Update}}(\textcolor{keywordtype}{float} time, \mbox{\hyperlink{classMap}{Map}}\& map, std::vector<Projectile>\&);\textcolor{comment}{}}
+\DoxyCodeLine{00040 \textcolor{comment}{  /**Creates projectile*/}}
+\DoxyCodeLine{00041   \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(sf::Vector2f\&);\textcolor{comment}{}}
+\DoxyCodeLine{00042 \textcolor{comment}{  /**Moves the map when player traverses between rooms*/}}
+\DoxyCodeLine{00043   \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{Traverse}}(\mbox{\hyperlink{classMap}{Map}}\& map);\textcolor{comment}{}}
+\DoxyCodeLine{00044 \textcolor{comment}{  /**Returns the player collider*/}}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00045}\mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{00045}}   \mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{getCollider}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}); \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00047}\mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{00047}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00048}\mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{00048}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} = 6;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00049}\mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{00049}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} = 0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00050}\mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{00050}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00051}\mbox{\hyperlink{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}{00051}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}{actionTimer\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00052}\mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{00052}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00053}\mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{00053}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} = 0.0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00054}\mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{00054}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\_weapon\_}} = 0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00055}\mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{00055}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} = 0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00056}\mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{00056}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} = 0;}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00057}\mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{00057}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00058}\mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{00058}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00059}\mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{00059}}   sf::Texture* \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00060}\mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{00060}}   std::vector<Weapon> \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00061}\mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{00061}}   std::vector<Item> \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00062}\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{00062}}   sf::RectangleShape \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}};}
+\DoxyCodeLine{\Hypertarget{player_8hpp_source_l00063}\mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{00063}}   sf::Vector2f \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}};}
+\DoxyCodeLine{00064 \};}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

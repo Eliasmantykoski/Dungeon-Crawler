@@ -1,0 +1,17 @@
+\hypertarget{item_8cpp_source}{}\doxysection{item.\+cpp}
+\label{item_8cpp_source}\index{src/item.cpp@{src/item.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{item_8hpp}{item.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{\Hypertarget{item_8cpp_source_l00004}\mbox{\hyperlink{classItem_ae5d61f936464a032eb68dc7911db241c}{00004}} \mbox{\hyperlink{classItem_ae5d61f936464a032eb68dc7911db241c}{Item::Item}}(sf::Texture *texture, sf::Vector2f position, std::string type)}
+\DoxyCodeLine{00005     : type(type) \{}
+\DoxyCodeLine{00006   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setSize(sf::Vector2f(30, 30));}
+\DoxyCodeLine{00007   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setPosition(position);}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setTexture(texture);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setOrigin(sf::Vector2f(30, 30) / 2.0f);}
+\DoxyCodeLine{00010 \};}
+\DoxyCodeLine{\Hypertarget{item_8cpp_source_l00011}\mbox{\hyperlink{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}{00011}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}{Item::Draw}}(sf::RenderWindow \&window) \{ window.draw(\mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}); \}}
+
+\end{DoxyCode}

@@ -1,0 +1,25 @@
+\hypertarget{wall_8cpp_source}{}\doxysection{wall.\+cpp}
+\label{wall_8cpp_source}\index{src/wall.cpp@{src/wall.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{\Hypertarget{wall_8cpp_source_l00005}\mbox{\hyperlink{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}{00005}} \mbox{\hyperlink{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}{Wall::Wall}}(sf::Texture *texture, sf::Vector2f size, sf::Vector2f position,}
+\DoxyCodeLine{00006            \textcolor{keywordtype}{int} type) \{}
+\DoxyCodeLine{00007   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setSize(size);}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setPosition(position);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setTexture(texture);}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setOrigin(size / 2.0f);}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classWall_aa051fcaf918d3c19c0e18232b4802718}{type\_}} = type;}
+\DoxyCodeLine{00012 \};}
+\DoxyCodeLine{\Hypertarget{wall_8cpp_source_l00013}\mbox{\hyperlink{classWall_a766c0c563fcea21b5f5c9a87a4e66611}{00013}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classWall_a766c0c563fcea21b5f5c9a87a4e66611}{Wall::Draw}}(sf::RenderWindow \&window) \{ window.draw(\mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}); \};}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{\Hypertarget{wall_8cpp_source_l00015}\mbox{\hyperlink{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}{00015}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}{Wall::Move2}}(sf::Vector2f dir) \{ \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.move(dir); \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{\Hypertarget{wall_8cpp_source_l00017}\mbox{\hyperlink{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}{00017}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}{Wall::checkCollision}}(sf::RectangleShape other\_body) \{}
+\DoxyCodeLine{00018   \textcolor{keywordflow}{return} \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.getGlobalBounds().intersects(other\_body.getGlobalBounds());}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}

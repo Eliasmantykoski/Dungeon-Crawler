@@ -1,0 +1,300 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Source content}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Animation Class Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Constructor \& Destructor Documentation}{9}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}Animation()}{10}{subsubsection.5.1.2.1}%
+\contentsline {subsubsection}{\numberline {5.1.2.2}$\sim $Animation()}{10}{subsubsection.5.1.2.2}%
+\contentsline {subsection}{\numberline {5.1.3}Member Function Documentation}{10}{subsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.3.1}getCurrentFrame()}{10}{subsubsection.5.1.3.1}%
+\contentsline {subsubsection}{\numberline {5.1.3.2}resetCurrentFrame()}{11}{subsubsection.5.1.3.2}%
+\contentsline {subsubsection}{\numberline {5.1.3.3}setAnimationSpeed()}{11}{subsubsection.5.1.3.3}%
+\contentsline {subsubsection}{\numberline {5.1.3.4}Update()}{11}{subsubsection.5.1.3.4}%
+\contentsline {subsection}{\numberline {5.1.4}Member Data Documentation}{11}{subsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.4.1}actionTimer\_}{11}{subsubsection.5.1.4.1}%
+\contentsline {subsubsection}{\numberline {5.1.4.2}animation\_frames\_}{12}{subsubsection.5.1.4.2}%
+\contentsline {subsubsection}{\numberline {5.1.4.3}animation\_speed\_}{12}{subsubsection.5.1.4.3}%
+\contentsline {subsubsection}{\numberline {5.1.4.4}current\_frame\_}{12}{subsubsection.5.1.4.4}%
+\contentsline {subsubsection}{\numberline {5.1.4.5}last\_frame\_}{12}{subsubsection.5.1.4.5}%
+\contentsline {section}{\numberline {5.2}Chasing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enemy Class Reference}{12}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{13}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Constructor \& Destructor Documentation}{13}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}ChasingEnemy()}{13}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}$\sim $ChasingEnemy()}{13}{subsubsection.5.2.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Member Function Documentation}{13}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Update()}{14}{subsubsection.5.2.3.1}%
+\contentsline {section}{\numberline {5.3}Collider Class Reference}{15}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{15}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Constructor \& Destructor Documentation}{15}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}Collider()}{15}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}$\sim $Collider()}{15}{subsubsection.5.3.2.2}%
+\contentsline {subsection}{\numberline {5.3.3}Member Function Documentation}{15}{subsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.1}checkCollider()}{16}{subsubsection.5.3.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.3.2}getHalfSize()}{16}{subsubsection.5.3.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3.3}getPosition()}{16}{subsubsection.5.3.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.4}Move()}{17}{subsubsection.5.3.3.4}%
+\contentsline {section}{\numberline {5.4}Enemy Class Reference}{17}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{18}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Constructor \& Destructor Documentation}{18}{subsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}Enemy()}{18}{subsubsection.5.4.2.1}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}$\sim $Enemy()}{18}{subsubsection.5.4.2.2}%
+\contentsline {subsection}{\numberline {5.4.3}Member Function Documentation}{18}{subsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.3.1}Damage()}{18}{subsubsection.5.4.3.1}%
+\contentsline {subsubsection}{\numberline {5.4.3.2}Draw()}{19}{subsubsection.5.4.3.2}%
+\contentsline {subsubsection}{\numberline {5.4.3.3}getCollider()}{19}{subsubsection.5.4.3.3}%
+\contentsline {subsubsection}{\numberline {5.4.3.4}getPosition()}{19}{subsubsection.5.4.3.4}%
+\contentsline {subsubsection}{\numberline {5.4.3.5}isRanged()}{19}{subsubsection.5.4.3.5}%
+\contentsline {subsubsection}{\numberline {5.4.3.6}MoveRoom()}{20}{subsubsection.5.4.3.6}%
+\contentsline {subsubsection}{\numberline {5.4.3.7}Update()}{20}{subsubsection.5.4.3.7}%
+\contentsline {subsubsection}{\numberline {5.4.3.8}Update2()}{20}{subsubsection.5.4.3.8}%
+\contentsline {subsection}{\numberline {5.4.4}Member Data Documentation}{20}{subsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.4.1}actionTimer\_}{21}{subsubsection.5.4.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.4.2}alive\_}{21}{subsubsection.5.4.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.4.3}attacking\_player\_}{21}{subsubsection.5.4.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4.4}body\_}{21}{subsubsection.5.4.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.4.5}currentSpeed\_}{21}{subsubsection.5.4.4.5}%
+\contentsline {subsubsection}{\numberline {5.4.4.6}damage\_}{21}{subsubsection.5.4.4.6}%
+\contentsline {subsubsection}{\numberline {5.4.4.7}direction\_}{22}{subsubsection.5.4.4.7}%
+\contentsline {subsubsection}{\numberline {5.4.4.8}enemy\_animations\_}{22}{subsubsection.5.4.4.8}%
+\contentsline {subsubsection}{\numberline {5.4.4.9}hp\_}{22}{subsubsection.5.4.4.9}%
+\contentsline {subsubsection}{\numberline {5.4.4.10}is\_ranged\_type\_}{22}{subsubsection.5.4.4.10}%
+\contentsline {subsubsection}{\numberline {5.4.4.11}speed\_}{22}{subsubsection.5.4.4.11}%
+\contentsline {subsubsection}{\numberline {5.4.4.12}walk\_}{22}{subsubsection.5.4.4.12}%
+\contentsline {subsubsection}{\numberline {5.4.4.13}walkInterval\_}{23}{subsubsection.5.4.4.13}%
+\contentsline {section}{\numberline {5.5}Final\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Boss Class Reference}{23}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{23}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Constructor \& Destructor Documentation}{23}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}FinalBoss()}{24}{subsubsection.5.5.2.1}%
+\contentsline {subsection}{\numberline {5.5.3}Member Function Documentation}{24}{subsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.3.1}ShootAtDirection()}{24}{subsubsection.5.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.5.3.2}Update()}{24}{subsubsection.5.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.5.3.3}Update2()}{25}{subsubsection.5.5.3.3}%
+\contentsline {subsection}{\numberline {5.5.4}Member Data Documentation}{26}{subsection.5.5.4}%
+\contentsline {subsubsection}{\numberline {5.5.4.1}enemy\_projectile\_texture\_}{26}{subsubsection.5.5.4.1}%
+\contentsline {section}{\numberline {5.6}H\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}UD Class Reference}{26}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{27}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}Constructor \& Destructor Documentation}{27}{subsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.2.1}HUD()}{27}{subsubsection.5.6.2.1}%
+\contentsline {subsubsection}{\numberline {5.6.2.2}$\sim $HUD()}{28}{subsubsection.5.6.2.2}%
+\contentsline {subsection}{\numberline {5.6.3}Member Function Documentation}{28}{subsection.5.6.3}%
+\contentsline {subsubsection}{\numberline {5.6.3.1}Display()}{28}{subsubsection.5.6.3.1}%
+\contentsline {subsubsection}{\numberline {5.6.3.2}Update()}{29}{subsubsection.5.6.3.2}%
+\contentsline {subsection}{\numberline {5.6.4}Member Data Documentation}{29}{subsection.5.6.4}%
+\contentsline {subsubsection}{\numberline {5.6.4.1}background\_}{30}{subsubsection.5.6.4.1}%
+\contentsline {subsubsection}{\numberline {5.6.4.2}font\_}{30}{subsubsection.5.6.4.2}%
+\contentsline {subsubsection}{\numberline {5.6.4.3}hp\_bar\_}{30}{subsubsection.5.6.4.3}%
+\contentsline {subsubsection}{\numberline {5.6.4.4}hp\_textures\_}{30}{subsubsection.5.6.4.4}%
+\contentsline {subsubsection}{\numberline {5.6.4.5}hud\_items\_}{30}{subsubsection.5.6.4.5}%
+\contentsline {subsubsection}{\numberline {5.6.4.6}inventory\_bar\_}{30}{subsubsection.5.6.4.6}%
+\contentsline {subsubsection}{\numberline {5.6.4.7}texts\_}{31}{subsubsection.5.6.4.7}%
+\contentsline {section}{\numberline {5.7}Item Class Reference}{31}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{31}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Constructor \& Destructor Documentation}{31}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}Item()}{31}{subsubsection.5.7.2.1}%
+\contentsline {subsubsection}{\numberline {5.7.2.2}$\sim $Item()}{32}{subsubsection.5.7.2.2}%
+\contentsline {subsection}{\numberline {5.7.3}Member Function Documentation}{32}{subsection.5.7.3}%
+\contentsline {subsubsection}{\numberline {5.7.3.1}Draw()}{32}{subsubsection.5.7.3.1}%
+\contentsline {subsubsection}{\numberline {5.7.3.2}getCollider()}{32}{subsubsection.5.7.3.2}%
+\contentsline {subsection}{\numberline {5.7.4}Member Data Documentation}{32}{subsection.5.7.4}%
+\contentsline {subsubsection}{\numberline {5.7.4.1}body}{32}{subsubsection.5.7.4.1}%
+\contentsline {subsubsection}{\numberline {5.7.4.2}type}{33}{subsubsection.5.7.4.2}%
+\contentsline {section}{\numberline {5.8}Map Class Reference}{33}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{33}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}Constructor \& Destructor Documentation}{33}{subsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.2.1}Map()}{34}{subsubsection.5.8.2.1}%
+\contentsline {subsection}{\numberline {5.8.3}Member Function Documentation}{34}{subsection.5.8.3}%
+\contentsline {subsubsection}{\numberline {5.8.3.1}Display()}{34}{subsubsection.5.8.3.1}%
+\contentsline {subsubsection}{\numberline {5.8.3.2}Generate()}{35}{subsubsection.5.8.3.2}%
+\contentsline {subsubsection}{\numberline {5.8.3.3}NextRoom()}{36}{subsubsection.5.8.3.3}%
+\contentsline {subsubsection}{\numberline {5.8.3.4}removeItem()}{36}{subsubsection.5.8.3.4}%
+\contentsline {subsubsection}{\numberline {5.8.3.5}SpawnItem()}{37}{subsubsection.5.8.3.5}%
+\contentsline {subsection}{\numberline {5.8.4}Member Data Documentation}{37}{subsection.5.8.4}%
+\contentsline {subsubsection}{\numberline {5.8.4.1}enemies}{37}{subsubsection.5.8.4.1}%
+\contentsline {subsubsection}{\numberline {5.8.4.2}items}{37}{subsubsection.5.8.4.2}%
+\contentsline {subsubsection}{\numberline {5.8.4.3}layout}{37}{subsubsection.5.8.4.3}%
+\contentsline {subsubsection}{\numberline {5.8.4.4}mapSize}{38}{subsubsection.5.8.4.4}%
+\contentsline {subsubsection}{\numberline {5.8.4.5}rooms}{38}{subsubsection.5.8.4.5}%
+\contentsline {section}{\numberline {5.9}Menu Class Reference}{38}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{38}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Constructor \& Destructor Documentation}{38}{subsection.5.9.2}%
+\contentsline {subsubsection}{\numberline {5.9.2.1}Menu()}{39}{subsubsection.5.9.2.1}%
+\contentsline {subsubsection}{\numberline {5.9.2.2}$\sim $Menu()}{39}{subsubsection.5.9.2.2}%
+\contentsline {subsection}{\numberline {5.9.3}Member Function Documentation}{39}{subsection.5.9.3}%
+\contentsline {subsubsection}{\numberline {5.9.3.1}Display()}{39}{subsubsection.5.9.3.1}%
+\contentsline {subsubsection}{\numberline {5.9.3.2}Update()}{40}{subsubsection.5.9.3.2}%
+\contentsline {subsection}{\numberline {5.9.4}Member Data Documentation}{40}{subsection.5.9.4}%
+\contentsline {subsubsection}{\numberline {5.9.4.1}active\_}{40}{subsubsection.5.9.4.1}%
+\contentsline {subsubsection}{\numberline {5.9.4.2}background\_}{40}{subsubsection.5.9.4.2}%
+\contentsline {subsubsection}{\numberline {5.9.4.3}font\_}{40}{subsubsection.5.9.4.3}%
+\contentsline {subsubsection}{\numberline {5.9.4.4}texts\_}{41}{subsubsection.5.9.4.4}%
+\contentsline {section}{\numberline {5.10}Player Class Reference}{41}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{42}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}Constructor \& Destructor Documentation}{42}{subsection.5.10.2}%
+\contentsline {subsubsection}{\numberline {5.10.2.1}Player()}{42}{subsubsection.5.10.2.1}%
+\contentsline {subsubsection}{\numberline {5.10.2.2}$\sim $Player()}{42}{subsubsection.5.10.2.2}%
+\contentsline {subsection}{\numberline {5.10.3}Member Function Documentation}{42}{subsection.5.10.3}%
+\contentsline {subsubsection}{\numberline {5.10.3.1}Damage()}{43}{subsubsection.5.10.3.1}%
+\contentsline {subsubsection}{\numberline {5.10.3.2}Draw()}{43}{subsubsection.5.10.3.2}%
+\contentsline {subsubsection}{\numberline {5.10.3.3}getCollider()}{43}{subsubsection.5.10.3.3}%
+\contentsline {subsubsection}{\numberline {5.10.3.4}getHp()}{43}{subsubsection.5.10.3.4}%
+\contentsline {subsubsection}{\numberline {5.10.3.5}getPosition()}{44}{subsubsection.5.10.3.5}%
+\contentsline {subsubsection}{\numberline {5.10.3.6}getShield()}{44}{subsubsection.5.10.3.6}%
+\contentsline {subsubsection}{\numberline {5.10.3.7}isAlive()}{44}{subsubsection.5.10.3.7}%
+\contentsline {subsubsection}{\numberline {5.10.3.8}Traverse()}{44}{subsubsection.5.10.3.8}%
+\contentsline {subsubsection}{\numberline {5.10.3.9}Update()}{45}{subsubsection.5.10.3.9}%
+\contentsline {subsubsection}{\numberline {5.10.3.10}useItem()}{46}{subsubsection.5.10.3.10}%
+\contentsline {subsubsection}{\numberline {5.10.3.11}UseWeapon()}{47}{subsubsection.5.10.3.11}%
+\contentsline {subsection}{\numberline {5.10.4}Member Data Documentation}{47}{subsection.5.10.4}%
+\contentsline {subsubsection}{\numberline {5.10.4.1}actionTimer\_}{47}{subsubsection.5.10.4.1}%
+\contentsline {subsubsection}{\numberline {5.10.4.2}alive\_}{47}{subsubsection.5.10.4.2}%
+\contentsline {subsubsection}{\numberline {5.10.4.3}body\_}{47}{subsubsection.5.10.4.3}%
+\contentsline {subsubsection}{\numberline {5.10.4.4}chosen\_weapon\_}{48}{subsubsection.5.10.4.4}%
+\contentsline {subsubsection}{\numberline {5.10.4.5}currentSpeed\_}{48}{subsubsection.5.10.4.5}%
+\contentsline {subsubsection}{\numberline {5.10.4.6}damaged\_}{48}{subsubsection.5.10.4.6}%
+\contentsline {subsubsection}{\numberline {5.10.4.7}dead\_}{48}{subsubsection.5.10.4.7}%
+\contentsline {subsubsection}{\numberline {5.10.4.8}death\_texture\_}{48}{subsubsection.5.10.4.8}%
+\contentsline {subsubsection}{\numberline {5.10.4.9}direction\_}{48}{subsubsection.5.10.4.9}%
+\contentsline {subsubsection}{\numberline {5.10.4.10}hp\_}{49}{subsubsection.5.10.4.10}%
+\contentsline {subsubsection}{\numberline {5.10.4.11}items\_}{49}{subsubsection.5.10.4.11}%
+\contentsline {subsubsection}{\numberline {5.10.4.12}itemTimer}{49}{subsubsection.5.10.4.12}%
+\contentsline {subsubsection}{\numberline {5.10.4.13}player\_weapons\_}{49}{subsubsection.5.10.4.13}%
+\contentsline {subsubsection}{\numberline {5.10.4.14}shield\_}{49}{subsubsection.5.10.4.14}%
+\contentsline {subsubsection}{\numberline {5.10.4.15}shot\_}{49}{subsubsection.5.10.4.15}%
+\contentsline {subsubsection}{\numberline {5.10.4.16}speed\_}{50}{subsubsection.5.10.4.16}%
+\contentsline {subsubsection}{\numberline {5.10.4.17}speedTimer}{50}{subsubsection.5.10.4.17}%
+\contentsline {section}{\numberline {5.11}Projectile Class Reference}{50}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{50}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Constructor \& Destructor Documentation}{51}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}Projectile()}{51}{subsubsection.5.11.2.1}%
+\contentsline {subsubsection}{\numberline {5.11.2.2}$\sim $Projectile()}{51}{subsubsection.5.11.2.2}%
+\contentsline {subsection}{\numberline {5.11.3}Member Function Documentation}{51}{subsection.5.11.3}%
+\contentsline {subsubsection}{\numberline {5.11.3.1}activate()}{51}{subsubsection.5.11.3.1}%
+\contentsline {subsubsection}{\numberline {5.11.3.2}deActivate()}{51}{subsubsection.5.11.3.2}%
+\contentsline {subsubsection}{\numberline {5.11.3.3}Draw()}{52}{subsubsection.5.11.3.3}%
+\contentsline {subsubsection}{\numberline {5.11.3.4}getCollider()}{52}{subsubsection.5.11.3.4}%
+\contentsline {subsubsection}{\numberline {5.11.3.5}Update()}{52}{subsubsection.5.11.3.5}%
+\contentsline {subsection}{\numberline {5.11.4}Member Data Documentation}{53}{subsection.5.11.4}%
+\contentsline {subsubsection}{\numberline {5.11.4.1}actionTimer\_}{53}{subsubsection.5.11.4.1}%
+\contentsline {subsubsection}{\numberline {5.11.4.2}active\_}{53}{subsubsection.5.11.4.2}%
+\contentsline {subsubsection}{\numberline {5.11.4.3}body\_}{53}{subsubsection.5.11.4.3}%
+\contentsline {subsubsection}{\numberline {5.11.4.4}projectile\_texture\_}{53}{subsubsection.5.11.4.4}%
+\contentsline {subsubsection}{\numberline {5.11.4.5}projectile\_trajectory\_}{54}{subsubsection.5.11.4.5}%
+\contentsline {section}{\numberline {5.12}Ranged\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enemy Class Reference}{54}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{54}{subsection.5.12.1}%
+\contentsline {subsection}{\numberline {5.12.2}Constructor \& Destructor Documentation}{54}{subsection.5.12.2}%
+\contentsline {subsubsection}{\numberline {5.12.2.1}RangedEnemy()}{55}{subsubsection.5.12.2.1}%
+\contentsline {subsubsection}{\numberline {5.12.2.2}$\sim $RangedEnemy()}{55}{subsubsection.5.12.2.2}%
+\contentsline {subsection}{\numberline {5.12.3}Member Function Documentation}{55}{subsection.5.12.3}%
+\contentsline {subsubsection}{\numberline {5.12.3.1}ShootAtDirection()}{55}{subsubsection.5.12.3.1}%
+\contentsline {subsubsection}{\numberline {5.12.3.2}Update()}{56}{subsubsection.5.12.3.2}%
+\contentsline {subsubsection}{\numberline {5.12.3.3}Update2()}{56}{subsubsection.5.12.3.3}%
+\contentsline {subsection}{\numberline {5.12.4}Member Data Documentation}{57}{subsection.5.12.4}%
+\contentsline {subsubsection}{\numberline {5.12.4.1}enemy\_projectile\_texture\_}{57}{subsubsection.5.12.4.1}%
+\contentsline {section}{\numberline {5.13}Room Class Reference}{58}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{58}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Constructor \& Destructor Documentation}{58}{subsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.1}Room()}{59}{subsubsection.5.13.2.1}%
+\contentsline {subsubsection}{\numberline {5.13.2.2}$\sim $Room()}{59}{subsubsection.5.13.2.2}%
+\contentsline {subsection}{\numberline {5.13.3}Member Function Documentation}{59}{subsection.5.13.3}%
+\contentsline {subsubsection}{\numberline {5.13.3.1}Activate()}{60}{subsubsection.5.13.3.1}%
+\contentsline {subsubsection}{\numberline {5.13.3.2}checkCollision()}{60}{subsubsection.5.13.3.2}%
+\contentsline {subsubsection}{\numberline {5.13.3.3}Deactivate()}{60}{subsubsection.5.13.3.3}%
+\contentsline {subsubsection}{\numberline {5.13.3.4}Display()}{60}{subsubsection.5.13.3.4}%
+\contentsline {subsubsection}{\numberline {5.13.3.5}MoveRoom()}{61}{subsubsection.5.13.3.5}%
+\contentsline {subsection}{\numberline {5.13.4}Member Data Documentation}{61}{subsection.5.13.4}%
+\contentsline {subsubsection}{\numberline {5.13.4.1}active}{61}{subsubsection.5.13.4.1}%
+\contentsline {subsubsection}{\numberline {5.13.4.2}depth\_}{61}{subsubsection.5.13.4.2}%
+\contentsline {subsubsection}{\numberline {5.13.4.3}maxSize}{61}{subsubsection.5.13.4.3}%
+\contentsline {subsubsection}{\numberline {5.13.4.4}walls}{62}{subsubsection.5.13.4.4}%
+\contentsline {subsubsection}{\numberline {5.13.4.5}xBound1}{62}{subsubsection.5.13.4.5}%
+\contentsline {subsubsection}{\numberline {5.13.4.6}xBound2}{62}{subsubsection.5.13.4.6}%
+\contentsline {subsubsection}{\numberline {5.13.4.7}yBound1}{62}{subsubsection.5.13.4.7}%
+\contentsline {subsubsection}{\numberline {5.13.4.8}yBound2}{62}{subsubsection.5.13.4.8}%
+\contentsline {section}{\numberline {5.14}Wall Class Reference}{62}{section.5.14}%
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{63}{subsection.5.14.1}%
+\contentsline {subsection}{\numberline {5.14.2}Constructor \& Destructor Documentation}{63}{subsection.5.14.2}%
+\contentsline {subsubsection}{\numberline {5.14.2.1}Wall()}{63}{subsubsection.5.14.2.1}%
+\contentsline {subsection}{\numberline {5.14.3}Member Function Documentation}{63}{subsection.5.14.3}%
+\contentsline {subsubsection}{\numberline {5.14.3.1}checkCollision()}{64}{subsubsection.5.14.3.1}%
+\contentsline {subsubsection}{\numberline {5.14.3.2}Draw()}{64}{subsubsection.5.14.3.2}%
+\contentsline {subsubsection}{\numberline {5.14.3.3}getCollider()}{64}{subsubsection.5.14.3.3}%
+\contentsline {subsubsection}{\numberline {5.14.3.4}Move2()}{64}{subsubsection.5.14.3.4}%
+\contentsline {subsection}{\numberline {5.14.4}Member Data Documentation}{64}{subsection.5.14.4}%
+\contentsline {subsubsection}{\numberline {5.14.4.1}body}{65}{subsubsection.5.14.4.1}%
+\contentsline {subsubsection}{\numberline {5.14.4.2}type\_}{65}{subsubsection.5.14.4.2}%
+\contentsline {section}{\numberline {5.15}Weapon Class Reference}{65}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{65}{subsection.5.15.1}%
+\contentsline {subsection}{\numberline {5.15.2}Constructor \& Destructor Documentation}{65}{subsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.1}Weapon()}{66}{subsubsection.5.15.2.1}%
+\contentsline {subsubsection}{\numberline {5.15.2.2}$\sim $Weapon()}{66}{subsubsection.5.15.2.2}%
+\contentsline {subsection}{\numberline {5.15.3}Member Function Documentation}{66}{subsection.5.15.3}%
+\contentsline {subsubsection}{\numberline {5.15.3.1}Fire()}{66}{subsubsection.5.15.3.1}%
+\contentsline {subsection}{\numberline {5.15.4}Member Data Documentation}{66}{subsection.5.15.4}%
+\contentsline {subsubsection}{\numberline {5.15.4.1}fire\_rate\_}{67}{subsubsection.5.15.4.1}%
+\contentsline {subsubsection}{\numberline {5.15.4.2}weapon\_body\_}{67}{subsubsection.5.15.4.2}%
+\contentsline {subsubsection}{\numberline {5.15.4.3}weapon\_projectile\_}{67}{subsubsection.5.15.4.3}%
+\contentsline {chapter}{\numberline {6}File Documentation}{69}{chapter.6}%
+\contentsline {section}{\numberline {6.1}src/animation.cpp File Reference}{69}{section.6.1}%
+\contentsline {section}{\numberline {6.2}animation.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{69}{section.6.2}%
+\contentsline {section}{\numberline {6.3}src/animation.hpp File Reference}{70}{section.6.3}%
+\contentsline {section}{\numberline {6.4}animation.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{70}{section.6.4}%
+\contentsline {section}{\numberline {6.5}src/collider.cpp File Reference}{71}{section.6.5}%
+\contentsline {section}{\numberline {6.6}collider.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{71}{section.6.6}%
+\contentsline {section}{\numberline {6.7}src/collider.hpp File Reference}{71}{section.6.7}%
+\contentsline {section}{\numberline {6.8}collider.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{72}{section.6.8}%
+\contentsline {section}{\numberline {6.9}src/enemy.cpp File Reference}{72}{section.6.9}%
+\contentsline {section}{\numberline {6.10}enemy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{72}{section.6.10}%
+\contentsline {section}{\numberline {6.11}src/enemy.hpp File Reference}{77}{section.6.11}%
+\contentsline {section}{\numberline {6.12}enemy.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{78}{section.6.12}%
+\contentsline {section}{\numberline {6.13}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}H\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}UD.cpp File Reference}{79}{section.6.13}%
+\contentsline {section}{\numberline {6.14}H\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{79}{section.6.14}%
+\contentsline {section}{\numberline {6.15}src/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}H\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}UD.hpp File Reference}{81}{section.6.15}%
+\contentsline {section}{\numberline {6.16}H\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}U\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}D.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{81}{section.6.16}%
+\contentsline {section}{\numberline {6.17}src/item.cpp File Reference}{81}{section.6.17}%
+\contentsline {section}{\numberline {6.18}item.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{82}{section.6.18}%
+\contentsline {section}{\numberline {6.19}src/item.hpp File Reference}{82}{section.6.19}%
+\contentsline {section}{\numberline {6.20}item.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{82}{section.6.20}%
+\contentsline {section}{\numberline {6.21}src/main.cpp File Reference}{82}{section.6.21}%
+\contentsline {subsection}{\numberline {6.21.1}Function Documentation}{83}{subsection.6.21.1}%
+\contentsline {subsubsection}{\numberline {6.21.1.1}main()}{83}{subsubsection.6.21.1.1}%
+\contentsline {subsection}{\numberline {6.21.2}Variable Documentation}{86}{subsection.6.21.2}%
+\contentsline {subsubsection}{\numberline {6.21.2.1}HEIGHT}{86}{subsubsection.6.21.2.1}%
+\contentsline {subsubsection}{\numberline {6.21.2.2}WIDTH}{86}{subsubsection.6.21.2.2}%
+\contentsline {section}{\numberline {6.22}main.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{86}{section.6.22}%
+\contentsline {section}{\numberline {6.23}src/map.cpp File Reference}{90}{section.6.23}%
+\contentsline {section}{\numberline {6.24}map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{90}{section.6.24}%
+\contentsline {section}{\numberline {6.25}src/map.hpp File Reference}{92}{section.6.25}%
+\contentsline {section}{\numberline {6.26}map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{93}{section.6.26}%
+\contentsline {section}{\numberline {6.27}src/menu.cpp File Reference}{93}{section.6.27}%
+\contentsline {section}{\numberline {6.28}menu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{94}{section.6.28}%
+\contentsline {section}{\numberline {6.29}src/menu.hpp File Reference}{94}{section.6.29}%
+\contentsline {section}{\numberline {6.30}menu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{95}{section.6.30}%
+\contentsline {section}{\numberline {6.31}src/player.cpp File Reference}{95}{section.6.31}%
+\contentsline {section}{\numberline {6.32}player.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{95}{section.6.32}%
+\contentsline {section}{\numberline {6.33}src/player.hpp File Reference}{98}{section.6.33}%
+\contentsline {section}{\numberline {6.34}player.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{98}{section.6.34}%
+\contentsline {section}{\numberline {6.35}src/projectile.cpp File Reference}{99}{section.6.35}%
+\contentsline {section}{\numberline {6.36}projectile.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{99}{section.6.36}%
+\contentsline {section}{\numberline {6.37}src/projectile.hpp File Reference}{100}{section.6.37}%
+\contentsline {section}{\numberline {6.38}projectile.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{100}{section.6.38}%
+\contentsline {section}{\numberline {6.39}src/readme.md File Reference}{101}{section.6.39}%
+\contentsline {section}{\numberline {6.40}src/room.cpp File Reference}{101}{section.6.40}%
+\contentsline {section}{\numberline {6.41}room.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{101}{section.6.41}%
+\contentsline {section}{\numberline {6.42}src/room.hpp File Reference}{103}{section.6.42}%
+\contentsline {section}{\numberline {6.43}room.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{103}{section.6.43}%
+\contentsline {section}{\numberline {6.44}src/wall.cpp File Reference}{104}{section.6.44}%
+\contentsline {section}{\numberline {6.45}wall.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{104}{section.6.45}%
+\contentsline {section}{\numberline {6.46}src/wall.hpp File Reference}{104}{section.6.46}%
+\contentsline {section}{\numberline {6.47}wall.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{105}{section.6.47}%
+\contentsline {section}{\numberline {6.48}src/weapon.cpp File Reference}{105}{section.6.48}%
+\contentsline {section}{\numberline {6.49}weapon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{105}{section.6.49}%
+\contentsline {section}{\numberline {6.50}src/weapon.hpp File Reference}{106}{section.6.50}%
+\contentsline {section}{\numberline {6.51}weapon.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{106}{section.6.51}%
+\contentsline {chapter}{Index}{107}{section*.44}%

@@ -1,0 +1,358 @@
+\hypertarget{classMap}{}\doxysection{Map Class Reference}
+\label{classMap}\index{Map@{Map}}
+
+
+{\ttfamily \#include $<$map.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_ab49268ea02be047c4f9f406bafccae53}{Map}} (sf\+::\+Texture $\ast$wall\+\_\+texture, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$enemy\+\_\+animation, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$enemy\+\_\+animation2, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$boss\+\_\+animation, sf\+::\+Texture $\ast$enemy\+\_\+projectile\+\_\+texture)
+\item 
+bool \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}} (sf\+::\+Texture $\ast$wall\+\_\+texture, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$enemy\+\_\+animation, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$enemy\+\_\+animation2, \mbox{\hyperlink{classAnimation}{Animation}} $\ast$boss\+\_\+animation, sf\+::\+Texture $\ast$enemy\+\_\+projectile\+\_\+texture, int x, int y, std\+::vector$<$ int $>$ openings, std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&visited)
+\item 
+void \mbox{\hyperlink{classMap_aa904875fef28ba8333cd985ca5986445}{Display}} (sf\+::\+Render\+Window \&window, \mbox{\hyperlink{classCollider}{Collider}} player\+Collider)
+\item 
+void \mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{Next\+Room}} (int direction)
+\item 
+void \mbox{\hyperlink{classMap_a52d93704f425542b92d8ea65f3012e55}{Spawn\+Item}} (unsigned int \&i, sf\+::\+Texture $\ast$hp\+\_\+text, sf\+::\+Texture $\ast$speed\+\_\+text, sf\+::\+Texture $\ast$coin\+\_\+text)
+\item 
+void \mbox{\hyperlink{classMap_ad8383a9b8c1542e4422d52018a169b28}{remove\+Item}} (std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$\+::iterator i)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classRoom}{Room}} $>$ \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classEnemy}{Enemy}} $\ast$ $>$ \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}
+\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classRoom}{Room}} $>$ $>$ \mbox{\hyperlink{classMap_a9c5548a6f875f16e7faac5e45698321e}{layout}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classMap_a9980101117ce723ed3cdc911f3321b29}{map\+Size}} = sf\+::\+Vector2f(6.\+0f, 6.\+0f)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the map 
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMap_ab49268ea02be047c4f9f406bafccae53}\label{classMap_ab49268ea02be047c4f9f406bafccae53}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{wall\+\_\+texture,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{enemy\+\_\+animation,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{enemy\+\_\+animation2,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{boss\+\_\+animation,  }\item[{sf\+::\+Texture $\ast$}]{enemy\+\_\+projectile\+\_\+texture }\end{DoxyParamCaption})}
+
+Constructor for map 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020                                               \{}
+\DoxyCodeLine{00021   std::vector<std::pair<int, int>> visited;}
+\DoxyCodeLine{00022   visited.push\_back(\{100, 100\});}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{int} depth = 0;}
+\DoxyCodeLine{00024   \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(wall\_texture, enemy\_animation, enemy\_animation2, boss\_animation,}
+\DoxyCodeLine{00025            enemy\_projectile\_texture, 0, 0, \{0, 1, 1, 0, 4\}, visited);}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027   \textcolor{keywordtype}{int} highest\_depth = 0;}
+\DoxyCodeLine{00028   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} highest\_depth\_index = 0;}
+\DoxyCodeLine{00029   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}.size(); i++) \{}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}[i].depth\_ > highest\_depth) \{}
+\DoxyCodeLine{00031       highest\_depth = \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}[i].depth\_;}
+\DoxyCodeLine{00032       highest\_depth\_index = i;}
+\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00034   \}}
+\DoxyCodeLine{00035   sf::Vector2f boss\_spawn\_pos(\mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}[highest\_depth\_index].xBound1,}
+\DoxyCodeLine{00036                               \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}[highest\_depth\_index].yBound1);}
+\DoxyCodeLine{00037   sf::Vector2f enemy\_spawn\_pos;}
+\DoxyCodeLine{00038   enemy\_spawn\_pos.x = boss\_spawn\_pos.x + 50 + (rand() \% 350);}
+\DoxyCodeLine{00039   enemy\_spawn\_pos.y = boss\_spawn\_pos.y + 50 + (rand() \% 350);}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041   \mbox{\hyperlink{classFinalBoss}{FinalBoss}} *new\_enemy = \textcolor{keyword}{new} \mbox{\hyperlink{classFinalBoss}{FinalBoss}}(boss\_animation, enemy\_spawn\_pos, 75,}
+\DoxyCodeLine{00042                                        enemy\_projectile\_texture);}
+\DoxyCodeLine{00043   \textcolor{comment}{// std::unique\_ptr<Enemy> new\_enemy(new FinalBoss(boss\_animation,}}
+\DoxyCodeLine{00044   \textcolor{comment}{// enemy\_spawn\_pos, 75));}}
+\DoxyCodeLine{00045   \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}.push\_back(new\_enemy);}
+\DoxyCodeLine{00046 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_aa904875fef28ba8333cd985ca5986445}\label{classMap_aa904875fef28ba8333cd985ca5986445}} 
+\index{Map@{Map}!Display@{Display}}
+\index{Display@{Display}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily void Map\+::\+Display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{\mbox{\hyperlink{classCollider}{Collider}}}]{player\+Collider }\end{DoxyParamCaption})}
+
+Used for rendering the map 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00163}{163}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163                                                                  \{}
+\DoxyCodeLine{00164   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} r : \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}) \{}
+\DoxyCodeLine{00165     r.Display(window, playerCollider, \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}});}
+\DoxyCodeLine{00166   \}}
+\DoxyCodeLine{00167   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i : \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}) \{}
+\DoxyCodeLine{00168     i.Draw(window);}
+\DoxyCodeLine{00169   \}}
+\DoxyCodeLine{00170 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMap_a728349df8b6800ea77aa621e1b2c8820}\label{classMap_a728349df8b6800ea77aa621e1b2c8820}} 
+\index{Map@{Map}!Generate@{Generate}}
+\index{Generate@{Generate}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily bool Map\+::\+Generate (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{wall\+\_\+texture,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{enemy\+\_\+animation,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{enemy\+\_\+animation2,  }\item[{\mbox{\hyperlink{classAnimation}{Animation}} $\ast$}]{boss\+\_\+animation,  }\item[{sf\+::\+Texture $\ast$}]{enemy\+\_\+projectile\+\_\+texture,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{std\+::vector$<$ int $>$}]{openings,  }\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{visited }\end{DoxyParamCaption})}
+
+Generates random dungeon and spawns random amount of enemies to each /$\ast$room. 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052                                                           \{}
+\DoxyCodeLine{00053   \textcolor{keyword}{static} \textcolor{keywordtype}{int} calls = 0;}
+\DoxyCodeLine{00054   calls++;}
+\DoxyCodeLine{00055   \textcolor{keywordtype}{bool} vi = \textcolor{keyword}{false};}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} m : visited) \{}
+\DoxyCodeLine{00057     \textcolor{keywordflow}{if} (x == m.first \&\& y == m.second) \{}
+\DoxyCodeLine{00058       vi = \textcolor{keyword}{true};}
+\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060   \}}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062   \textcolor{keywordflow}{if} (x < \mbox{\hyperlink{classMap_a9980101117ce723ed3cdc911f3321b29}{mapSize}}.x \&\& y < mapSize.y \&\& x >= 0 \&\& y >= 0 \&\&}
+\DoxyCodeLine{00063       std::accumulate(openings.begin(), openings.end() -\/ 1, 0) > 1 \&\&}
+\DoxyCodeLine{00064       vi == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00065     visited.push\_back(\{x, y\});}
+\DoxyCodeLine{00066     std::vector<int> new\_openings;}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < openings.size() -\/ 1; i++) \{}
+\DoxyCodeLine{00068       \textcolor{keywordflow}{if} (openings[i] == 1 \&\& openings[4] != \textcolor{keywordtype}{int}(i)) \{}
+\DoxyCodeLine{00069         new\_openings.clear();}
+\DoxyCodeLine{00070         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} j = 0; j < 4; j++) \{}
+\DoxyCodeLine{00071           new\_openings.push\_back(rand() \% 2);}
+\DoxyCodeLine{00072         \}}
+\DoxyCodeLine{00073         \textcolor{keywordflow}{if} (i < 2) \{}
+\DoxyCodeLine{00074           new\_openings[i + 2] = 1;}
+\DoxyCodeLine{00075           new\_openings.push\_back(i + 2);}
+\DoxyCodeLine{00076         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00077           new\_openings[i -\/ 2] = 1;}
+\DoxyCodeLine{00078           new\_openings.push\_back(i -\/ 2);}
+\DoxyCodeLine{00079         \}}
+\DoxyCodeLine{00080         \textcolor{keywordflow}{if} (i == 0) \{}
+\DoxyCodeLine{00081           \textcolor{keywordtype}{bool} success = \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(}
+\DoxyCodeLine{00082               wall\_texture, enemy\_animation, enemy\_animation2, boss\_animation,}
+\DoxyCodeLine{00083               enemy\_projectile\_texture, x, y -\/ 1, new\_openings, visited);}
+\DoxyCodeLine{00084           \textcolor{keywordflow}{if} (success == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00085             openings[0] = 0;}
+\DoxyCodeLine{00086           \}}
+\DoxyCodeLine{00087         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i == 1) \{}
+\DoxyCodeLine{00088           \textcolor{keywordtype}{bool} success = \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(}
+\DoxyCodeLine{00089               wall\_texture, enemy\_animation, enemy\_animation2, boss\_animation,}
+\DoxyCodeLine{00090               enemy\_projectile\_texture, x + 1, y, new\_openings, visited);}
+\DoxyCodeLine{00091           \textcolor{keywordflow}{if} (success == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00092             openings[1] = 0;}
+\DoxyCodeLine{00093           \}}
+\DoxyCodeLine{00094         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i == 2) \{}
+\DoxyCodeLine{00095           \textcolor{keywordtype}{bool} success = \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(}
+\DoxyCodeLine{00096               wall\_texture, enemy\_animation, enemy\_animation2, boss\_animation,}
+\DoxyCodeLine{00097               enemy\_projectile\_texture, x, y + 1, new\_openings, visited);}
+\DoxyCodeLine{00098           \textcolor{keywordflow}{if} (success == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00099             openings[2] = 0;}
+\DoxyCodeLine{00100           \}}
+\DoxyCodeLine{00101         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00102           \textcolor{keywordtype}{bool} success = \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(}
+\DoxyCodeLine{00103               wall\_texture, enemy\_animation, enemy\_animation2, boss\_animation,}
+\DoxyCodeLine{00104               enemy\_projectile\_texture, x -\/ 1, y, new\_openings, visited);}
+\DoxyCodeLine{00105           \textcolor{keywordflow}{if} (success == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00106             openings[3] = 0;}
+\DoxyCodeLine{00107           \}}
+\DoxyCodeLine{00108         \}}
+\DoxyCodeLine{00109       \}}
+\DoxyCodeLine{00110     \}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112     \textcolor{comment}{/*}}
+\DoxyCodeLine{00113 \textcolor{comment}{    The enemies are added inside the map and they are going to be located with}}
+\DoxyCodeLine{00114 \textcolor{comment}{    respect to the room spawn positions. That means that every room is going to}}
+\DoxyCodeLine{00115 \textcolor{comment}{    have a random amount of enemies located at random coordinates in the room,}}
+\DoxyCodeLine{00116 \textcolor{comment}{    but the enemy location is not limited to the rooms, because enemies are}}
+\DoxyCodeLine{00117 \textcolor{comment}{    located in the map, not in the rooms.}}
+\DoxyCodeLine{00118 \textcolor{comment}{    */}}
+\DoxyCodeLine{00119     sf::Vector2f room\_spawn\_pos =}
+\DoxyCodeLine{00120         sf::Vector2f(25.0f + 50 * 10 * x, 25.0f + 50 * 10 * y);}
+\DoxyCodeLine{00121     \textcolor{comment}{// int random\_enemy\_amount = std::abs(rand() \% 5);}}
+\DoxyCodeLine{00122     \textcolor{comment}{// int random\_enemy\_amount = rand() \% 5;}}
+\DoxyCodeLine{00123     \textcolor{comment}{// int random\_enemy\_amount2 = rand() \% 3;}}
+\DoxyCodeLine{00124     \textcolor{keywordtype}{int} random\_enemy\_amount = rand() \% 4;}
+\DoxyCodeLine{00125     \textcolor{keywordtype}{int} random\_enemy\_amount2 = rand() \% 2;}
+\DoxyCodeLine{00126     \textcolor{comment}{// int random\_enemy\_amount2 = 0;}}
+\DoxyCodeLine{00127     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < random\_enemy\_amount; i++) \{}
+\DoxyCodeLine{00128       sf::Vector2f enemy\_spawn\_pos;}
+\DoxyCodeLine{00129       enemy\_spawn\_pos.x = room\_spawn\_pos.x + 50 + (rand() \% 350);}
+\DoxyCodeLine{00130       enemy\_spawn\_pos.y = room\_spawn\_pos.y + 50 + (rand() \% 350);}
+\DoxyCodeLine{00131       \textcolor{comment}{// std::unique\_ptr<Enemy> new\_enemy =}}
+\DoxyCodeLine{00132       \textcolor{comment}{// std::make\_unique<ChasingEnemy>(enemy\_animation, enemy\_spawn\_pos, 100);}}
+\DoxyCodeLine{00133       \textcolor{comment}{// ChasingEnemy new\_enemy(enemy\_animation, enemy\_spawn\_pos, 100);}}
+\DoxyCodeLine{00134       \mbox{\hyperlink{classChasingEnemy}{ChasingEnemy}} *new\_enemy =}
+\DoxyCodeLine{00135           \textcolor{keyword}{new} \mbox{\hyperlink{classChasingEnemy}{ChasingEnemy}}(enemy\_animation, enemy\_spawn\_pos, 100);}
+\DoxyCodeLine{00136       \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}.push\_back(new\_enemy);}
+\DoxyCodeLine{00137     \}}
+\DoxyCodeLine{00138     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < random\_enemy\_amount2; i++) \{}
+\DoxyCodeLine{00139       sf::Vector2f enemy\_spawn\_pos;}
+\DoxyCodeLine{00140       enemy\_spawn\_pos.x = room\_spawn\_pos.x + 50 + (rand() \% 350);}
+\DoxyCodeLine{00141       enemy\_spawn\_pos.y = room\_spawn\_pos.y + 50 + (rand() \% 350);}
+\DoxyCodeLine{00142       \textcolor{comment}{// std::unique\_ptr<Enemy> new\_enemy =}}
+\DoxyCodeLine{00143       \textcolor{comment}{// std::make\_unique<ChasingEnemy>(enemy\_animation, enemy\_spawn\_pos, 75);}}
+\DoxyCodeLine{00144       \textcolor{comment}{// std::unique\_ptr<Enemy> new\_enemy(new RangedEnemy(enemy\_animation2,}}
+\DoxyCodeLine{00145       \textcolor{comment}{// enemy\_spawn\_pos, 75, enemy\_projectile\_texture)); RangedEnemy}}
+\DoxyCodeLine{00146       \textcolor{comment}{// new\_enemy(enemy\_animation2, enemy\_spawn\_pos, 75);}}
+\DoxyCodeLine{00147       \mbox{\hyperlink{classRangedEnemy}{RangedEnemy}} *new\_enemy = \textcolor{keyword}{new} \mbox{\hyperlink{classRangedEnemy}{RangedEnemy}}(}
+\DoxyCodeLine{00148           enemy\_animation2, enemy\_spawn\_pos, 75, enemy\_projectile\_texture);}
+\DoxyCodeLine{00149       \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}.push\_back(new\_enemy);}
+\DoxyCodeLine{00150     \}}
+\DoxyCodeLine{00151 }
+\DoxyCodeLine{00152     \mbox{\hyperlink{classRoom}{Room}} room(wall\_texture,}
+\DoxyCodeLine{00153               sf::Vector2f(25.0f + 50 * 10 * x, 25.0f + 50 * 10 * y), openings,}
+\DoxyCodeLine{00154               calls);}
+\DoxyCodeLine{00155     \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}.push\_back(room);}
+\DoxyCodeLine{00156     calls-\/-\/;}
+\DoxyCodeLine{00157     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00158   \}}
+\DoxyCodeLine{00159   calls-\/-\/;}
+\DoxyCodeLine{00160   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00161 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMap_afba3624fbd2d0ecea30ff62511cb5026}\label{classMap_afba3624fbd2d0ecea30ff62511cb5026}} 
+\index{Map@{Map}!NextRoom@{NextRoom}}
+\index{NextRoom@{NextRoom}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{NextRoom()}{NextRoom()}}
+{\footnotesize\ttfamily void Map\+::\+Next\+Room (\begin{DoxyParamCaption}\item[{int}]{direction }\end{DoxyParamCaption})}
+
+Used for whern player traverses between rooms. 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172                                 \{}
+\DoxyCodeLine{00173   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}.size(); i++) \{}
+\DoxyCodeLine{00174     \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}}[i].MoveRoom(direction, \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}});}
+\DoxyCodeLine{00175   \}}
+\DoxyCodeLine{00176   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}.size(); i++) \{}
+\DoxyCodeLine{00177     \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}[i]-\/>MoveRoom(direction);}
+\DoxyCodeLine{00178   \}}
+\DoxyCodeLine{00179 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMap_ad8383a9b8c1542e4422d52018a169b28}\label{classMap_ad8383a9b8c1542e4422d52018a169b28}} 
+\index{Map@{Map}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily void Map\+::remove\+Item (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$\+::iterator}]{i }\end{DoxyParamCaption})}
+
+Used for picking up items 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00197}{197}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00197 \{ \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.erase(i); \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMap_a52d93704f425542b92d8ea65f3012e55}\label{classMap_a52d93704f425542b92d8ea65f3012e55}} 
+\index{Map@{Map}!SpawnItem@{SpawnItem}}
+\index{SpawnItem@{SpawnItem}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{SpawnItem()}{SpawnItem()}}
+{\footnotesize\ttfamily void Map\+::\+Spawn\+Item (\begin{DoxyParamCaption}\item[{unsigned int \&}]{i,  }\item[{sf\+::\+Texture $\ast$}]{hp\+\_\+text,  }\item[{sf\+::\+Texture $\ast$}]{speed\+\_\+text,  }\item[{sf\+::\+Texture $\ast$}]{coin\+\_\+text }\end{DoxyParamCaption})}
+
+Used for spawning random item 
+
+Definition at line \mbox{\hyperlink{map_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{map_8cpp_source}{map.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00182                                                                  \{}
+\DoxyCodeLine{00183   sf::Vector2f pos = \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}[i]-\/>getPosition();}
+\DoxyCodeLine{00184   \textcolor{keywordtype}{int} item\_index = rand() \% 3;}
+\DoxyCodeLine{00185   \textcolor{keywordflow}{if} (item\_index == 0) \{}
+\DoxyCodeLine{00186     \mbox{\hyperlink{classItem}{Item}} drop(hp\_text, pos, \textcolor{stringliteral}{"hp\_pot"});}
+\DoxyCodeLine{00187     \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.push\_back(drop);}
+\DoxyCodeLine{00188   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (item\_index == 1) \{}
+\DoxyCodeLine{00189     \mbox{\hyperlink{classItem}{Item}} drop(speed\_text, pos, \textcolor{stringliteral}{"speed\_pot"});}
+\DoxyCodeLine{00190     \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.push\_back(drop);}
+\DoxyCodeLine{00191   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00192     \mbox{\hyperlink{classItem}{Item}} drop(coin\_text, pos, \textcolor{stringliteral}{"coin"});}
+\DoxyCodeLine{00193     \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.push\_back(drop);}
+\DoxyCodeLine{00194   \}}
+\DoxyCodeLine{00195 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMap_a35b2f7c7b789e84d47b1ec61632577c8}\label{classMap_a35b2f7c7b789e84d47b1ec61632577c8}} 
+\index{Map@{Map}!enemies@{enemies}}
+\index{enemies@{enemies}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{enemies}{enemies}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classEnemy}{Enemy}}$\ast$$>$ Map\+::enemies}
+
+
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+\mbox{\Hypertarget{classMap_a1c630654c6f91098c33122ae54c5e75f}\label{classMap_a1c630654c6f91098c33122ae54c5e75f}} 
+\index{Map@{Map}!items@{items}}
+\index{items@{items}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classItem}{Item}}$>$ Map\+::items}
+
+
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+\mbox{\Hypertarget{classMap_a9c5548a6f875f16e7faac5e45698321e}\label{classMap_a9c5548a6f875f16e7faac5e45698321e}} 
+\index{Map@{Map}!layout@{layout}}
+\index{layout@{layout}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{layout}{layout}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{classRoom}{Room}}$>$ $>$ Map\+::layout}
+
+
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+\mbox{\Hypertarget{classMap_a9980101117ce723ed3cdc911f3321b29}\label{classMap_a9980101117ce723ed3cdc911f3321b29}} 
+\index{Map@{Map}!mapSize@{mapSize}}
+\index{mapSize@{mapSize}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{mapSize}{mapSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Map\+::map\+Size = sf\+::\+Vector2f(6.\+0f, 6.\+0f)}
+
+
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+\mbox{\Hypertarget{classMap_a48446381b6817541d0a808d9aadd4835}\label{classMap_a48446381b6817541d0a808d9aadd4835}} 
+\index{Map@{Map}!rooms@{rooms}}
+\index{rooms@{rooms}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{rooms}{rooms}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classRoom}{Room}}$>$ Map\+::rooms}
+
+
+
+Definition at line \mbox{\hyperlink{map_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{map_8hpp_source}{map.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{map_8hpp}{map.\+hpp}}\item 
+src/\mbox{\hyperlink{map_8cpp}{map.\+cpp}}\end{DoxyCompactItemize}

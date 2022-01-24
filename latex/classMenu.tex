@@ -1,0 +1,186 @@
+\hypertarget{classMenu}{}\doxysection{Menu Class Reference}
+\label{classMenu}\index{Menu@{Menu}}
+
+
+{\ttfamily \#include $<$menu.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMenu_aa5d2b4a675834fb58b16dbd1d3c9ac68}{Menu}} (sf\+::\+Font font, sf\+::\+Texture $\ast$menubackground)
+\item 
+\mbox{\hyperlink{classMenu_a831387f51358cfb88cd018e1777bc980}{$\sim$\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classMenu_ad5243b991239a2caf6a7190cb4afe888}{Display}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}{Update}} (sf\+::\+Render\+Window \&window)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\+\_\+}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Text $>$ \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\+\_\+}}
+\item 
+bool \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for main menu 
+
+Definition at line \mbox{\hyperlink{menu_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{menu_8hpp_source}{menu.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMenu_aa5d2b4a675834fb58b16dbd1d3c9ac68}\label{classMenu_aa5d2b4a675834fb58b16dbd1d3c9ac68}} 
+\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{sf\+::\+Font}]{font,  }\item[{sf\+::\+Texture $\ast$}]{menubackground }\end{DoxyParamCaption})}
+
+Constructor for menu 
+
+Definition at line \mbox{\hyperlink{menu_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012     : \mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\_}}(font), \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}}(\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setSize(sf::Vector2f(500, 650));}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setPosition(sf::Vector2f(0, 0));}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setTexture(menubackground);}
+\DoxyCodeLine{00016   sf::Text StartText;}
+\DoxyCodeLine{00017   StartText.setString(\textcolor{stringliteral}{"Start New Game"});}
+\DoxyCodeLine{00018   StartText.setCharacterSize(36);}
+\DoxyCodeLine{00019   StartText.setPosition(50, 300);}
+\DoxyCodeLine{00020   StartText.setFillColor(sf::Color::Yellow);}
+\DoxyCodeLine{00021   StartText.setFont(\mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\_}});}
+\DoxyCodeLine{00022   \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.push\_back(StartText);}
+\DoxyCodeLine{00023   sf::Text QuitText;}
+\DoxyCodeLine{00024   QuitText.setString(\textcolor{stringliteral}{"Quit Game"});}
+\DoxyCodeLine{00025   QuitText.setCharacterSize(36);}
+\DoxyCodeLine{00026   QuitText.setPosition(50, 350);}
+\DoxyCodeLine{00027   QuitText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{00028   QuitText.setFont(\mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\_}});}
+\DoxyCodeLine{00029   \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.push\_back(QuitText);}
+\DoxyCodeLine{00030 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMenu_a831387f51358cfb88cd018e1777bc980}\label{classMenu_a831387f51358cfb88cd018e1777bc980}} 
+\index{Menu@{Menu}!````~Menu@{$\sim$Menu}}
+\index{````~Menu@{$\sim$Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{$\sim$Menu()}{~Menu()}}
+{\footnotesize\ttfamily Menu\+::$\sim$\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{menu_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenu_ad5243b991239a2caf6a7190cb4afe888}\label{classMenu_ad5243b991239a2caf6a7190cb4afe888}} 
+\index{Menu@{Menu}!Display@{Display}}
+\index{Display@{Display}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily void Menu\+::\+Display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Renders the main menu 
+
+Definition at line \mbox{\hyperlink{menu_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031                                          \{}
+\DoxyCodeLine{00032   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}}) \{}
+\DoxyCodeLine{00033     this-\/>\mbox{\hyperlink{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}{Update}}(window);}
+\DoxyCodeLine{00034     window.draw(\mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}});}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.size(); i++) \{}
+\DoxyCodeLine{00036       window.draw(\mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}[i]);}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038   \}}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}\label{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}} 
+\index{Menu@{Menu}!Update@{Update}}
+\index{Update@{Update}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Menu\+::\+Update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Polls for actions in main menu 
+
+Definition at line \mbox{\hyperlink{menu_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{menu_8cpp_source}{menu.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042                                             \{}
+\DoxyCodeLine{00043   \textcolor{keywordflow}{if} (sf::Mouse::isButtonPressed(sf::Mouse::Left) and \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}}) \{}
+\DoxyCodeLine{00044     sf::Vector2i pos = sf::Mouse::getPosition(relativeTo);}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{if} (pos.y > 30 \&\& pos.y < (300 + 36)) \{}
+\DoxyCodeLine{00046       \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (pos.y > (350) \&\& pos.y < (350 + 36)) \{}
+\DoxyCodeLine{00049       relativeTo.close();}
+\DoxyCodeLine{00050     \}}
+\DoxyCodeLine{00051   \}}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}\label{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}} 
+\index{Menu@{Menu}!active\_@{active\_}}
+\index{active\_@{active\_}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{active\_}{active\_}}
+{\footnotesize\ttfamily bool Menu\+::active\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{menu_8hpp_source}{menu.\+hpp}}.
+
+\mbox{\Hypertarget{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}\label{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}} 
+\index{Menu@{Menu}!background\_@{background\_}}
+\index{background\_@{background\_}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{background\_}{background\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Menu\+::background\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{menu_8hpp_source}{menu.\+hpp}}.
+
+\mbox{\Hypertarget{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}\label{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}} 
+\index{Menu@{Menu}!font\_@{font\_}}
+\index{font\_@{font\_}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{font\_}{font\_}}
+{\footnotesize\ttfamily sf\+::\+Font Menu\+::font\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{menu_8hpp_source}{menu.\+hpp}}.
+
+\mbox{\Hypertarget{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}\label{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}} 
+\index{Menu@{Menu}!texts\_@{texts\_}}
+\index{texts\_@{texts\_}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{texts\_}{texts\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Text$>$ Menu\+::texts\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{menu_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{menu_8hpp_source}{menu.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{menu_8hpp}{menu.\+hpp}}\item 
+src/\mbox{\hyperlink{menu_8cpp}{menu.\+cpp}}\end{DoxyCompactItemize}

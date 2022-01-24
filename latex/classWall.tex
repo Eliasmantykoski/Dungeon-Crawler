@@ -1,0 +1,151 @@
+\hypertarget{classWall}{}\doxysection{Wall Class Reference}
+\label{classWall}\index{Wall@{Wall}}
+
+
+{\ttfamily \#include $<$wall.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}{Wall}} (sf\+::\+Texture $\ast$texture, sf\+::\+Vector2f size, sf\+::\+Vector2f position, int type)
+\item 
+void \mbox{\hyperlink{classWall_a766c0c563fcea21b5f5c9a87a4e66611}{Draw}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}{Move2}} (sf\+::\+Vector2f dir)
+\item 
+bool \mbox{\hyperlink{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}{check\+Collision}} (sf\+::\+Rectangle\+Shape other\+\_\+body)
+\item 
+\mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classWall_abddc051f573b445294f4b04e016dec4e}{get\+Collider}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}
+\item 
+int \mbox{\hyperlink{classWall_aa051fcaf918d3c19c0e18232b4802718}{type\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for walls 
+
+Definition at line \mbox{\hyperlink{wall_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{wall_8hpp_source}{wall.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}\label{classWall_a6e762fe4a063d1c8f21ab0f6ad384c49}} 
+\index{Wall@{Wall}!Wall@{Wall}}
+\index{Wall@{Wall}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{Wall()}{Wall()}}
+{\footnotesize\ttfamily Wall\+::\+Wall (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{sf\+::\+Vector2f}]{size,  }\item[{sf\+::\+Vector2f}]{position,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+Constructor 
+
+Definition at line \mbox{\hyperlink{wall_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{wall_8cpp_source}{wall.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00006                      \{}
+\DoxyCodeLine{00007   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setSize(size);}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setPosition(position);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setTexture(texture);}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.setOrigin(size / 2.0f);}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classWall_aa051fcaf918d3c19c0e18232b4802718}{type\_}} = type;}
+\DoxyCodeLine{00012 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}\label{classWall_a7a1488c5b04c32d43b3eb2fad9275c2d}} 
+\index{Wall@{Wall}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily bool Wall\+::check\+Collision (\begin{DoxyParamCaption}\item[{sf\+::\+Rectangle\+Shape}]{other\+\_\+body }\end{DoxyParamCaption})}
+
+Checks for collisions 
+
+Definition at line \mbox{\hyperlink{wall_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{wall_8cpp_source}{wall.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017                                                      \{}
+\DoxyCodeLine{00018   \textcolor{keywordflow}{return} \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.getGlobalBounds().intersects(other\_body.getGlobalBounds());}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWall_a766c0c563fcea21b5f5c9a87a4e66611}\label{classWall_a766c0c563fcea21b5f5c9a87a4e66611}} 
+\index{Wall@{Wall}!Draw@{Draw}}
+\index{Draw@{Draw}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Wall\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Renders the wall 
+
+Definition at line \mbox{\hyperlink{wall_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{wall_8cpp_source}{wall.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{ window.draw(\mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}); \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWall_abddc051f573b445294f4b04e016dec4e}\label{classWall_abddc051f573b445294f4b04e016dec4e}} 
+\index{Wall@{Wall}!getCollider@{getCollider}}
+\index{getCollider@{getCollider}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{getCollider()}{getCollider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCollider}{Collider}} Wall\+::get\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns collider 
+
+Definition at line \mbox{\hyperlink{wall_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{wall_8hpp_source}{wall.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}\label{classWall_ac02e0c9b9cfbff22bd4f233f12718e57}} 
+\index{Wall@{Wall}!Move2@{Move2}}
+\index{Move2@{Move2}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{Move2()}{Move2()}}
+{\footnotesize\ttfamily void Wall\+::\+Move2 (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{dir }\end{DoxyParamCaption})}
+
+Moves the wall 
+
+Definition at line \mbox{\hyperlink{wall_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{wall_8cpp_source}{wall.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{ \mbox{\hyperlink{classWall_ac4215545d363d2878ca7d89b22050e6d}{body}}.move(dir); \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWall_ac4215545d363d2878ca7d89b22050e6d}\label{classWall_ac4215545d363d2878ca7d89b22050e6d}} 
+\index{Wall@{Wall}!body@{body}}
+\index{body@{body}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Wall\+::body}
+
+
+
+Definition at line \mbox{\hyperlink{wall_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{wall_8hpp_source}{wall.\+hpp}}.
+
+\mbox{\Hypertarget{classWall_aa051fcaf918d3c19c0e18232b4802718}\label{classWall_aa051fcaf918d3c19c0e18232b4802718}} 
+\index{Wall@{Wall}!type\_@{type\_}}
+\index{type\_@{type\_}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{type\_}{type\_}}
+{\footnotesize\ttfamily int Wall\+::type\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{wall_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{wall_8hpp_source}{wall.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{wall_8hpp}{wall.\+hpp}}\item 
+src/\mbox{\hyperlink{wall_8cpp}{wall.\+cpp}}\end{DoxyCompactItemize}

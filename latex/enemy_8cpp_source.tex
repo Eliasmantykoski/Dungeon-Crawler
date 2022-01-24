@@ -1,0 +1,425 @@
+\hypertarget{enemy_8cpp_source}{}\doxysection{enemy.\+cpp}
+\label{enemy_8cpp_source}\index{src/enemy.cpp@{src/enemy.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{enemy_8hpp}{enemy.hpp}}"}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{projectile_8hpp}{projectile.hpp}}"}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <stdlib.h>} \textcolor{comment}{/* srand, rand, RAND\_MAX */}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <time.h>}   \textcolor{comment}{/* time */}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <math.h>}   \textcolor{comment}{/* sqrt, pow */}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00010}\mbox{\hyperlink{classEnemy_a24605b1ab3387e0a6b8a11314451cefc}{00010}} \mbox{\hyperlink{classEnemy_a24605b1ab3387e0a6b8a11314451cefc}{Enemy::Enemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed) }
+\DoxyCodeLine{00011     : speed\_(speed) \{}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setSize(sf::Vector2f(40.0f, 40.0f));}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setOrigin(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setPosition(spawnPos);}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}.push\_back(*enemy\_animation);}
+\DoxyCodeLine{00016   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\&(enemy\_animation-\/>\mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}[0]));}
+\DoxyCodeLine{00017 \};}
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00019}\mbox{\hyperlink{classEnemy_ac0eec4755e28c02688065f9657150ac3}{00019}} \mbox{\hyperlink{classEnemy_ac0eec4755e28c02688065f9657150ac3}{Enemy::\string~Enemy}}() \{\};}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00021}\mbox{\hyperlink{classEnemy_a7b692953befb7b2c061a544ecf5a1e0b}{00021}} sf::Vector2f \mbox{\hyperlink{classEnemy_a7b692953befb7b2c061a544ecf5a1e0b}{Enemy::getPosition}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition(); \};}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00023}\mbox{\hyperlink{classEnemy_acb7a5d073feab4fca880f0375b1e83c2}{00023}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_acb7a5d073feab4fca880f0375b1e83c2}{Enemy::isRanged}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classEnemy_a48f7f805125fc4e9281c04eac9053578}{is\_ranged\_type\_}}; \};}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00025}\mbox{\hyperlink{classEnemy_a4c56b4deb278d2bcbc5a1d8dd30c5c2c}{00025}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_a4c56b4deb278d2bcbc5a1d8dd30c5c2c}{Enemy::Draw}}(sf::RenderWindow\& window) \{ window.draw(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}); \};}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00027}\mbox{\hyperlink{classEnemy_aee36c80f958b8e91041adc975b3872f4}{00027}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_aee36c80f958b8e91041adc975b3872f4}{Enemy::Damage}}(\textcolor{keywordtype}{float} damage) \{}
+\DoxyCodeLine{00028   \mbox{\hyperlink{classEnemy_aa14fd3863fd152d02da86e564190301b}{hp\_}} -\/= damage;}
+\DoxyCodeLine{00029   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classEnemy_aa14fd3863fd152d02da86e564190301b}{hp\_}} <= 0) \{\mbox{\hyperlink{classEnemy_a6fb12aa574f0c986a2344ff9aa53eff7}{alive\_}} = \textcolor{keyword}{false};\} \textcolor{comment}{//std::cout << "The NPC has died!" << std::endl;}}
+\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00032}\mbox{\hyperlink{classEnemy_a28b3499f73798548e034f4129fefced4}{00032}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_a28b3499f73798548e034f4129fefced4}{Enemy::Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles) \{\};}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00034}\mbox{\hyperlink{classEnemy_ab6f125b03da91406b9a9772c46d33912}{00034}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_ab6f125b03da91406b9a9772c46d33912}{Enemy::MoveRoom}}(\textcolor{keywordtype}{int} direction) \{}
+\DoxyCodeLine{00035   sf::Vector2f dir;}
+\DoxyCodeLine{00036   \textcolor{keywordflow}{if} (direction == 0) \{}
+\DoxyCodeLine{00037     dir = sf::Vector2f(0, -\/10 * 50);}
+\DoxyCodeLine{00038   \}}
+\DoxyCodeLine{00039   \textcolor{keywordflow}{if} (direction == 1) \{}
+\DoxyCodeLine{00040     dir = sf::Vector2f(10 * 50, 0);}
+\DoxyCodeLine{00041   \}}
+\DoxyCodeLine{00042   \textcolor{keywordflow}{if} (direction == 2) \{}
+\DoxyCodeLine{00043     dir = sf::Vector2f(0, 10 * 50);}
+\DoxyCodeLine{00044   \}}
+\DoxyCodeLine{00045   \textcolor{keywordflow}{if} (direction == 3) \{}
+\DoxyCodeLine{00046     dir = sf::Vector2f(-\/10 * 50, 0);}
+\DoxyCodeLine{00047   \}}
+\DoxyCodeLine{00048   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(dir);}
+\DoxyCodeLine{00049 \}}
+\DoxyCodeLine{00050 \textcolor{comment}{}}
+\DoxyCodeLine{00051 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00052 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00053 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00054}\mbox{\hyperlink{classChasingEnemy_a6d56bc161f0013648620ae790b680854}{00054}} \mbox{\hyperlink{classChasingEnemy_a6d56bc161f0013648620ae790b680854}{ChasingEnemy::ChasingEnemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed)}
+\DoxyCodeLine{00055  : \mbox{\hyperlink{classEnemy}{Enemy}}(enemy\_animation, spawnPos, speed) \{\};}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00057}\mbox{\hyperlink{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}{00057}} \mbox{\hyperlink{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}{ChasingEnemy::\string~ChasingEnemy}}() \{\};}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00059}\mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{00059}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{ChasingEnemy::Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \{}
+\DoxyCodeLine{00060   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00061   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00062   \textcolor{comment}{//std::cout << "Interval timer: " << actionTimer\_ << "\(\backslash\)n";}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}})\{}
+\DoxyCodeLine{00067     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00068     \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} ? false : \textcolor{keyword}{true}; \textcolor{comment}{//tenary operator}}
+\DoxyCodeLine{00069 }
+\DoxyCodeLine{00070     \textcolor{comment}{/*}}
+\DoxyCodeLine{00071 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00072 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00073 \textcolor{comment}{}}
+\DoxyCodeLine{00074 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00075 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00076 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00077 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00078 \textcolor{comment}{    */}}
+\DoxyCodeLine{00079     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} == \textcolor{keyword}{false})\{}
+\DoxyCodeLine{00082       \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].resetCurrentFrame();}
+\DoxyCodeLine{00083       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00084     \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00085       \mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} = (rand() \% 3) == 1; \textcolor{comment}{//Enemies randomly attack sometimes}}
+\DoxyCodeLine{00086       \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = 0.7;}
+\DoxyCodeLine{00087     \}}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00090     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00091       sf::Vector2f direction\_vector = player\_position -\/ \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition();}
+\DoxyCodeLine{00092       \textcolor{keywordtype}{float} vector\_magnitude = sqrt(pow(direction\_vector.x, 2.0) + pow(direction\_vector.y, 2.0));}
+\DoxyCodeLine{00093       direction\_vector.x = direction\_vector.x / vector\_magnitude;}
+\DoxyCodeLine{00094       direction\_vector.y = direction\_vector.y / vector\_magnitude;}
+\DoxyCodeLine{00095       \textcolor{comment}{//std::cout << direction\_vector.x << " " << direction\_vector.y << " " << vector\_magnitude << "\(\backslash\)n";}}
+\DoxyCodeLine{00096       movement.x *= time * direction\_vector.x * 2.f;}
+\DoxyCodeLine{00097       movement.y *= time * direction\_vector.y * 2.f;}
+\DoxyCodeLine{00098     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00099       \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00100       \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00101       movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00102       movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00103     \}}
+\DoxyCodeLine{00104     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00105   \}}
+\DoxyCodeLine{00106   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}})\{}
+\DoxyCodeLine{00107     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{Update}}(time))\{}
+\DoxyCodeLine{00108       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00109     \}}
+\DoxyCodeLine{00110     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00111     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00112 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00113 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00114 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00115 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00116 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00117 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00118 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00119 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00120 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00121 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00122   \}}
+\DoxyCodeLine{00123 \};}
+\DoxyCodeLine{00124 \textcolor{comment}{}}
+\DoxyCodeLine{00125 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00126 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00127 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00128}\mbox{\hyperlink{classRangedEnemy_a664f410436b5baab26755193c429dfc8}{00128}} \mbox{\hyperlink{classRangedEnemy_a664f410436b5baab26755193c429dfc8}{RangedEnemy::RangedEnemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed,}
+\DoxyCodeLine{00129 sf::Texture* enemy\_projectile\_texture)}
+\DoxyCodeLine{00130  : \mbox{\hyperlink{classEnemy}{Enemy}}(enemy\_animation, spawnPos, speed), enemy\_projectile\_texture\_(enemy\_projectile\_texture)\textcolor{comment}{/*, is\_ranged\_type\_(true)*/} \{}
+\DoxyCodeLine{00131      \mbox{\hyperlink{classEnemy_a48f7f805125fc4e9281c04eac9053578}{is\_ranged\_type\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00132      \textcolor{comment}{//enemy\_projectile\_ = std::make\_unique<Projectile>(enemy\_projectile\_texture);}}
+\DoxyCodeLine{00133  \};}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00135}\mbox{\hyperlink{classRangedEnemy_a279c0a52b816a9e22922fd4ab283df8a}{00135}} \mbox{\hyperlink{classRangedEnemy_a279c0a52b816a9e22922fd4ab283df8a}{RangedEnemy::\string~RangedEnemy}}() \{\};}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00137}\mbox{\hyperlink{classRangedEnemy_a96cb0ed8ed6c3e0a51f8d49d39a31284}{00137}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRangedEnemy_a96cb0ed8ed6c3e0a51f8d49d39a31284}{RangedEnemy::Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \{}
+\DoxyCodeLine{00138   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00139   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00140 }
+\DoxyCodeLine{00141   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00142 }
+\DoxyCodeLine{00143   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}})\{}
+\DoxyCodeLine{00144     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00145     \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} ? false : \textcolor{keyword}{true}; \textcolor{comment}{//tenary operator}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147     \textcolor{comment}{/*}}
+\DoxyCodeLine{00148 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00149 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00150 \textcolor{comment}{}}
+\DoxyCodeLine{00151 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00152 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00153 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00154 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00155 \textcolor{comment}{    */}}
+\DoxyCodeLine{00156     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00157 }
+\DoxyCodeLine{00158     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} == \textcolor{keyword}{false})\{}
+\DoxyCodeLine{00159       \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].resetCurrentFrame();}
+\DoxyCodeLine{00160       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00161     \}}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00164     \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00165     \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00166     movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00167     movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00168     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00169   \}}
+\DoxyCodeLine{00170 }
+\DoxyCodeLine{00171   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}})\{}
+\DoxyCodeLine{00172     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classRangedEnemy_a96cb0ed8ed6c3e0a51f8d49d39a31284}{Update}}(time))\{}
+\DoxyCodeLine{00173       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00174     \}}
+\DoxyCodeLine{00175     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00176     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00177 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00178 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00179 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00180 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00181 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00182 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00183 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00184 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00185 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00186 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00187   \}}
+\DoxyCodeLine{00188 \};}
+\DoxyCodeLine{00189 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00190}\mbox{\hyperlink{classRangedEnemy_a5a55fedf0b3901be36bdadd06b60757a}{00190}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRangedEnemy_a5a55fedf0b3901be36bdadd06b60757a}{RangedEnemy::Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles) \{}
+\DoxyCodeLine{00191   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00192   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00193 }
+\DoxyCodeLine{00194   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00195 }
+\DoxyCodeLine{00196   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}})\{}
+\DoxyCodeLine{00197     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00198     \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} ? false : \textcolor{keyword}{true}; \textcolor{comment}{//tenary operator}}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200     \textcolor{comment}{/*}}
+\DoxyCodeLine{00201 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00202 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00203 \textcolor{comment}{}}
+\DoxyCodeLine{00204 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00205 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00206 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00207 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00208 \textcolor{comment}{    */}}
+\DoxyCodeLine{00209     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00210 }
+\DoxyCodeLine{00211     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} == \textcolor{keyword}{false})\{}
+\DoxyCodeLine{00212       \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].resetCurrentFrame();}
+\DoxyCodeLine{00213       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00214     \}}
+\DoxyCodeLine{00215 }
+\DoxyCodeLine{00216     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00217     \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00218     \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00219     movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00220     movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00221     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00222 }
+\DoxyCodeLine{00223     \textcolor{keywordflow}{if}(rand() \% 2) \{ \textcolor{comment}{//Shoot somewhere: 50\% chance}}
+\DoxyCodeLine{00224       sf::Vector2f shoot\_direction(10, 10);}
+\DoxyCodeLine{00225       \textcolor{keywordflow}{if}(rand() \% 4 == 1) \{ \textcolor{comment}{//Shoot at random direction: 25\% chance}}
+\DoxyCodeLine{00226         random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00227         random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00228         shoot\_direction.x *= random\_float\_x;}
+\DoxyCodeLine{00229         shoot\_direction.y *= random\_float\_y;}
+\DoxyCodeLine{00230       \} \textcolor{keywordflow}{else} \{ \textcolor{comment}{//Shoot at direction of player: 75\% chance}}
+\DoxyCodeLine{00231         sf::Vector2f direction\_vector = player\_position -\/ \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition();}
+\DoxyCodeLine{00232         \textcolor{keywordtype}{float} vector\_magnitude = sqrt(pow(direction\_vector.x, 2.0) + pow(direction\_vector.y, 2.0));}
+\DoxyCodeLine{00233         shoot\_direction.x *= direction\_vector.x / vector\_magnitude;}
+\DoxyCodeLine{00234         shoot\_direction.y *= direction\_vector.y / vector\_magnitude;}
+\DoxyCodeLine{00235       \}}
+\DoxyCodeLine{00236       \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classRangedEnemy_ae2cf51dac578f0c4dadd2deffcddc7c9}{ShootAtDirection}}(shoot\_direction);}
+\DoxyCodeLine{00237       active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00238     \}}
+\DoxyCodeLine{00239   \}}
+\DoxyCodeLine{00240   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}})\{}
+\DoxyCodeLine{00241     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classRangedEnemy_a96cb0ed8ed6c3e0a51f8d49d39a31284}{Update}}(time))\{}
+\DoxyCodeLine{00242       \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00243     \}}
+\DoxyCodeLine{00244     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00245     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00246 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00247 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00248 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00249 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00250 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00251 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00252 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00253 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00254 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00255 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00256   \}}
+\DoxyCodeLine{00257 \};}
+\DoxyCodeLine{00258 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00259}\mbox{\hyperlink{classRangedEnemy_ae2cf51dac578f0c4dadd2deffcddc7c9}{00259}} \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classRangedEnemy_ae2cf51dac578f0c4dadd2deffcddc7c9}{RangedEnemy::ShootAtDirection}}(sf::Vector2f direction) \{}
+\DoxyCodeLine{00260   \textcolor{comment}{//enemy\_projectile\_ = std::make\_unique<Projectile>(enemy\_projectile\_texture);}}
+\DoxyCodeLine{00261   \textcolor{comment}{//Projectile Weapon::Fire(sf::Vector2f fire\_position, sf::Vector2f fire\_trajectory)}}
+\DoxyCodeLine{00262   \mbox{\hyperlink{classProjectile}{Projectile}} proj(this-\/>\mbox{\hyperlink{classRangedEnemy_a3d2e120fe07c2e64c029e8007e8c5c4b}{enemy\_projectile\_texture\_}});}
+\DoxyCodeLine{00263   \textcolor{comment}{//proj.friendly\_[0] = 0;}}
+\DoxyCodeLine{00264   proj.\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00265   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setTexture(proj.\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}});}
+\DoxyCodeLine{00266   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setOrigin(proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00267   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setPosition(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition());}
+\DoxyCodeLine{00268   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setSize(sf::Vector2f(25.0f, 25.0f));}
+\DoxyCodeLine{00269   proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}} = direction\textcolor{comment}{/* * proj.velocity\_multiplier\_*/};}
+\DoxyCodeLine{00270   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.move(proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}});}
+\DoxyCodeLine{00271   \textcolor{keywordflow}{return} proj;}
+\DoxyCodeLine{00272 \};}
+\DoxyCodeLine{00273 \textcolor{comment}{}}
+\DoxyCodeLine{00274 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00275 \textcolor{comment}{///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00276 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00277}\mbox{\hyperlink{classFinalBoss_a39d7a0fdfab7abdbe408b2f07abedf27}{00277}} \mbox{\hyperlink{classFinalBoss_a39d7a0fdfab7abdbe408b2f07abedf27}{FinalBoss::FinalBoss}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos,}
+\DoxyCodeLine{00278                      \textcolor{keywordtype}{float} speed, sf::Texture* enemy\_projectile\_texture)}
+\DoxyCodeLine{00279     : \mbox{\hyperlink{classEnemy}{Enemy}}(enemy\_animation, spawnPos, speed), enemy\_projectile\_texture\_(enemy\_projectile\_texture) \{}
+\DoxyCodeLine{00280 \mbox{\hyperlink{classEnemy_a48f7f805125fc4e9281c04eac9053578}{is\_ranged\_type\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00281 \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00282 \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setSize(sf::Vector2f(100.0f, 100.0f));}
+\DoxyCodeLine{00283 \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setOrigin(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00284 \};}
+\DoxyCodeLine{00285 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00286}\mbox{\hyperlink{classFinalBoss_a467bbf209cdec5f778bbe1fdf4c08675}{00286}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFinalBoss_a467bbf209cdec5f778bbe1fdf4c08675}{FinalBoss::Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \{}
+\DoxyCodeLine{00287   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00288   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00289   \textcolor{comment}{//std::cout << "Interval timer: " << actionTimer\_ << "\(\backslash\)n";}}
+\DoxyCodeLine{00290 }
+\DoxyCodeLine{00291   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00292 }
+\DoxyCodeLine{00293   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}})\{}
+\DoxyCodeLine{00294     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00295 }
+\DoxyCodeLine{00296     \textcolor{comment}{/*}}
+\DoxyCodeLine{00297 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00298 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00299 \textcolor{comment}{}}
+\DoxyCodeLine{00300 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00301 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00302 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00303 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00304 \textcolor{comment}{    */}}
+\DoxyCodeLine{00305     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00306 }
+\DoxyCodeLine{00307     \mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} = (rand() \% 3) == 1; \textcolor{comment}{//Enemies randomly attack sometimes}}
+\DoxyCodeLine{00308     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = 0.7;}
+\DoxyCodeLine{00309 }
+\DoxyCodeLine{00310     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00311     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} == \textcolor{keyword}{true}) \{}
+\DoxyCodeLine{00312       sf::Vector2f direction\_vector = player\_position -\/ \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition();}
+\DoxyCodeLine{00313       \textcolor{keywordtype}{float} vector\_magnitude = sqrt(pow(direction\_vector.x, 2.0) + pow(direction\_vector.y, 2.0));}
+\DoxyCodeLine{00314       direction\_vector.x = direction\_vector.x / vector\_magnitude;}
+\DoxyCodeLine{00315       direction\_vector.y = direction\_vector.y / vector\_magnitude;}
+\DoxyCodeLine{00316       \textcolor{comment}{//std::cout << direction\_vector.x << " " << direction\_vector.y << " " << vector\_magnitude << "\(\backslash\)n";}}
+\DoxyCodeLine{00317       movement.x *= time * direction\_vector.x * 2.f;}
+\DoxyCodeLine{00318       movement.y *= time * direction\_vector.y * 2.f;}
+\DoxyCodeLine{00319     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00320       \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00321       \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00322       movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00323       movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00324     \}}
+\DoxyCodeLine{00325     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00326   \}}
+\DoxyCodeLine{00327   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classFinalBoss_a467bbf209cdec5f778bbe1fdf4c08675}{Update}}(time))\{}
+\DoxyCodeLine{00328     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00329   \}}
+\DoxyCodeLine{00330   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00331     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00332 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00333 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00334 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00335 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00336 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00337 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00338 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00339 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00340 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00341 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00342 \};}
+\DoxyCodeLine{00343 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00344}\mbox{\hyperlink{classFinalBoss_af181f9f8dd39fd3e25a967aa7b3a02e7}{00344}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFinalBoss_af181f9f8dd39fd3e25a967aa7b3a02e7}{FinalBoss::Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles) \{}
+\DoxyCodeLine{00345   \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}} = \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}};}
+\DoxyCodeLine{00346   \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} += time;}
+\DoxyCodeLine{00347 }
+\DoxyCodeLine{00348   \textcolor{comment}{/* Change walk direction to some random direction at random intervals */}}
+\DoxyCodeLine{00349 }
+\DoxyCodeLine{00350   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} >= \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}}) \{}
+\DoxyCodeLine{00351     \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}} = 0.0f;}
+\DoxyCodeLine{00352     \textcolor{comment}{/*}}
+\DoxyCodeLine{00353 \textcolor{comment}{    walkInterval\_ is a float between 0.5 and 2.5,}}
+\DoxyCodeLine{00354 \textcolor{comment}{    this is how it is generated:}}
+\DoxyCodeLine{00355 \textcolor{comment}{}}
+\DoxyCodeLine{00356 \textcolor{comment}{    rand() gives a number between 0 and RAND\_MAX,}}
+\DoxyCodeLine{00357 \textcolor{comment}{    so divide by RAND\_MAX to get a float between 0 and 1,}}
+\DoxyCodeLine{00358 \textcolor{comment}{    or in this case 0 and 2, because it is multiplied by 2,}}
+\DoxyCodeLine{00359 \textcolor{comment}{    and then plus 0.5 of that to get float between 0.5 and 2.5.}}
+\DoxyCodeLine{00360 \textcolor{comment}{    */}}
+\DoxyCodeLine{00361     \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = ((float(rand()) / float(RAND\_MAX)) * 2) + 0.5f;}
+\DoxyCodeLine{00362 }
+\DoxyCodeLine{00363     sf::Vector2f movement(\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}}, \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}});}
+\DoxyCodeLine{00364     \textcolor{keywordtype}{float} random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00365     \textcolor{keywordtype}{float} random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00366     movement.x *= random\_float\_x * time;}
+\DoxyCodeLine{00367     movement.y *= random\_float\_y * time;}
+\DoxyCodeLine{00368     \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}} = movement;}
+\DoxyCodeLine{00369 }
+\DoxyCodeLine{00370     \textcolor{keywordflow}{if}(rand() \% 2) \{}
+\DoxyCodeLine{00371       sf::Vector2f shoot\_direction1(10, 10);}
+\DoxyCodeLine{00372       random\_float\_x = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00373       random\_float\_y = ((float(rand()) / float(RAND\_MAX)) * 2) -\/ 1.0f;}
+\DoxyCodeLine{00374       shoot\_direction1.x *= random\_float\_x;}
+\DoxyCodeLine{00375       shoot\_direction1.y *= random\_float\_y;}
+\DoxyCodeLine{00376       \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile1 = this-\/>\mbox{\hyperlink{classFinalBoss_a2db7530ed6af5088a145b0eb89d2bb5c}{ShootAtDirection}}(shoot\_direction1);}
+\DoxyCodeLine{00377       active\_projectiles.push\_back(new\_projectile1);}
+\DoxyCodeLine{00378     \}}
+\DoxyCodeLine{00379     \textcolor{keywordflow}{if}(rand() \% 2) \{}
+\DoxyCodeLine{00380       sf::Vector2f shoot\_direction2(7, 7);}
+\DoxyCodeLine{00381       sf::Vector2f direction\_vector = player\_position -\/ \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition();}
+\DoxyCodeLine{00382       \textcolor{keywordtype}{float} vector\_magnitude = sqrt(pow(direction\_vector.x, 2.0) + pow(direction\_vector.y, 2.0));}
+\DoxyCodeLine{00383       shoot\_direction2.x *= direction\_vector.x / vector\_magnitude;}
+\DoxyCodeLine{00384       shoot\_direction2.y *= direction\_vector.y / vector\_magnitude;}
+\DoxyCodeLine{00385       \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile2 = this-\/>\mbox{\hyperlink{classFinalBoss_a2db7530ed6af5088a145b0eb89d2bb5c}{ShootAtDirection}}(shoot\_direction2);}
+\DoxyCodeLine{00386       active\_projectiles.push\_back(new\_projectile2);}
+\DoxyCodeLine{00387     \}}
+\DoxyCodeLine{00388   \}}
+\DoxyCodeLine{00389   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].\mbox{\hyperlink{classFinalBoss_a467bbf209cdec5f778bbe1fdf4c08675}{Update}}(time)) \{}
+\DoxyCodeLine{00390     \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.setTexture(\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}}[0].getCurrentFrame());}
+\DoxyCodeLine{00391   \}}
+\DoxyCodeLine{00392   \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.move(\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}});}
+\DoxyCodeLine{00393     \textcolor{comment}{/*Collider col = this-\/>getCollider();}}
+\DoxyCodeLine{00394 \textcolor{comment}{    for (auto room : rooms) \{}}
+\DoxyCodeLine{00395 \textcolor{comment}{      for (auto wall : room.walls) \{}}
+\DoxyCodeLine{00396 \textcolor{comment}{        for (auto w : wall) \{}}
+\DoxyCodeLine{00397 \textcolor{comment}{          if (w.type\_ == 1) \{}}
+\DoxyCodeLine{00398 \textcolor{comment}{            Collider wallCol = w.getCollider();}}
+\DoxyCodeLine{00399 \textcolor{comment}{            wallCol.checkCollider(col, 1);}}
+\DoxyCodeLine{00400 \textcolor{comment}{          \}}}
+\DoxyCodeLine{00401 \textcolor{comment}{        \}}}
+\DoxyCodeLine{00402 \textcolor{comment}{      \}}}
+\DoxyCodeLine{00403 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{00404 \};}
+\DoxyCodeLine{00405 }
+\DoxyCodeLine{\Hypertarget{enemy_8cpp_source_l00406}\mbox{\hyperlink{classFinalBoss_a2db7530ed6af5088a145b0eb89d2bb5c}{00406}} \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classFinalBoss_a2db7530ed6af5088a145b0eb89d2bb5c}{FinalBoss::ShootAtDirection}}(sf::Vector2f direction) \{}
+\DoxyCodeLine{00407   \textcolor{comment}{//enemy\_projectile\_ = std::make\_unique<Projectile>(enemy\_projectile\_texture);}}
+\DoxyCodeLine{00408   \textcolor{comment}{//Projectile Weapon::Fire(sf::Vector2f fire\_position, sf::Vector2f fire\_trajectory)}}
+\DoxyCodeLine{00409   \mbox{\hyperlink{classProjectile}{Projectile}} proj(this-\/>\mbox{\hyperlink{classFinalBoss_a74a766aea3a8e6d5c3fbe9f234f3e22e}{enemy\_projectile\_texture\_}});}
+\DoxyCodeLine{00410   \textcolor{comment}{//proj.friendly\_[0] = 0;}}
+\DoxyCodeLine{00411   proj.\mbox{\hyperlink{classProjectile_a8434261e5dd1345bb8ae31c11325040a}{active\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00412   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setTexture(proj.\mbox{\hyperlink{classProjectile_a4fbd2db85cf89d8a16025ba7b946a5fe}{projectile\_texture\_}});}
+\DoxyCodeLine{00413   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setOrigin(proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00414   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setPosition(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}}.getPosition());}
+\DoxyCodeLine{00415   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.setSize(sf::Vector2f(25.0f, 25.0f));}
+\DoxyCodeLine{00416   proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}} = direction\textcolor{comment}{/* * proj.velocity\_multiplier\_*/};}
+\DoxyCodeLine{00417   proj.\mbox{\hyperlink{classProjectile_a10e8cf9d2d301e1afdaca25b48f05a74}{body\_}}.move(proj.\mbox{\hyperlink{classProjectile_ad61d0ba206d10b1d15e60dcf1e0a08ed}{projectile\_trajectory\_}});}
+\DoxyCodeLine{00418   \textcolor{keywordflow}{return} proj;}
+\DoxyCodeLine{00419 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,297 @@
+\hypertarget{classHUD}{}\doxysection{H\+UD Class Reference}
+\label{classHUD}\index{HUD@{HUD}}
+
+
+{\ttfamily \#include $<$H\+U\+D.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHUD_a4a8d844627be81ce4b532af5eb03a735}{H\+UD}} (sf\+::\+Font font, std\+::vector$<$ sf\+::\+Texture $\ast$ $>$ hp, sf\+::\+Texture $\ast$background, sf\+::\+Texture $\ast$inventory, std\+::vector$<$ sf\+::\+Texture $\ast$ $>$ item\+\_\+textures)
+\item 
+\mbox{\hyperlink{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}{$\sim$\+H\+UD}} ()
+\item 
+void \mbox{\hyperlink{classHUD_aba4614524414cf22c6a4c3e880c35bc0}{Display}} (sf\+::\+Render\+Window \&window)
+\item 
+void \mbox{\hyperlink{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}{Update}} (std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \&, float)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Rectangle\+Shape $>$ \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\+\_\+bar\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Rectangle\+Shape $>$ \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\+\_\+bar\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Rectangle\+Shape $>$ \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\+\_\+items\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Text $>$ \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\+\_\+}}
+\item 
+sf\+::\+Font \mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{font\+\_\+}}
+\item 
+std\+::vector$<$ sf\+::\+Texture $\ast$ $>$ \mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\+\_\+textures\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHUD_a4a8d844627be81ce4b532af5eb03a735}\label{classHUD_a4a8d844627be81ce4b532af5eb03a735}} 
+\index{HUD@{HUD}!HUD@{HUD}}
+\index{HUD@{HUD}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{HUD()}{HUD()}}
+{\footnotesize\ttfamily H\+U\+D\+::\+H\+UD (\begin{DoxyParamCaption}\item[{sf\+::\+Font}]{font,  }\item[{std\+::vector$<$ sf\+::\+Texture $\ast$ $>$}]{hp,  }\item[{sf\+::\+Texture $\ast$}]{background,  }\item[{sf\+::\+Texture $\ast$}]{inventory,  }\item[{std\+::vector$<$ sf\+::\+Texture $\ast$ $>$}]{item\+\_\+textures }\end{DoxyParamCaption})}
+
+Constructs \mbox{\hyperlink{classHUD}{H\+UD}} 
+
+Definition at line \mbox{\hyperlink{HUD_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{HUD_8cpp_source}{H\+U\+D.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009     : \mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{font\_}}(font), \mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}(hp\_textures) \{}
+\DoxyCodeLine{00010   \textcolor{comment}{// Window size 500x500 assumed}}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setSize(sf::Vector2f(500.0f, 150.0f));}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setPosition(sf::Vector2f(0.0f, 500.0f));}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setTexture(background);}
+\DoxyCodeLine{00014   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
+\DoxyCodeLine{00015     sf::RectangleShape heart;}
+\DoxyCodeLine{00016     heart.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00017     heart.setPosition(sf::Vector2f((i + 1) * 50.0f, 520.0f));}
+\DoxyCodeLine{00018     heart.setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00019     \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.push\_back(heart);}
+\DoxyCodeLine{00020   \}}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
+\DoxyCodeLine{00022     sf::Text text;}
+\DoxyCodeLine{00023     text.setString(\textcolor{stringliteral}{"0"});}
+\DoxyCodeLine{00024     text.setCharacterSize(24);}
+\DoxyCodeLine{00025     text.setPosition(sf::Vector2f((i + 5) * 50.0f, 570.0f));}
+\DoxyCodeLine{00026     \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}.push\_back(text);}
+\DoxyCodeLine{00027   \}}
+\DoxyCodeLine{00028   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 4; i < 7; i++) \{}
+\DoxyCodeLine{00029     sf::RectangleShape inv\_slot;}
+\DoxyCodeLine{00030     inv\_slot.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00031     inv\_slot.setPosition(sf::Vector2f((i + 1) * 50.0f, 520.0f));}
+\DoxyCodeLine{00032     inv\_slot.setTexture(inventory\_texture);}
+\DoxyCodeLine{00033     \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}.push\_back(inv\_slot);}
+\DoxyCodeLine{00034   \}}
+\DoxyCodeLine{00035   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < item\_textures.size(); i++) \{}
+\DoxyCodeLine{00036     sf::RectangleShape item\_image;}
+\DoxyCodeLine{00037     item\_image.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00038     item\_image.setPosition(sf::Vector2f((i + 5) * 50.0f, 520.0f));}
+\DoxyCodeLine{00039     item\_image.setTexture(item\_textures[i]);}
+\DoxyCodeLine{00040     \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.push\_back(item\_image);}
+\DoxyCodeLine{00041   \}}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}\label{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}} 
+\index{HUD@{HUD}!````~HUD@{$\sim$HUD}}
+\index{````~HUD@{$\sim$HUD}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{$\sim$HUD()}{~HUD()}}
+{\footnotesize\ttfamily H\+U\+D\+::$\sim$\+H\+UD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{HUD_8cpp_source_l00126}{126}} of file \mbox{\hyperlink{HUD_8cpp_source}{H\+U\+D.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHUD_aba4614524414cf22c6a4c3e880c35bc0}\label{classHUD_aba4614524414cf22c6a4c3e880c35bc0}} 
+\index{HUD@{HUD}!Display@{Display}}
+\index{Display@{Display}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{Display()}{Display()}}
+{\footnotesize\ttfamily void H\+U\+D\+::\+Display (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Rendrers the \mbox{\hyperlink{classHUD}{H\+UD}} 
+
+Definition at line \mbox{\hyperlink{HUD_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{HUD_8cpp_source}{H\+U\+D.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044                                         \{}
+\DoxyCodeLine{00045   window.draw(\mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}});}
+\DoxyCodeLine{00046   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size(); i++) \{}
+\DoxyCodeLine{00047     window.draw(\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[i]);}
+\DoxyCodeLine{00048   \}}
+\DoxyCodeLine{00049   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}.size(); j++) \{}
+\DoxyCodeLine{00050     window.draw(\mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}[j]);}
+\DoxyCodeLine{00051     \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[j].setFont(\mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{font\_}});}
+\DoxyCodeLine{00052     window.draw(\mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[j]);}
+\DoxyCodeLine{00053   \}}
+\DoxyCodeLine{00054   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.size() != 0) \{}
+\DoxyCodeLine{00055     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.size(); i++) \{}
+\DoxyCodeLine{00056       window.draw(\mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}[i]);}
+\DoxyCodeLine{00057     \}}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}\label{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}} 
+\index{HUD@{HUD}!Update@{Update}}
+\index{Update@{Update}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void H\+U\+D\+::\+Update (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \&}]{items,  }\item[{float}]{player\+HP }\end{DoxyParamCaption})}
+
+Updates the \mbox{\hyperlink{classHUD}{H\+UD}} 
+
+Definition at line \mbox{\hyperlink{HUD_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{HUD_8cpp_source}{H\+U\+D.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061                                                        \{}
+\DoxyCodeLine{00062   \textcolor{keywordtype}{int} hp\_pots = 0;}
+\DoxyCodeLine{00063   \textcolor{keywordtype}{int} spd\_pots = 0;}
+\DoxyCodeLine{00064   \textcolor{keywordtype}{int} coins = 0;}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i : items) \{}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"hp\_pot"}) \{}
+\DoxyCodeLine{00067       hp\_pots++;}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"speed\_pot"}) \{}
+\DoxyCodeLine{00070       spd\_pots++;}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"coin"}) \{}
+\DoxyCodeLine{00073       coins++;}
+\DoxyCodeLine{00074     \}}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   std::stringstream ss;}
+\DoxyCodeLine{00077   ss << hp\_pots;}
+\DoxyCodeLine{00078   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[0].setString(ss.str());}
+\DoxyCodeLine{00079   std::stringstream ss2;}
+\DoxyCodeLine{00080   ss2 << spd\_pots;}
+\DoxyCodeLine{00081   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[1].setString(ss2.str());}
+\DoxyCodeLine{00082   std::stringstream ss3;}
+\DoxyCodeLine{00083   ss3 << coins;}
+\DoxyCodeLine{00084   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[2].setString(ss3.str());}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086   \textcolor{keywordtype}{int} hp = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(playerHP);}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{switch} (hp) \{}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00089       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00090       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00091       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093     \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00094       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00095       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00096       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00097       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00099       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00100       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00101       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00102       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00103     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00104       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00105       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00106       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00107       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00109       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00110       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00111       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00112       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00114       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00115       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00116       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00117       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118     \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00119       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00120       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00121       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123   \}}
+\DoxyCodeLine{00124 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classHUD_a9000650ffe43b381e5056dae1ba16816}\label{classHUD_a9000650ffe43b381e5056dae1ba16816}} 
+\index{HUD@{HUD}!background\_@{background\_}}
+\index{background\_@{background\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{background\_}{background\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape H\+U\+D\+::background\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_a35629007860cf7021c45ddaa2dc18b78}\label{classHUD_a35629007860cf7021c45ddaa2dc18b78}} 
+\index{HUD@{HUD}!font\_@{font\_}}
+\index{font\_@{font\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{font\_}{font\_}}
+{\footnotesize\ttfamily sf\+::\+Font H\+U\+D\+::font\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_a8dfdff668d8562815c0256e7ed74149e}\label{classHUD_a8dfdff668d8562815c0256e7ed74149e}} 
+\index{HUD@{HUD}!hp\_bar\_@{hp\_bar\_}}
+\index{hp\_bar\_@{hp\_bar\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{hp\_bar\_}{hp\_bar\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Rectangle\+Shape$>$ H\+U\+D\+::hp\+\_\+bar\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_a1700f3180f55b3d033c9896019c6250d}\label{classHUD_a1700f3180f55b3d033c9896019c6250d}} 
+\index{HUD@{HUD}!hp\_textures\_@{hp\_textures\_}}
+\index{hp\_textures\_@{hp\_textures\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{hp\_textures\_}{hp\_textures\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Texture$\ast$$>$ H\+U\+D\+::hp\+\_\+textures\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}\label{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}} 
+\index{HUD@{HUD}!hud\_items\_@{hud\_items\_}}
+\index{hud\_items\_@{hud\_items\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{hud\_items\_}{hud\_items\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Rectangle\+Shape$>$ H\+U\+D\+::hud\+\_\+items\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}\label{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}} 
+\index{HUD@{HUD}!inventory\_bar\_@{inventory\_bar\_}}
+\index{inventory\_bar\_@{inventory\_bar\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{inventory\_bar\_}{inventory\_bar\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Rectangle\+Shape$>$ H\+U\+D\+::inventory\+\_\+bar\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+\mbox{\Hypertarget{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}\label{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}} 
+\index{HUD@{HUD}!texts\_@{texts\_}}
+\index{texts\_@{texts\_}!HUD@{HUD}}
+\doxysubsubsection{\texorpdfstring{texts\_}{texts\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Text$>$ H\+U\+D\+::texts\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{HUD_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{HUD_8hpp_source}{H\+U\+D.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{HUD_8hpp}{H\+U\+D.\+hpp}}\item 
+src/\mbox{\hyperlink{HUD_8cpp}{H\+U\+D.\+cpp}}\end{DoxyCompactItemize}

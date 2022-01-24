@@ -1,0 +1,641 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$player.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}{Player}} (sf\+::\+Texture $\ast$texture, sf\+::\+Texture $\ast$dead\+\_\+texture, sf\+::\+Vector2f spawn\+Pos, float speed, \mbox{\hyperlink{classWeapon}{Weapon}} $\ast$starting\+\_\+weapon)
+\item 
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\item 
+void \mbox{\hyperlink{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}{Draw}} (sf\+::\+Render\+Window \&window)
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classPlayer_a23356f99a9de86d3d47eadb679b332dc}{get\+Position}} ()
+\item 
+bool \mbox{\hyperlink{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}{is\+Alive}} ()
+\item 
+float \mbox{\hyperlink{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}{get\+Hp}} ()
+\item 
+float \mbox{\hyperlink{classPlayer_a02085f7d675fd8feaad09df0912c054c}{get\+Shield}} ()
+\item 
+bool \mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{use\+Item}} ()
+\item 
+void \mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}} (float dmg)
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}{Update}} (float time, \mbox{\hyperlink{classMap}{Map}} \&map, std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&)
+\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{Use\+Weapon}} (sf\+::\+Vector2f \&)
+\item 
+void \mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{Traverse}} (\mbox{\hyperlink{classMap}{Map}} \&map)
+\item 
+\mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{get\+Collider}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\+\_\+}}
+\item 
+float \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\+\_\+}} = 6
+\item 
+float \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\+\_\+}} = 0
+\item 
+float \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{current\+Speed\+\_\+}}
+\item 
+float \mbox{\hyperlink{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}{action\+Timer\+\_\+}}
+\item 
+float \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\+\_\+}} = 0.\+0
+\item 
+float \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\+\_\+}} = 0.\+0
+\item 
+int \mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\+\_\+weapon\+\_\+}} = 0
+\item 
+float \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speed\+Timer}} = 0
+\item 
+float \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{item\+Timer}} = 0
+\item 
+bool \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\+\_\+}} = true
+\item 
+bool \mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\+\_\+}} = false
+\item 
+sf\+::\+Texture $\ast$ \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\+\_\+texture\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classWeapon}{Weapon}} $>$ \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\+\_\+weapons\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classItem}{Item}} $>$ \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\+\_\+}}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\+\_\+}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the player object 
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}\label{classPlayer_af43f25b0b10e0ab4c284783086f0e15f}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{sf\+::\+Texture $\ast$}]{dead\+\_\+texture,  }\item[{sf\+::\+Vector2f}]{spawn\+Pos,  }\item[{float}]{speed,  }\item[{\mbox{\hyperlink{classWeapon}{Weapon}} $\ast$}]{starting\+\_\+weapon }\end{DoxyParamCaption})}
+
+Constructor for player 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009     : \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}}(speed) \{}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}} = dead\_texture;}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}.push\_back(*starting\_weapon);}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setSize(sf::Vector2f(40.0f, 40.0f));}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setOrigin(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setPosition(spawnPos);}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setTexture(texture);}
+\DoxyCodeLine{00016 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$Player}}
+\index{````~Player@{$\sim$Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{$\sim$Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}\label{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}} 
+\index{Player@{Player}!Damage@{Damage}}
+\index{Damage@{Damage}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Damage()}{Damage()}}
+{\footnotesize\ttfamily void Player\+::\+Damage (\begin{DoxyParamCaption}\item[{float}]{dmg }\end{DoxyParamCaption})}
+
+Decrease health 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00065                                 \{}
+\DoxyCodeLine{00066   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} > 0) \{}
+\DoxyCodeLine{00067     \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} -\/= damage;}
+\DoxyCodeLine{00068     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} < 0) \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}} = 0;}
+\DoxyCodeLine{00069   \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00070     \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} -\/= damage;}
+\DoxyCodeLine{00071   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} <= 0) \{}
+\DoxyCodeLine{00072     std::cout << \textcolor{stringliteral}{"The player has died!"} << std::endl;}
+\DoxyCodeLine{00073     \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00074   \}}
+\DoxyCodeLine{00075 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}\label{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}} 
+\index{Player@{Player}!Draw@{Draw}}
+\index{Draw@{Draw}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Player\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Renders the player 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020 \{ window.draw(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}); \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}\label{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}} 
+\index{Player@{Player}!getCollider@{getCollider}}
+\index{getCollider@{getCollider}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCollider()}{getCollider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCollider}{Collider}} Player\+::get\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the player collider 
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}\label{classPlayer_a2656ac540f195b9b61c58f6160a5c6b6}} 
+\index{Player@{Player}!getHp@{getHp}}
+\index{getHp@{getHp}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getHp()}{getHp()}}
+{\footnotesize\ttfamily float Player\+::get\+Hp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return healh 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00026 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a23356f99a9de86d3d47eadb679b332dc}\label{classPlayer_a23356f99a9de86d3d47eadb679b332dc}} 
+\index{Player@{Player}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Player\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns player position 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition(); \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a02085f7d675fd8feaad09df0912c054c}\label{classPlayer_a02085f7d675fd8feaad09df0912c054c}} 
+\index{Player@{Player}!getShield@{getShield}}
+\index{getShield@{getShield}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getShield()}{getShield()}}
+{\footnotesize\ttfamily float Player\+::get\+Shield (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}{shield\_}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}\label{classPlayer_a06e38c0f57e67eb006c9d09779bd8f8f}} 
+\index{Player@{Player}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Player\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return alive 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}}; \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_ab118310e71d1616a63f2fcdacba6116e}\label{classPlayer_ab118310e71d1616a63f2fcdacba6116e}} 
+\index{Player@{Player}!Traverse@{Traverse}}
+\index{Traverse@{Traverse}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Traverse()}{Traverse()}}
+{\footnotesize\ttfamily void Player\+::\+Traverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMap}{Map}} \&}]{map }\end{DoxyParamCaption})}
+
+Moves the map when player traverses between rooms 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00195                               \{}
+\DoxyCodeLine{00196   sf::Vector2f pos = \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition();}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198   \textcolor{keywordflow}{if} (pos.x < 25) \{}
+\DoxyCodeLine{00199     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(1);}
+\DoxyCodeLine{00200     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(500, 0));}
+\DoxyCodeLine{00201   \}}
+\DoxyCodeLine{00202   \textcolor{keywordflow}{if} (pos.x > 25 + 10 * 50) \{}
+\DoxyCodeLine{00203     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(3);}
+\DoxyCodeLine{00204     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(-\/500, 0));}
+\DoxyCodeLine{00205   \}}
+\DoxyCodeLine{00206   \textcolor{keywordflow}{if} (pos.y < 25) \{}
+\DoxyCodeLine{00207     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(2);}
+\DoxyCodeLine{00208     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(0, 500));}
+\DoxyCodeLine{00209   \}}
+\DoxyCodeLine{00210   \textcolor{keywordflow}{if} (pos.y > 25 + 10 * 50) \{}
+\DoxyCodeLine{00211     map.\mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(0);}
+\DoxyCodeLine{00212     \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(sf::Vector2f(0, -\/500));}
+\DoxyCodeLine{00213   \}}
+\DoxyCodeLine{00214 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}\label{classPlayer_ac3efdde00eef0f78cd21ccee2643e525}} 
+\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Player\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{time,  }\item[{\mbox{\hyperlink{classMap}{Map}} \&}]{map,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \&}]{active\+\_\+projectiles }\end{DoxyParamCaption})}
+
+Update attributes 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078                                                                            \{}
+\DoxyCodeLine{00079   std::vector<int> ret = \{0, 0, 0, 0\};}
+\DoxyCodeLine{00080   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aae9d93cae7f69bb16de841f49606422b}{alive\_}} == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00081     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\_}} == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00082       sf::Vector2u texture\_size = \mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}}-\/>getSize();}
+\DoxyCodeLine{00083       sf::Vector2f texture\_size\_f(\textcolor{keywordtype}{float}(texture\_size.x), \textcolor{keywordtype}{float}(texture\_size.y));}
+\DoxyCodeLine{00084       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setSize(texture\_size\_f);}
+\DoxyCodeLine{00085       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setOrigin(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getSize() / 2.0f);}
+\DoxyCodeLine{00086       sf::Vector2f temp\_position = \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition();}
+\DoxyCodeLine{00087       std::cout << \textcolor{stringliteral}{"Death position: "} << temp\_position.x << \textcolor{stringliteral}{" "}}
+\DoxyCodeLine{00088                 << temp\_position.y << std::endl;}
+\DoxyCodeLine{00089       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setPosition(temp\_position);}
+\DoxyCodeLine{00090       \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.setTexture(\mbox{\hyperlink{classPlayer_ac490aed194939649466f713539d2d652}{death\_texture\_}});}
+\DoxyCodeLine{00091       \mbox{\hyperlink{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}{dead\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00092     \}}
+\DoxyCodeLine{00093     \textcolor{comment}{// return active\_projectiles;}}
+\DoxyCodeLine{00094   \}}
+\DoxyCodeLine{00095   \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classPlayer_aff2f56a531925081547c3999a8d405c3}{useItem}}()) \{}
+\DoxyCodeLine{00096     ret[2] = 1;}
+\DoxyCodeLine{00097   \}}
+\DoxyCodeLine{00098   \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} = \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}};}
+\DoxyCodeLine{00099   \mbox{\hyperlink{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}{actionTimer\_}} += time;}
+\DoxyCodeLine{00100   \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} += time;  \textcolor{comment}{// cooldown for firing weapon}}
+\DoxyCodeLine{00101   \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} += time;}
+\DoxyCodeLine{00102   sf::Vector2f movement(0.0f, 0.0f);}
+\DoxyCodeLine{00103   \textcolor{keywordtype}{float} firerate = \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}[\mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\_weapon\_}}].fire\_rate\_;}
+\DoxyCodeLine{00104 }
+\DoxyCodeLine{00105   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} > 0) \{}
+\DoxyCodeLine{00106     \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} -\/= time;}
+\DoxyCodeLine{00107   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} < 0) \{}
+\DoxyCodeLine{00108     \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} = 0;}
+\DoxyCodeLine{00109     \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}} -\/= 10;}
+\DoxyCodeLine{00110   \}}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) \{}
+\DoxyCodeLine{00113     movement.y -\/= \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00114     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00115   \}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) \{}
+\DoxyCodeLine{00118     movement.x -\/= \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00119     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00120   \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) \{}
+\DoxyCodeLine{00123     movement.y += \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00124     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00125   \}}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) \{}
+\DoxyCodeLine{00128     movement.x += \mbox{\hyperlink{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}{currentSpeed\_}} * time;}
+\DoxyCodeLine{00129     \mbox{\hyperlink{classPlayer_ac4a914063ea0fa847c4746377245d8a4}{direction\_}} = movement;}
+\DoxyCodeLine{00130   \}}
+\DoxyCodeLine{00131 }
+\DoxyCodeLine{00132   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) \&\&}
+\DoxyCodeLine{00133       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Up arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00134     sf::Vector2f direction = sf::Vector2f(0.0f, -\/10.0f);}
+\DoxyCodeLine{00135     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00136     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00137     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00138     ret[0] = 1;}
+\DoxyCodeLine{00139   \}}
+\DoxyCodeLine{00140   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) \&\&}
+\DoxyCodeLine{00141       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Down arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00142     sf::Vector2f direction = sf::Vector2f(0.0f, 10.0f);}
+\DoxyCodeLine{00143     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00144     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00145     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00146     ret[0] = 1;}
+\DoxyCodeLine{00147   \}}
+\DoxyCodeLine{00148   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) \&\&}
+\DoxyCodeLine{00149       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Left arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00150     sf::Vector2f direction = sf::Vector2f(-\/10.0f, 0.0f);}
+\DoxyCodeLine{00151     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00152     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00153     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00154     ret[0] = 1;}
+\DoxyCodeLine{00155   \}}
+\DoxyCodeLine{00156   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) \&\&}
+\DoxyCodeLine{00157       \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} >= firerate) \{  \textcolor{comment}{// Right arrow key is used to shoot projectiles.}}
+\DoxyCodeLine{00158     sf::Vector2f direction = sf::Vector2f(10.0f, 0.0f);}
+\DoxyCodeLine{00159     \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = this-\/>\mbox{\hyperlink{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}{UseWeapon}}(direction);}
+\DoxyCodeLine{00160     active\_projectiles.push\_back(new\_projectile);}
+\DoxyCodeLine{00161     \mbox{\hyperlink{classPlayer_affbed3092e196c1240a26526e891fb4c}{shot\_}} = 0.0;}
+\DoxyCodeLine{00162     ret[0] = 1;}
+\DoxyCodeLine{00163   \}}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165   \mbox{\hyperlink{classPlayer_ab118310e71d1616a63f2fcdacba6116e}{Traverse}}(map);}
+\DoxyCodeLine{00166   \mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.move(movement);}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168   \textcolor{comment}{// check that player is not colliding with any of the enemies and take damage}}
+\DoxyCodeLine{00169   \textcolor{comment}{// if colliding}}
+\DoxyCodeLine{00170   \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} += time;}
+\DoxyCodeLine{00171   \mbox{\hyperlink{classCollider}{Collider}} collider = this-\/>\mbox{\hyperlink{classPlayer_ab86420f2fa5661cb95fc8a3480e8f65a}{getCollider}}();}
+\DoxyCodeLine{00172   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.\mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}}) \{}
+\DoxyCodeLine{00173     \mbox{\hyperlink{classCollider}{Collider}} EnemyCollider = enemy-\/>getCollider();}
+\DoxyCodeLine{00174     \textcolor{keywordflow}{if} (collider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(EnemyCollider, 0.5) \&\& \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} >= 1.5) \{}
+\DoxyCodeLine{00175       this-\/>\mbox{\hyperlink{classPlayer_a2ce10b9a0a750ebd0a4ef9e8deb6be61}{Damage}}(enemy-\/>damage\_);}
+\DoxyCodeLine{00176       \mbox{\hyperlink{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}{damaged\_}} = 0.0;}
+\DoxyCodeLine{00177       ret[1] = 1;}
+\DoxyCodeLine{00178     \}}
+\DoxyCodeLine{00179   \}}
+\DoxyCodeLine{00180   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.size(); i++) \{}
+\DoxyCodeLine{00181     \mbox{\hyperlink{classCollider}{Collider}} itemCollider = map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}[i].getCollider();}
+\DoxyCodeLine{00182     \textcolor{keywordflow}{if} (collider.\mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(itemCollider, 0)) \{}
+\DoxyCodeLine{00183       \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.push\_back(map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}[i]);}
+\DoxyCodeLine{00184       map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.erase(map.\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}}.begin() + i);}
+\DoxyCodeLine{00185       ret[3] = 1;}
+\DoxyCodeLine{00186     \}}
+\DoxyCodeLine{00187   \}}
+\DoxyCodeLine{00188   \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{00189 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_aff2f56a531925081547c3999a8d405c3}\label{classPlayer_aff2f56a531925081547c3999a8d405c3}} 
+\index{Player@{Player}!useItem@{useItem}}
+\index{useItem@{useItem}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useItem()}{useItem()}}
+{\footnotesize\ttfamily bool Player\+::use\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Uses item from inventory 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030                      \{}
+\DoxyCodeLine{00031   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) \{}
+\DoxyCodeLine{00032     \textcolor{keyword}{auto} i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.begin();}
+\DoxyCodeLine{00033     \textcolor{keywordflow}{while} (i != \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.end()) \{}
+\DoxyCodeLine{00034       \textcolor{keywordflow}{if} (i-\/>type == \textcolor{stringliteral}{"hp\_pot"} \&\& \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} > 0.5) \{}
+\DoxyCodeLine{00035         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} < 6) \{}
+\DoxyCodeLine{00036           \mbox{\hyperlink{classPlayer_a1fdc83a6b481da933515c288d0132ec6}{hp\_}} += 1;}
+\DoxyCodeLine{00037           i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.erase(i);}
+\DoxyCodeLine{00038           \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} = 0;}
+\DoxyCodeLine{00039           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00040         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00041           \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00042         \}}
+\DoxyCodeLine{00043       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00044         ++i;}
+\DoxyCodeLine{00045       \}}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047   \}}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049   \textcolor{keywordflow}{if} (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) \{}
+\DoxyCodeLine{00050     \textcolor{keyword}{auto} i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.begin();}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{while} (i != \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.end()) \{}
+\DoxyCodeLine{00052       \textcolor{keywordflow}{if} (i-\/>type == \textcolor{stringliteral}{"speed\_pot"} \&\& \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} > 0.5) \{}
+\DoxyCodeLine{00053         \mbox{\hyperlink{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}{speed\_}} += 10;}
+\DoxyCodeLine{00054         \mbox{\hyperlink{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}{speedTimer}} = 15;}
+\DoxyCodeLine{00055         i = \mbox{\hyperlink{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}{items\_}}.erase(i);}
+\DoxyCodeLine{00056         \mbox{\hyperlink{classPlayer_a024ea245805656721d30741cf81fd64e}{itemTimer}} = 0;}
+\DoxyCodeLine{00057         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00058       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00059         ++i;}
+\DoxyCodeLine{00060       \}}
+\DoxyCodeLine{00061     \}}
+\DoxyCodeLine{00062   \}}
+\DoxyCodeLine{00063 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}\label{classPlayer_a3214f88bf2f68bc1c6c61a7302e9090b}} 
+\index{Player@{Player}!UseWeapon@{UseWeapon}}
+\index{UseWeapon@{UseWeapon}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{UseWeapon()}{UseWeapon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProjectile}{Projectile}} Player\+::\+Use\+Weapon (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f \&}]{direction }\end{DoxyParamCaption})}
+
+Creates projectile 
+
+Definition at line \mbox{\hyperlink{player_8cpp_source_l00191}{191}} of file \mbox{\hyperlink{player_8cpp_source}{player.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00191                                                   \{}
+\DoxyCodeLine{00192   \textcolor{keywordflow}{return} \mbox{\hyperlink{classPlayer_ab0f921994475761a78ac4fcaabde53bf}{player\_weapons\_}}[\mbox{\hyperlink{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}{chosen\_weapon\_}}].Fire(\mbox{\hyperlink{classPlayer_aa9cfbda0e795d60133e898be6adb1440}{body\_}}.getPosition(), direction);}
+\DoxyCodeLine{00193 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}\label{classPlayer_a511dd03fa25eaf016ef01596e3fff38e}} 
+\index{Player@{Player}!actionTimer\_@{actionTimer\_}}
+\index{actionTimer\_@{actionTimer\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{actionTimer\_}{actionTimer\_}}
+{\footnotesize\ttfamily float Player\+::action\+Timer\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00051}{51}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_aae9d93cae7f69bb16de841f49606422b}\label{classPlayer_aae9d93cae7f69bb16de841f49606422b}} 
+\index{Player@{Player}!alive\_@{alive\_}}
+\index{alive\_@{alive\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{alive\_}{alive\_}}
+{\footnotesize\ttfamily bool Player\+::alive\+\_\+ = true}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_aa9cfbda0e795d60133e898be6adb1440}\label{classPlayer_aa9cfbda0e795d60133e898be6adb1440}} 
+\index{Player@{Player}!body\_@{body\_}}
+\index{body\_@{body\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{body\_}{body\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Player\+::body\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}\label{classPlayer_a759d39c9ba9d7d15893bffdfd024ddcc}} 
+\index{Player@{Player}!chosen\_weapon\_@{chosen\_weapon\_}}
+\index{chosen\_weapon\_@{chosen\_weapon\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{chosen\_weapon\_}{chosen\_weapon\_}}
+{\footnotesize\ttfamily int Player\+::chosen\+\_\+weapon\+\_\+ = 0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}\label{classPlayer_a50e4f2296edc46381f9d825aa9123ddb}} 
+\index{Player@{Player}!currentSpeed\_@{currentSpeed\_}}
+\index{currentSpeed\_@{currentSpeed\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{currentSpeed\_}{currentSpeed\_}}
+{\footnotesize\ttfamily float Player\+::current\+Speed\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}\label{classPlayer_a424256e7e51ae0c86a231b04338b6dd2}} 
+\index{Player@{Player}!damaged\_@{damaged\_}}
+\index{damaged\_@{damaged\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{damaged\_}{damaged\_}}
+{\footnotesize\ttfamily float Player\+::damaged\+\_\+ = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}\label{classPlayer_a7fb91c8e86d4a7d3845f7a0d6993756d}} 
+\index{Player@{Player}!dead\_@{dead\_}}
+\index{dead\_@{dead\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{dead\_}{dead\_}}
+{\footnotesize\ttfamily bool Player\+::dead\+\_\+ = false}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00058}{58}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_ac490aed194939649466f713539d2d652}\label{classPlayer_ac490aed194939649466f713539d2d652}} 
+\index{Player@{Player}!death\_texture\_@{death\_texture\_}}
+\index{death\_texture\_@{death\_texture\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{death\_texture\_}{death\_texture\_}}
+{\footnotesize\ttfamily sf\+::\+Texture$\ast$ Player\+::death\+\_\+texture\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_ac4a914063ea0fa847c4746377245d8a4}\label{classPlayer_ac4a914063ea0fa847c4746377245d8a4}} 
+\index{Player@{Player}!direction\_@{direction\_}}
+\index{direction\_@{direction\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{direction\_}{direction\_}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Player\+::direction\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00063}{63}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a1fdc83a6b481da933515c288d0132ec6}\label{classPlayer_a1fdc83a6b481da933515c288d0132ec6}} 
+\index{Player@{Player}!hp\_@{hp\_}}
+\index{hp\_@{hp\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hp\_}{hp\_}}
+{\footnotesize\ttfamily float Player\+::hp\+\_\+ = 6}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00048}{48}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}\label{classPlayer_a0591e77b0851caf4a47f8a75a93fefd5}} 
+\index{Player@{Player}!items\_@{items\_}}
+\index{items\_@{items\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{items\_}{items\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classItem}{Item}}$>$ Player\+::items\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a024ea245805656721d30741cf81fd64e}\label{classPlayer_a024ea245805656721d30741cf81fd64e}} 
+\index{Player@{Player}!itemTimer@{itemTimer}}
+\index{itemTimer@{itemTimer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{itemTimer}{itemTimer}}
+{\footnotesize\ttfamily float Player\+::item\+Timer = 0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_ab0f921994475761a78ac4fcaabde53bf}\label{classPlayer_ab0f921994475761a78ac4fcaabde53bf}} 
+\index{Player@{Player}!player\_weapons\_@{player\_weapons\_}}
+\index{player\_weapons\_@{player\_weapons\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{player\_weapons\_}{player\_weapons\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classWeapon}{Weapon}}$>$ Player\+::player\+\_\+weapons\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00060}{60}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}\label{classPlayer_a1121da90309a9b16b9a02f66f14e5a61}} 
+\index{Player@{Player}!shield\_@{shield\_}}
+\index{shield\_@{shield\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{shield\_}{shield\_}}
+{\footnotesize\ttfamily float Player\+::shield\+\_\+ = 0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_affbed3092e196c1240a26526e891fb4c}\label{classPlayer_affbed3092e196c1240a26526e891fb4c}} 
+\index{Player@{Player}!shot\_@{shot\_}}
+\index{shot\_@{shot\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{shot\_}{shot\_}}
+{\footnotesize\ttfamily float Player\+::shot\+\_\+ = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}\label{classPlayer_ad048eb65f79f49f76c700ee59e9f9bf3}} 
+\index{Player@{Player}!speed\_@{speed\_}}
+\index{speed\_@{speed\_}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{speed\_}{speed\_}}
+{\footnotesize\ttfamily float Player\+::speed\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00047}{47}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+\mbox{\Hypertarget{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}\label{classPlayer_aedbec1b0434fd53b18b3b8a69a9e4bd2}} 
+\index{Player@{Player}!speedTimer@{speedTimer}}
+\index{speedTimer@{speedTimer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{speedTimer}{speedTimer}}
+{\footnotesize\ttfamily float Player\+::speed\+Timer = 0}
+
+
+
+Definition at line \mbox{\hyperlink{player_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{player_8hpp_source}{player.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{player_8hpp}{player.\+hpp}}\item 
+src/\mbox{\hyperlink{player_8cpp}{player.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,38 @@
+\hypertarget{animation_8hpp_source}{}\doxysection{animation.\+hpp}
+\label{animation_8hpp_source}\index{src/animation.hpp@{src/animation.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#ifndef ANIMATION\_CLASS}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#define ANIMATION\_CLASS}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00010}\mbox{\hyperlink{classAnimation}{00010}} \textcolor{keyword}{class }\mbox{\hyperlink{classAnimation}{Animation}} \{}
+\DoxyCodeLine{00011  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00012 \textcolor{comment}{  /**Animation constructor*/}}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}{Animation}}(\textcolor{keyword}{const} std::string sprite\_sheets\_path, \textcolor{keywordtype}{int} frame\_x\_pos, \textcolor{keywordtype}{int} frame\_y\_pos);\textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}{\string~Animation}}();\textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{  /**Sets the animation speed to new\_speed value*/}}
+\DoxyCodeLine{00017   \textcolor{keywordtype}{void} \mbox{\hyperlink{classAnimation_a83abb23dfd080038204fd69152d88d87}{setAnimationSpeed}}(\textcolor{keywordtype}{float} new\_speed);\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Returns current frame of the animation image as texture*/}}
+\DoxyCodeLine{00019   sf::Texture* \mbox{\hyperlink{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}{getCurrentFrame}}();\textcolor{comment}{}}
+\DoxyCodeLine{00020 \textcolor{comment}{  /**Resets the current frame*/}}
+\DoxyCodeLine{00021   \textcolor{keywordtype}{void} \mbox{\hyperlink{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}{resetCurrentFrame}}();\textcolor{comment}{}}
+\DoxyCodeLine{00022 \textcolor{comment}{  /**Updates the frame*/}}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}{Update}}(\textcolor{keywordtype}{float} time);}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00025}\mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{00025}}   std::vector<sf::Texture> \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}};}
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00026}\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{00026}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} = 0;}
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00027}\mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{00027}}   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\_frame\_}};}
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00028}\mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{00028}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\_speed\_}} = 0.2; \textcolor{comment}{//Animation speed in frames per second}}
+\DoxyCodeLine{\Hypertarget{animation_8hpp_source_l00029}\mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{00029}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}};}
+\DoxyCodeLine{00030 \};}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

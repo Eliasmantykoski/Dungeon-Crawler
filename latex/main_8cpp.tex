@@ -1,0 +1,313 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Audio.\+hpp$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics/\+Texture.\+hpp$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+System.\+hpp$>$}\newline
+{\ttfamily \#include $<$S\+F\+M\+L/\+Window.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}H\+U\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}animation.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}collider.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}enemy.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menu.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}player.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}projectile.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}{W\+I\+D\+TH}} = 500
+\item 
+const int \mbox{\hyperlink{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}{H\+E\+I\+G\+HT}} = 650
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045            \{}
+\DoxyCodeLine{00046   RenderWindow window(sf::VideoMode(\mbox{\hyperlink{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}{WIDTH}}, \mbox{\hyperlink{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}{HEIGHT}}), \textcolor{stringliteral}{"SFML window"});}
+\DoxyCodeLine{00047   window.setFramerateLimit(30);  \textcolor{comment}{// Setting the framerate limit lower helps the}}
+\DoxyCodeLine{00048                                  \textcolor{comment}{// program be less CPU intensive.}}
+\DoxyCodeLine{00049   srand(time(NULL));}
+\DoxyCodeLine{00050   \textcolor{comment}{// Font for text}}
+\DoxyCodeLine{00051   sf::Font font;}
+\DoxyCodeLine{00052   \textcolor{keywordflow}{if} (!font.loadFromFile(\textcolor{stringliteral}{"libs/fonts/arial.ttf"})) \{}
+\DoxyCodeLine{00053     std::cout << \textcolor{stringliteral}{"Error loading font."}}
+\DoxyCodeLine{00054               << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{00055   \}}
+\DoxyCodeLine{00056   sf::Text text;}
+\DoxyCodeLine{00057   text.setFont(font);}
+\DoxyCodeLine{00058   text.setString(\textcolor{stringliteral}{"GAME OVER"});}
+\DoxyCodeLine{00059   text.setCharacterSize(24);}
+\DoxyCodeLine{00060   text.setPosition(\mbox{\hyperlink{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}{WIDTH}} / 2, \mbox{\hyperlink{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}{HEIGHT}} / 2);}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062   \textcolor{comment}{// Music}}
+\DoxyCodeLine{00063   sf::Music music;}
+\DoxyCodeLine{00064   \textcolor{keywordflow}{if} (!music.openFromFile(\textcolor{stringliteral}{"libs/audio/music.ogg"})) \{}
+\DoxyCodeLine{00065     std::cout << \textcolor{stringliteral}{"Error loading music."}}
+\DoxyCodeLine{00066               << \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{00067   \}}
+\DoxyCodeLine{00068   music.setRelativeToListener(\textcolor{keyword}{true});}
+\DoxyCodeLine{00069   music.setVolume(20);}
+\DoxyCodeLine{00070   music.setLoop(\textcolor{keyword}{true});}
+\DoxyCodeLine{00071   music.play();}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073   \textcolor{comment}{// Sounds}}
+\DoxyCodeLine{00074   sf::SoundBuffer punchbuf;}
+\DoxyCodeLine{00075   punchbuf.loadFromFile(\textcolor{stringliteral}{"libs/audio/punch.ogg"});}
+\DoxyCodeLine{00076   sf::Sound punch;}
+\DoxyCodeLine{00077   punch.setBuffer(punchbuf);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079   sf::SoundBuffer deathbuf;}
+\DoxyCodeLine{00080   deathbuf.loadFromFile(\textcolor{stringliteral}{"libs/audio/death.ogg"});}
+\DoxyCodeLine{00081   sf::Sound death;}
+\DoxyCodeLine{00082   death.setBuffer(deathbuf);}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   sf::SoundBuffer shootbuf;}
+\DoxyCodeLine{00085   shootbuf.loadFromFile(\textcolor{stringliteral}{"libs/audio/shot.ogg"});}
+\DoxyCodeLine{00086   sf::Sound shoot;}
+\DoxyCodeLine{00087   shoot.setBuffer(shootbuf);}
+\DoxyCodeLine{00088 }
+\DoxyCodeLine{00089   sf::SoundBuffer drinkbuf;}
+\DoxyCodeLine{00090   drinkbuf.loadFromFile(\textcolor{stringliteral}{"libs/audio/drink.ogg"});}
+\DoxyCodeLine{00091   sf::Sound drink;}
+\DoxyCodeLine{00092   drink.setBuffer(drinkbuf);}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094   sf::SoundBuffer pickbuf;}
+\DoxyCodeLine{00095   pickbuf.loadFromFile(\textcolor{stringliteral}{"libs/audio/pickup.ogg"});}
+\DoxyCodeLine{00096   sf::Sound pickup;}
+\DoxyCodeLine{00097   pickup.setBuffer(pickbuf);}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00099   \textcolor{comment}{// Textures}}
+\DoxyCodeLine{00100   sf::Texture* walltexture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00101   walltexture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/wall\_left.png"});}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103   \textcolor{comment}{// sf::Texture enemytexture;}}
+\DoxyCodeLine{00104   \textcolor{comment}{// sf::IntRect enemytexture\_crop(64, 11, 17, 21);}}
+\DoxyCodeLine{00105   \textcolor{comment}{// enemytexture.loadFromFile("libs/images/pumpkin\_dude.png",}}
+\DoxyCodeLine{00106   \textcolor{comment}{// enemytexture\_crop);}}
+\DoxyCodeLine{00107   \mbox{\hyperlink{classAnimation}{Animation}} enemyAnimation(\textcolor{stringliteral}{"libs/images/pumpkin\_dude.png"}, 16, 23);}
+\DoxyCodeLine{00108   \textcolor{comment}{// sf::Texture enemytexture2;}}
+\DoxyCodeLine{00109   \textcolor{comment}{// sf::IntRect enemytexture\_crop2(64, 11, 17, 21);}}
+\DoxyCodeLine{00110   \textcolor{comment}{// enemytexture2.loadFromFile("libs/images/skeleton\_dude.png",}}
+\DoxyCodeLine{00111   \textcolor{comment}{// enemytexture\_crop2);}}
+\DoxyCodeLine{00112   \mbox{\hyperlink{classAnimation}{Animation}} enemyAnimation2(\textcolor{stringliteral}{"libs/images/skeleton\_dude.png"}, 16, 20);}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114   \mbox{\hyperlink{classAnimation}{Animation}} boss\_animation(\textcolor{stringliteral}{"libs/images/boss.png"}, 32, 36);}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116   Texture weapon\_texture;}
+\DoxyCodeLine{00117   weapon\_texture.loadFromFile(\textcolor{stringliteral}{"libs/images/simple gun.png"});}
+\DoxyCodeLine{00118   Texture projectile\_texture;}
+\DoxyCodeLine{00119   projectile\_texture.loadFromFile(\textcolor{stringliteral}{"libs/images/simple bullet.png"});}
+\DoxyCodeLine{00120   Texture enemy\_projectile\_texture;}
+\DoxyCodeLine{00121   enemy\_projectile\_texture.loadFromFile(\textcolor{stringliteral}{"libs/images/enemy bullet.png"});}
+\DoxyCodeLine{00122   sf::Texture playerTexture;}
+\DoxyCodeLine{00123   playerTexture.loadFromFile(\textcolor{stringliteral}{"libs/images/character.png"});}
+\DoxyCodeLine{00124   sf::Texture* heart\_texture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00125   heart\_texture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/ui\_heart\_full.png"});}
+\DoxyCodeLine{00126   sf::Texture* heart\_half\_texture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00127   heart\_half\_texture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/ui\_heart\_half.png"});}
+\DoxyCodeLine{00128   sf::Texture* heart\_empty\_texture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00129   heart\_empty\_texture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/ui\_heart\_empty.png"});}
+\DoxyCodeLine{00130   sf::Texture* backgroundtexture = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00131   backgroundtexture-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/floor\_1.png"});}
+\DoxyCodeLine{00132   sf::Texture player\_death\_texture;}
+\DoxyCodeLine{00133   player\_death\_texture.loadFromFile(\textcolor{stringliteral}{"libs/images/character\_grave.png"});}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135   sf::Texture healPotTexture;}
+\DoxyCodeLine{00136   healPotTexture.loadFromFile(\textcolor{stringliteral}{"libs/images/flask\_big\_red.png"});}
+\DoxyCodeLine{00137   sf::Texture speedPotTexture;}
+\DoxyCodeLine{00138   speedPotTexture.loadFromFile(\textcolor{stringliteral}{"libs/images/flask\_big\_blue.png"});}
+\DoxyCodeLine{00139   sf::Texture coinTexture;}
+\DoxyCodeLine{00140   coinTexture.loadFromFile(\textcolor{stringliteral}{"libs/images/coin.png"});}
+\DoxyCodeLine{00141   sf::Texture* healPotTexture2 = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00142   healPotTexture2-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/flask\_big\_red.png"});}
+\DoxyCodeLine{00143   sf::Texture* speedPotTexture2 = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00144   speedPotTexture2-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/flask\_big\_blue.png"});}
+\DoxyCodeLine{00145   sf::Texture* coinTexture2 = \textcolor{keyword}{new} sf::Texture();}
+\DoxyCodeLine{00146   coinTexture2-\/>loadFromFile(\textcolor{stringliteral}{"libs/images/coin.png"});}
+\DoxyCodeLine{00147   std::vector<sf::Texture*> item\_textures = \{healPotTexture2, speedPotTexture2,}
+\DoxyCodeLine{00148                                              coinTexture2\};}
+\DoxyCodeLine{00149   std::vector<sf::Texture*> heart\_textures = \{heart\_texture, heart\_half\_texture,}
+\DoxyCodeLine{00150                                               heart\_empty\_texture\};}
+\DoxyCodeLine{00151   \mbox{\hyperlink{classMenu}{Menu}} menu(font, walltexture);}
+\DoxyCodeLine{00152 }
+\DoxyCodeLine{00153   \textcolor{comment}{// Generate map and player}}
+\DoxyCodeLine{00154   \mbox{\hyperlink{classHUD}{HUD}} hud(font, heart\_textures, backgroundtexture, backgroundtexture,}
+\DoxyCodeLine{00155           item\_textures);}
+\DoxyCodeLine{00156   \textcolor{comment}{// Map map(walltexture, \&enemyAnimation, \&enemyAnimation2, \&boss\_animation,}}
+\DoxyCodeLine{00157   \textcolor{comment}{// senemy\_projectile\_texture);}}
+\DoxyCodeLine{00158 }
+\DoxyCodeLine{00159   std::vector<Projectile> active\_projectiles;  \textcolor{comment}{// Keep track of projectiles that}}
+\DoxyCodeLine{00160                                                \textcolor{comment}{// exist inside the SFML window.}}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162   \textcolor{comment}{// Generate map and player}}
+\DoxyCodeLine{00163   \mbox{\hyperlink{classMap}{Map}} map(walltexture, \&enemyAnimation, \&enemyAnimation2, \&boss\_animation,}
+\DoxyCodeLine{00164           \&enemy\_projectile\_texture);}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166   \mbox{\hyperlink{classWeapon}{Weapon}} player\_starting\_weapon = \mbox{\hyperlink{classWeapon}{Weapon}}(\&weapon\_texture, \&projectile\_texture);}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168   \textcolor{keywordtype}{float} player\_speed = 200;}
+\DoxyCodeLine{00169   Vector2f spawnPos = Vector2f(100.0f, 100.0f);}
+\DoxyCodeLine{00170   \mbox{\hyperlink{classPlayer}{Player}} player(\&playerTexture, \&player\_death\_texture, spawnPos, player\_speed,}
+\DoxyCodeLine{00171                 \&player\_starting\_weapon);}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173   Clock clock;}
+\DoxyCodeLine{00174   \textcolor{keywordtype}{int} resetCounter = 1;}
+\DoxyCodeLine{00175   \textcolor{comment}{// This while loop runs as long as window is open. In this case it runs until}}
+\DoxyCodeLine{00176   \textcolor{comment}{// window.close(); is called.}}
+\DoxyCodeLine{00177   \textcolor{keywordflow}{while} (window.isOpen()) \{}
+\DoxyCodeLine{00178     Event event;}
+\DoxyCodeLine{00179     \textcolor{keywordflow}{if} (menu.active\_) \{}
+\DoxyCodeLine{00180       \textcolor{keywordflow}{while} (window.pollEvent(event)) \{}
+\DoxyCodeLine{00181         \textcolor{keywordflow}{if} (event.type == Event::Closed) \{}
+\DoxyCodeLine{00182           window.close();}
+\DoxyCodeLine{00183         \}  \textcolor{comment}{// This event closes the window when close button is pressed.}}
+\DoxyCodeLine{00184       \}}
+\DoxyCodeLine{00185       resetCounter = 0;}
+\DoxyCodeLine{00186       window.clear();}
+\DoxyCodeLine{00187       menu.Display(window);}
+\DoxyCodeLine{00188       window.display();}
+\DoxyCodeLine{00189     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (resetCounter == 0) \{}
+\DoxyCodeLine{00190       srand(clock.restart().asMilliseconds());}
+\DoxyCodeLine{00191       map = \mbox{\hyperlink{classMap}{Map}}(walltexture, \&enemyAnimation, \&enemyAnimation2, \&boss\_animation,}
+\DoxyCodeLine{00192                 \&enemy\_projectile\_texture);}
+\DoxyCodeLine{00193       player = \mbox{\hyperlink{classPlayer}{Player}}(\&playerTexture, \&player\_death\_texture, spawnPos,}
+\DoxyCodeLine{00194                       player\_speed, \&player\_starting\_weapon);}
+\DoxyCodeLine{00195       active\_projectiles.clear();}
+\DoxyCodeLine{00196       resetCounter++;}
+\DoxyCodeLine{00197     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00198       \textcolor{keywordtype}{float} time = clock.restart().asSeconds();}
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200       \textcolor{comment}{// This while loop goes through all window events, such as key presses}}
+\DoxyCodeLine{00201       \textcolor{comment}{// and mouse presses.}}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203       \textcolor{keywordflow}{while} (window.pollEvent(event)) \{}
+\DoxyCodeLine{00204         \textcolor{keywordflow}{if} (event.type == Event::Closed) \{}
+\DoxyCodeLine{00205           window.close();}
+\DoxyCodeLine{00206         \}  \textcolor{comment}{// This event closes the window when close button is pressed.}}
+\DoxyCodeLine{00207       \}}
+\DoxyCodeLine{00208 }
+\DoxyCodeLine{00209       std::vector<int> sounds = player.Update(time, map, active\_projectiles);}
+\DoxyCodeLine{00210       \textcolor{keywordflow}{if} (sounds[0]) \{}
+\DoxyCodeLine{00211         shoot.play();}
+\DoxyCodeLine{00212       \}}
+\DoxyCodeLine{00213       \textcolor{keywordflow}{if} (sounds[1]) \{}
+\DoxyCodeLine{00214         punch.play();}
+\DoxyCodeLine{00215       \}}
+\DoxyCodeLine{00216       \textcolor{keywordflow}{if} (sounds[2]) \{}
+\DoxyCodeLine{00217         drink.play();}
+\DoxyCodeLine{00218       \}}
+\DoxyCodeLine{00219       \textcolor{keywordflow}{if} (sounds[3]) \{}
+\DoxyCodeLine{00220         pickup.play();}
+\DoxyCodeLine{00221       \}}
+\DoxyCodeLine{00222       \textcolor{comment}{// update enemies and remove them if they are dead}}
+\DoxyCodeLine{00223       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.enemies) \{}
+\DoxyCodeLine{00224         \textcolor{keywordflow}{if} (enemy-\/>isRanged()) \{}
+\DoxyCodeLine{00225           enemy-\/>Update2(time, player.getPosition(), active\_projectiles);}
+\DoxyCodeLine{00226         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00227           enemy-\/>Update(time, player.getPosition());}
+\DoxyCodeLine{00228         \}}
+\DoxyCodeLine{00229         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < map.enemies.size(); i++) \{}
+\DoxyCodeLine{00230           \textcolor{keywordflow}{if} (!map.enemies[i]-\/>alive\_) \{}
+\DoxyCodeLine{00231             map.SpawnItem(i, \&healPotTexture, \&speedPotTexture, \&coinTexture);}
+\DoxyCodeLine{00232             map.enemies.erase(map.enemies.begin() + i);}
+\DoxyCodeLine{00233             death.play();}
+\DoxyCodeLine{00234           \}}
+\DoxyCodeLine{00235         \}}
+\DoxyCodeLine{00236       \}}
+\DoxyCodeLine{00237 }
+\DoxyCodeLine{00238       \textcolor{comment}{// update active projectiles and remove them if they have hit a wall or}}
+\DoxyCodeLine{00239       \textcolor{comment}{// an enemy}}
+\DoxyCodeLine{00240       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& proj : active\_projectiles) \{}
+\DoxyCodeLine{00241         \textcolor{comment}{// sf::Vector2u secret\_size = proj.projectile\_texture\_-\/>getSize();}}
+\DoxyCodeLine{00242         \textcolor{comment}{// std::cout << secret\_size.x << " " << secret\_size.y << "\(\backslash\)n";}}
+\DoxyCodeLine{00243         \textcolor{keywordflow}{if} (proj.Update(time, map, player)) \{}
+\DoxyCodeLine{00244           proj.deActivate();}
+\DoxyCodeLine{00245           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < active\_projectiles.size(); i++) \{}
+\DoxyCodeLine{00246             \textcolor{keywordflow}{if} (!active\_projectiles[i].active\_) \{}
+\DoxyCodeLine{00247               active\_projectiles.erase(active\_projectiles.begin() + i);}
+\DoxyCodeLine{00248             \}}
+\DoxyCodeLine{00249           \}}
+\DoxyCodeLine{00250         \}}
+\DoxyCodeLine{00251       \}}
+\DoxyCodeLine{00252       \textcolor{comment}{// std::cout << active\_projectiles.size() << "\(\backslash\)n";}}
+\DoxyCodeLine{00253 }
+\DoxyCodeLine{00254       window.clear();}
+\DoxyCodeLine{00255       \mbox{\hyperlink{classCollider}{Collider}} playerCollider = player.getCollider();}
+\DoxyCodeLine{00256       map.Display(window, playerCollider);}
+\DoxyCodeLine{00257       player.Draw(window);}
+\DoxyCodeLine{00258 }
+\DoxyCodeLine{00259       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& enemy : map.enemies) \{}
+\DoxyCodeLine{00260         enemy-\/>Draw(window);}
+\DoxyCodeLine{00261       \}}
+\DoxyCodeLine{00262       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto}\& proj : active\_projectiles) \{}
+\DoxyCodeLine{00263         proj.Draw(window);}
+\DoxyCodeLine{00264       \}}
+\DoxyCodeLine{00265 }
+\DoxyCodeLine{00266       hud.Display(window);}
+\DoxyCodeLine{00267       hud.Update(player.items\_, player.hp\_);}
+\DoxyCodeLine{00268 }
+\DoxyCodeLine{00269       \textcolor{keywordflow}{if} (player.isAlive() == \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{00270         \textcolor{comment}{// window.draw(text);}}
+\DoxyCodeLine{00271         \textcolor{comment}{// window.clear();}}
+\DoxyCodeLine{00272         menu.active\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{00273       \}}
+\DoxyCodeLine{00274       window.display();}
+\DoxyCodeLine{00275     \}}
+\DoxyCodeLine{00276   \}}
+\DoxyCodeLine{00277 }
+\DoxyCodeLine{00278   \textcolor{comment}{// for (auto\& enemy : map.enemies) \{}}
+\DoxyCodeLine{00279   \textcolor{comment}{//   delete enemy;}}
+\DoxyCodeLine{00280   \textcolor{comment}{// \}}}
+\DoxyCodeLine{00281   \textcolor{keyword}{delete} walltexture;}
+\DoxyCodeLine{00282   \textcolor{keyword}{delete} backgroundtexture;}
+\DoxyCodeLine{00283   \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00284 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}\label{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}} 
+\index{main.cpp@{main.cpp}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily const int H\+E\+I\+G\+HT = 650}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}\label{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}} 
+\index{main.cpp@{main.cpp}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily const int W\+I\+D\+TH = 500}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

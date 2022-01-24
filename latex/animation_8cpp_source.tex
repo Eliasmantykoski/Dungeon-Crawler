@@ -1,0 +1,79 @@
+\hypertarget{animation_8cpp_source}{}\doxysection{animation.\+cpp}
+\label{animation_8cpp_source}\index{src/animation.cpp@{src/animation.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{animation_8hpp}{animation.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{comment}{/*}}
+\DoxyCodeLine{00004 \textcolor{comment}{The constructor of the animation class.}}
+\DoxyCodeLine{00005 \textcolor{comment}{}}
+\DoxyCodeLine{00006 \textcolor{comment}{Parameters:}}
+\DoxyCodeLine{00007 \textcolor{comment}{    sprite\_sheets\_path: the path for the sprite sheeth that contains the frames for the animation,}}
+\DoxyCodeLine{00008 \textcolor{comment}{    for example: "libs/images/pumpkin\_dude.png"}}
+\DoxyCodeLine{00009 \textcolor{comment}{}}
+\DoxyCodeLine{00010 \textcolor{comment}{    texture\_crop\_scale\_x\_: Integer describing how many pixels in the x direction is one frame in the sprite sheet cropped.}}
+\DoxyCodeLine{00011 \textcolor{comment}{}}
+\DoxyCodeLine{00012 \textcolor{comment}{    texture\_crop\_scale\_y\_: Integer describing how many pixels in the y direction is one frame in the sprite sheet cropped.}}
+\DoxyCodeLine{00013 \textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{How the constructor works:}}
+\DoxyCodeLine{00015 \textcolor{comment}{    This constructor creates the frames using the sprite sheets, and then pushes the frames to vector animation\_frames\_.}}
+\DoxyCodeLine{00016 \textcolor{comment}{    This class uses animation\_frames\_ to animate an object frame by frame, or to "step" one frame forward repeatedly.}}
+\DoxyCodeLine{00017 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00018}\mbox{\hyperlink{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}{00018}} \mbox{\hyperlink{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}{Animation::Animation}}(\textcolor{keyword}{const} std::string sprite\_sheets\_path, \textcolor{keywordtype}{int} texture\_crop\_scale\_x\_, \textcolor{keywordtype}{int} texture\_crop\_scale\_y\_) \{}
+\DoxyCodeLine{00019   sf::Texture temp\_texture;}
+\DoxyCodeLine{00020   temp\_texture.loadFromFile(sprite\_sheets\_path);}
+\DoxyCodeLine{00021   sf::Vector2u texture\_size = temp\_texture.getSize();}
+\DoxyCodeLine{00022   \textcolor{keywordtype}{int} amount\_of\_x\_offsets = (int(texture\_size.x) / texture\_crop\_scale\_x\_);}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{int} amount\_of\_y\_offsets = (int(texture\_size.y) / texture\_crop\_scale\_y\_);}
+\DoxyCodeLine{00024   \textcolor{keywordtype}{int} x\_offset = 0; \textcolor{keywordtype}{int} y\_offset = 0;}
+\DoxyCodeLine{00025   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < amount\_of\_y\_offsets; j++) \{}
+\DoxyCodeLine{00026     y\_offset = j*texture\_crop\_scale\_y\_;}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < amount\_of\_x\_offsets; i++) \{}
+\DoxyCodeLine{00028       x\_offset = i*texture\_crop\_scale\_x\_;}
+\DoxyCodeLine{00029       sf::IntRect cropping(x\_offset, y\_offset, texture\_crop\_scale\_x\_, texture\_crop\_scale\_y\_);}
+\DoxyCodeLine{00030       sf::Texture frame\_texture;}
+\DoxyCodeLine{00031       frame\_texture.loadFromFile(sprite\_sheets\_path, cropping);}
+\DoxyCodeLine{00032       \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}.push\_back(frame\_texture);}
+\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00034   \}}
+\DoxyCodeLine{00035   \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\_frame\_}} = \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}.size() -\/ 1;}
+\DoxyCodeLine{00036 \};}
+\DoxyCodeLine{00037 }
+\DoxyCodeLine{00038 \textcolor{comment}{/* Destructor. */}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00039}\mbox{\hyperlink{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}{00039}} \mbox{\hyperlink{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}{Animation::\string~Animation}}() \{\};}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041 \textcolor{comment}{/* Sets the animation speed. */}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00042}\mbox{\hyperlink{classAnimation_a83abb23dfd080038204fd69152d88d87}{00042}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAnimation_a83abb23dfd080038204fd69152d88d87}{Animation::setAnimationSpeed}}(\textcolor{keywordtype}{float} new\_speed) \{\mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\_speed\_}} = new\_speed;\};}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044 \textcolor{comment}{/*}}
+\DoxyCodeLine{00045 \textcolor{comment}{This function is called to get the current frame that the animation is meant to display.}}
+\DoxyCodeLine{00046 \textcolor{comment}{Call example:}}
+\DoxyCodeLine{00047 \textcolor{comment}{body\_.setTexture(animation01.getCurrentFrame());}}
+\DoxyCodeLine{00048 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00049}\mbox{\hyperlink{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}{00049}} sf::Texture* \mbox{\hyperlink{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}{Animation::getCurrentFrame}}() \{\textcolor{keywordflow}{return} \&\mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}[\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}}];\};}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 \textcolor{comment}{/*}}
+\DoxyCodeLine{00052 \textcolor{comment}{Simply resets the animation to start from the beggining,}}
+\DoxyCodeLine{00053 \textcolor{comment}{useful for ex. when character stops walking to stand still instead.}}
+\DoxyCodeLine{00054 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00055}\mbox{\hyperlink{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}{00055}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}{Animation::resetCurrentFrame}}() \{\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} = 0;\};}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057 \textcolor{comment}{/*}}
+\DoxyCodeLine{00058 \textcolor{comment}{Updates the animation with respect to SFML window time in seconds.}}
+\DoxyCodeLine{00059 \textcolor{comment}{Uses time to determine wether or not the next frame in the animation is going to be displayed.}}
+\DoxyCodeLine{00060 \textcolor{comment}{Returns true if frame was updated, returns false otherwise.}}
+\DoxyCodeLine{00061 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{animation_8cpp_source_l00062}\mbox{\hyperlink{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}{00062}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}{Animation::Update}}(\textcolor{keywordtype}{float} time) \{}
+\DoxyCodeLine{00063   \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} += time;}
+\DoxyCodeLine{00064   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} >= \mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\_speed\_}})\{}
+\DoxyCodeLine{00065     \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} = 0;}
+\DoxyCodeLine{00066     \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} += 1;}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} > \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\_frame\_}})\{}
+\DoxyCodeLine{00068       \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} = 0;}
+\DoxyCodeLine{00069     \}}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00071   \}}
+\DoxyCodeLine{00072   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00073 \};}
+
+\end{DoxyCode}

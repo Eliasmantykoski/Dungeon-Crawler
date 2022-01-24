@@ -1,0 +1,58 @@
+\hypertarget{menu_8cpp_source}{}\doxysection{menu.\+cpp}
+\label{menu_8cpp_source}\index{src/menu.cpp@{src/menu.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{menu_8hpp}{menu.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Color.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/Graphics/Font.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <SFML/Graphics/RectangleShape.hpp>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <SFML/Window/Mouse.hpp>}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00011}\mbox{\hyperlink{classMenu_aa5d2b4a675834fb58b16dbd1d3c9ac68}{00011}} \mbox{\hyperlink{classMenu_aa5d2b4a675834fb58b16dbd1d3c9ac68}{Menu::Menu}}(sf::Font font, sf::Texture* menubackground)}
+\DoxyCodeLine{00012     : font\_(font), active\_(true) \{}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setSize(sf::Vector2f(500, 650));}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setPosition(sf::Vector2f(0, 0));}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}}.setTexture(menubackground);}
+\DoxyCodeLine{00016   sf::Text StartText;}
+\DoxyCodeLine{00017   StartText.setString(\textcolor{stringliteral}{"Start New Game"});}
+\DoxyCodeLine{00018   StartText.setCharacterSize(36);}
+\DoxyCodeLine{00019   StartText.setPosition(50, 300);}
+\DoxyCodeLine{00020   StartText.setFillColor(sf::Color::Yellow);}
+\DoxyCodeLine{00021   StartText.setFont(\mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\_}});}
+\DoxyCodeLine{00022   \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.push\_back(StartText);}
+\DoxyCodeLine{00023   sf::Text QuitText;}
+\DoxyCodeLine{00024   QuitText.setString(\textcolor{stringliteral}{"Quit Game"});}
+\DoxyCodeLine{00025   QuitText.setCharacterSize(36);}
+\DoxyCodeLine{00026   QuitText.setPosition(50, 350);}
+\DoxyCodeLine{00027   QuitText.setFillColor(sf::Color::White);}
+\DoxyCodeLine{00028   QuitText.setFont(\mbox{\hyperlink{classMenu_a8fc5c11e2594cafe239fcc94f77dc16f}{font\_}});}
+\DoxyCodeLine{00029   \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.push\_back(QuitText);}
+\DoxyCodeLine{00030 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00031}\mbox{\hyperlink{classMenu_ad5243b991239a2caf6a7190cb4afe888}{00031}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_ad5243b991239a2caf6a7190cb4afe888}{Menu::Display}}(sf::RenderWindow\& window) \{}
+\DoxyCodeLine{00032   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}}) \{}
+\DoxyCodeLine{00033     this-\/>\mbox{\hyperlink{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}{Update}}(window);}
+\DoxyCodeLine{00034     window.draw(\mbox{\hyperlink{classMenu_aa0b1ed4a2dde315361ebc298ee52240a}{background\_}});}
+\DoxyCodeLine{00035     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}.size(); i++) \{}
+\DoxyCodeLine{00036       window.draw(\mbox{\hyperlink{classMenu_ac6dd94173326e1c2cc50d1efe0f6ac7b}{texts\_}}[i]);}
+\DoxyCodeLine{00037     \}}
+\DoxyCodeLine{00038   \}}
+\DoxyCodeLine{00039 \}}
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00040}\mbox{\hyperlink{classMenu_a831387f51358cfb88cd018e1777bc980}{00040}} \mbox{\hyperlink{classMenu_a831387f51358cfb88cd018e1777bc980}{Menu::\string~Menu}}()\{\};}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{menu_8cpp_source_l00042}\mbox{\hyperlink{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}{00042}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classMenu_a8a52a22957c0436dcd6c3835100b5f6a}{Menu::Update}}(sf::RenderWindow\& relativeTo) \{}
+\DoxyCodeLine{00043   \textcolor{keywordflow}{if} (sf::Mouse::isButtonPressed(sf::Mouse::Left) and \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}}) \{}
+\DoxyCodeLine{00044     sf::Vector2i pos = sf::Mouse::getPosition(relativeTo);}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{if} (pos.y > 30 \&\& pos.y < (300 + 36)) \{}
+\DoxyCodeLine{00046       \mbox{\hyperlink{classMenu_a2a62cb0f40b208af4685c8fdc3a686bb}{active\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00047     \}}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (pos.y > (350) \&\& pos.y < (350 + 36)) \{}
+\DoxyCodeLine{00049       relativeTo.close();}
+\DoxyCodeLine{00050     \}}
+\DoxyCodeLine{00051   \}}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}

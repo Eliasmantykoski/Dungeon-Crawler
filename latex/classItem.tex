@@ -1,0 +1,131 @@
+\hypertarget{classItem}{}\doxysection{Item Class Reference}
+\label{classItem}\index{Item@{Item}}
+
+
+{\ttfamily \#include $<$item.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classItem_ae5d61f936464a032eb68dc7911db241c}{Item}} (sf\+::\+Texture $\ast$texture, sf\+::\+Vector2f position, std\+::string \mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}})
+\item 
+\mbox{\hyperlink{classItem_a11663c84075b78c3ae5e30fdfcd7c458}{$\sim$\+Item}} ()
+\item 
+void \mbox{\hyperlink{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}{Draw}} (sf\+::\+Render\+Window \&window)
+\item 
+\mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classItem_a282eeb46afbaec6fc3a925345f8aca51}{get\+Collider}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}
+\item 
+std\+::string \mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling items 
+
+Definition at line \mbox{\hyperlink{item_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{item_8hpp_source}{item.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classItem_ae5d61f936464a032eb68dc7911db241c}\label{classItem_ae5d61f936464a032eb68dc7911db241c}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{Item()}{Item()}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{sf\+::\+Vector2f}]{position,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+Constructor for \mbox{\hyperlink{classItem}{Item}} oject 
+
+Definition at line \mbox{\hyperlink{item_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{item_8cpp_source}{item.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005     : \mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}}(\mbox{\hyperlink{classItem_a119b781b2b7f8e1f2615e18526bd8ade}{type}}) \{}
+\DoxyCodeLine{00006   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setSize(sf::Vector2f(30, 30));}
+\DoxyCodeLine{00007   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setPosition(position);}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setTexture(texture);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}.setOrigin(sf::Vector2f(30, 30) / 2.0f);}
+\DoxyCodeLine{00010 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classItem_a11663c84075b78c3ae5e30fdfcd7c458}\label{classItem_a11663c84075b78c3ae5e30fdfcd7c458}} 
+\index{Item@{Item}!````~Item@{$\sim$Item}}
+\index{````~Item@{$\sim$Item}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{$\sim$Item()}{~Item()}}
+{\footnotesize\ttfamily Item\+::$\sim$\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default destructor for item 
+
+Definition at line \mbox{\hyperlink{item_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{item_8hpp_source}{item.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}\label{classItem_a2cf01bcdb40bee93bc86fccf40b4c230}} 
+\index{Item@{Item}!Draw@{Draw}}
+\index{Draw@{Draw}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Item\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+Used for rendering the items 
+
+Definition at line \mbox{\hyperlink{item_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{item_8cpp_source}{item.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011 \{ window.draw(\mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classItem_a282eeb46afbaec6fc3a925345f8aca51}\label{classItem_a282eeb46afbaec6fc3a925345f8aca51}} 
+\index{Item@{Item}!getCollider@{getCollider}}
+\index{getCollider@{getCollider}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{getCollider()}{getCollider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCollider}{Collider}} Item\+::get\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the item collider 
+
+Definition at line \mbox{\hyperlink{item_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{item_8hpp_source}{item.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}{body}}); \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}\label{classItem_a2bb7bbaaa7e74f7f2995dbd246094c7f}} 
+\index{Item@{Item}!body@{body}}
+\index{body@{body}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{body}{body}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Item\+::body}
+
+
+
+Definition at line \mbox{\hyperlink{item_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{item_8hpp_source}{item.\+hpp}}.
+
+\mbox{\Hypertarget{classItem_a119b781b2b7f8e1f2615e18526bd8ade}\label{classItem_a119b781b2b7f8e1f2615e18526bd8ade}} 
+\index{Item@{Item}!type@{type}}
+\index{type@{type}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily std\+::string Item\+::type}
+
+
+
+Definition at line \mbox{\hyperlink{item_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{item_8hpp_source}{item.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{item_8hpp}{item.\+hpp}}\item 
+src/\mbox{\hyperlink{item_8cpp}{item.\+cpp}}\end{DoxyCompactItemize}

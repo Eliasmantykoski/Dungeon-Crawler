@@ -1,0 +1,51 @@
+\hypertarget{room_8hpp_source}{}\doxysection{room.\+hpp}
+\label{room_8hpp_source}\index{src/room.hpp@{src/room.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef ROOM\_CLASS}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define ROOM\_CLASS}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{collider_8hpp}{collider.hpp}}"}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{enemy_8hpp}{enemy.hpp}}"}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{item_8hpp}{item.hpp}}"}}
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00014}\mbox{\hyperlink{classRoom}{00014}} \textcolor{keyword}{class }\mbox{\hyperlink{classRoom}{Room}} \{}
+\DoxyCodeLine{00015  \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016   \textcolor{comment}{/*}}
+\DoxyCodeLine{00017 \textcolor{comment}{   *Constructor for Room. Populates room edges with texture and floor with}}
+\DoxyCodeLine{00018 \textcolor{comment}{   *nullptr walls}}
+\DoxyCodeLine{00019 \textcolor{comment}{   */}}
+\DoxyCodeLine{00020   \mbox{\hyperlink{classRoom_a02c1f68574743272ce133bf29dac53bf}{Room}}(sf::Texture* texture, sf::Vector2f spawnPos, std::vector<int> openings,}
+\DoxyCodeLine{00021        \textcolor{keywordtype}{int} depth);}
+\DoxyCodeLine{00022   \textcolor{comment}{/*}}
+\DoxyCodeLine{00023 \textcolor{comment}{   *Method for displaying individual walls}}
+\DoxyCodeLine{00024 \textcolor{comment}{   */}}
+\DoxyCodeLine{00025   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a010ce57c8a5bf3c4c914fec055286ef0}{Display}}(sf::RenderWindow\& window, \mbox{\hyperlink{classCollider}{Collider}} playerCollider,}
+\DoxyCodeLine{00026                std::vector<Enemy*>\& enemies);\textcolor{comment}{}}
+\DoxyCodeLine{00027 \textcolor{comment}{  /**Checks collisions with walls*/}}
+\DoxyCodeLine{00028   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_ac49263bd5e0d57166391803f6032fb13}{checkCollision}}(sf::RectangleShape\& other\_body);\textcolor{comment}{}}
+\DoxyCodeLine{00029 \textcolor{comment}{  /**Moves the room when player traverses*/}}
+\DoxyCodeLine{00030   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a35567d2b09fa16c2bba706604f0d6522}{MoveRoom}}(\textcolor{keywordtype}{int} direction, std::vector<Item>\& items);\textcolor{comment}{}}
+\DoxyCodeLine{00031 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00032}\mbox{\hyperlink{classRoom_a67d5da09983cc53097807fd43ba5481a}{00032}}   \mbox{\hyperlink{classRoom_a67d5da09983cc53097807fd43ba5481a}{\string~Room}}()\{\};}
+\DoxyCodeLine{00033   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_af670461ff00a43beaf71a7ce93c66fc9}{Activate}}();}
+\DoxyCodeLine{00034   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRoom_a02cfe79807da1c17cd5519b36a4c1096}{Deactivate}}();}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00035}\mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{00035}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classRoom_a5bd79e635f9ebe0738c2db676fabf40c}{active}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00036}\mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{00036}}   sf::Vector2f \mbox{\hyperlink{classRoom_adf65190cc2e4e041cff82d4b3622c87d}{maxSize}} = sf::Vector2f(10.0f, 10.0f);}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00037}\mbox{\hyperlink{classRoom_aa8cb4af13053e2dce4f77936722dffba}{00037}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_aa8cb4af13053e2dce4f77936722dffba}{xBound1}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00038}\mbox{\hyperlink{classRoom_ada45ff5e1973161df68ea0945f675ab4}{00038}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ada45ff5e1973161df68ea0945f675ab4}{xBound2}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00039}\mbox{\hyperlink{classRoom_ac54028f80211b29f275dbfae4738e55a}{00039}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_ac54028f80211b29f275dbfae4738e55a}{yBound1}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00040}\mbox{\hyperlink{classRoom_a083eb316d0038211707a90f13892f054}{00040}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classRoom_a083eb316d0038211707a90f13892f054}{yBound2}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00041}\mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{00041}}   std::vector<std::vector<Wall>> \mbox{\hyperlink{classRoom_a41370b2f65375983ae8595e0e9dc0718}{walls}};}
+\DoxyCodeLine{\Hypertarget{room_8hpp_source_l00042}\mbox{\hyperlink{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}{00042}}   \textcolor{keywordtype}{int} \mbox{\hyperlink{classRoom_a7ebbef5763c0a88eef4b9828c47285ec}{depth\_}};}
+\DoxyCodeLine{00043 \};}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

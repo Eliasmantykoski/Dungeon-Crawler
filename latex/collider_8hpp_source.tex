@@ -1,0 +1,31 @@
+\hypertarget{collider_8hpp_source}{}\doxysection{collider.\+hpp}
+\label{collider_8hpp_source}\index{src/collider.hpp@{src/collider.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#ifndef COLLIDER\_CLASS}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#define COLLIDER\_CLASS}}
+\DoxyCodeLine{00003 }
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include "SFML/Graphics.hpp"}\textcolor{comment}{}}
+\DoxyCodeLine{00005 \textcolor{comment}{/**Class for handling collisions*/}}
+\DoxyCodeLine{\Hypertarget{collider_8hpp_source_l00006}\mbox{\hyperlink{classCollider}{00006}} \textcolor{keyword}{class }\mbox{\hyperlink{classCollider}{Collider}} \{}
+\DoxyCodeLine{00007  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00008 \textcolor{comment}{  /**Constructor*/}}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classCollider_ab9849daa20222ab71134dde43abc573d}{Collider}}(sf::RectangleShape\& body);\textcolor{comment}{}}
+\DoxyCodeLine{00010 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classCollider_a564acde9860f875a32a6638c573d87be}{\string~Collider}}();\textcolor{comment}{}}
+\DoxyCodeLine{00012 \textcolor{comment}{  /**Moves object out of collision */}}
+\DoxyCodeLine{\Hypertarget{collider_8hpp_source_l00013}\mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{00013}}   \textcolor{keywordtype}{void} \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(\textcolor{keywordtype}{float} dx, \textcolor{keywordtype}{float} dy) \{ body\_.move(dx, dy); \}\textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{  /**Checks if two colliders are colliding*/}}
+\DoxyCodeLine{00015   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{checkCollider}}(\mbox{\hyperlink{classCollider}{Collider}}\& other, \textcolor{keywordtype}{float} push);\textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{  /**Returns collider position*/}}
+\DoxyCodeLine{\Hypertarget{collider_8hpp_source_l00017}\mbox{\hyperlink{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}{00017}}   sf::Vector2f \mbox{\hyperlink{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}{getPosition}}() \{ \textcolor{keywordflow}{return} body\_.getPosition(); \}\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Returns collider size divided by 2*/}}
+\DoxyCodeLine{\Hypertarget{collider_8hpp_source_l00019}\mbox{\hyperlink{classCollider_a5111d0456645b48f9a1c5e5674267887}{00019}}   sf::Vector2f \mbox{\hyperlink{classCollider_a5111d0456645b48f9a1c5e5674267887}{getHalfSize}}() \{ \textcolor{keywordflow}{return} body\_.getSize() / 2.0f; \}}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{00021  \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022   sf::RectangleShape\& body\_;}
+\DoxyCodeLine{00023 \};}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

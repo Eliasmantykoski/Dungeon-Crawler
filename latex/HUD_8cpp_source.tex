@@ -1,0 +1,132 @@
+\hypertarget{HUD_8cpp_source}{}\doxysection{H\+U\+D.\+cpp}
+\label{HUD_8cpp_source}\index{src/HUD.cpp@{src/HUD.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{HUD_8hpp}{HUD.hpp}}"}}
+\DoxyCodeLine{00002 }
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{\Hypertarget{HUD_8cpp_source_l00006}\mbox{\hyperlink{classHUD_a4a8d844627be81ce4b532af5eb03a735}{00006}} \mbox{\hyperlink{classHUD_a4a8d844627be81ce4b532af5eb03a735}{HUD::HUD}}(sf::Font font, std::vector<sf::Texture*> hp\_textures,}
+\DoxyCodeLine{00007          sf::Texture* background, sf::Texture* inventory\_texture,}
+\DoxyCodeLine{00008          std::vector<sf::Texture*> item\_textures)}
+\DoxyCodeLine{00009     : font\_(font), hp\_textures\_(hp\_textures) \{}
+\DoxyCodeLine{00010   \textcolor{comment}{// Window size 500x500 assumed}}
+\DoxyCodeLine{00011   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setSize(sf::Vector2f(500.0f, 150.0f));}
+\DoxyCodeLine{00012   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setPosition(sf::Vector2f(0.0f, 500.0f));}
+\DoxyCodeLine{00013   \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}}.setTexture(background);}
+\DoxyCodeLine{00014   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
+\DoxyCodeLine{00015     sf::RectangleShape heart;}
+\DoxyCodeLine{00016     heart.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00017     heart.setPosition(sf::Vector2f((i + 1) * 50.0f, 520.0f));}
+\DoxyCodeLine{00018     heart.setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00019     \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.push\_back(heart);}
+\DoxyCodeLine{00020   \}}
+\DoxyCodeLine{00021   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < 3; i++) \{}
+\DoxyCodeLine{00022     sf::Text text;}
+\DoxyCodeLine{00023     text.setString(\textcolor{stringliteral}{"0"});}
+\DoxyCodeLine{00024     text.setCharacterSize(24);}
+\DoxyCodeLine{00025     text.setPosition(sf::Vector2f((i + 5) * 50.0f, 570.0f));}
+\DoxyCodeLine{00026     \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}.push\_back(text);}
+\DoxyCodeLine{00027   \}}
+\DoxyCodeLine{00028   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 4; i < 7; i++) \{}
+\DoxyCodeLine{00029     sf::RectangleShape inv\_slot;}
+\DoxyCodeLine{00030     inv\_slot.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00031     inv\_slot.setPosition(sf::Vector2f((i + 1) * 50.0f, 520.0f));}
+\DoxyCodeLine{00032     inv\_slot.setTexture(inventory\_texture);}
+\DoxyCodeLine{00033     \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}.push\_back(inv\_slot);}
+\DoxyCodeLine{00034   \}}
+\DoxyCodeLine{00035   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < item\_textures.size(); i++) \{}
+\DoxyCodeLine{00036     sf::RectangleShape item\_image;}
+\DoxyCodeLine{00037     item\_image.setSize(sf::Vector2f(50.0f, 50.0f));}
+\DoxyCodeLine{00038     item\_image.setPosition(sf::Vector2f((i + 5) * 50.0f, 520.0f));}
+\DoxyCodeLine{00039     item\_image.setTexture(item\_textures[i]);}
+\DoxyCodeLine{00040     \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.push\_back(item\_image);}
+\DoxyCodeLine{00041   \}}
+\DoxyCodeLine{00042 \}}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{\Hypertarget{HUD_8cpp_source_l00044}\mbox{\hyperlink{classHUD_aba4614524414cf22c6a4c3e880c35bc0}{00044}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classHUD_aba4614524414cf22c6a4c3e880c35bc0}{HUD::Display}}(sf::RenderWindow\& window) \{}
+\DoxyCodeLine{00045   window.draw(\mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}});}
+\DoxyCodeLine{00046   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size(); i++) \{}
+\DoxyCodeLine{00047     window.draw(\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[i]);}
+\DoxyCodeLine{00048   \}}
+\DoxyCodeLine{00049   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}.size(); j++) \{}
+\DoxyCodeLine{00050     window.draw(\mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}}[j]);}
+\DoxyCodeLine{00051     \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[j].setFont(\mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{font\_}});}
+\DoxyCodeLine{00052     window.draw(\mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[j]);}
+\DoxyCodeLine{00053   \}}
+\DoxyCodeLine{00054   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.size() != 0) \{}
+\DoxyCodeLine{00055     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}.size(); i++) \{}
+\DoxyCodeLine{00056       window.draw(\mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}}[i]);}
+\DoxyCodeLine{00057     \}}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059 \}}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{\Hypertarget{HUD_8cpp_source_l00061}\mbox{\hyperlink{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}{00061}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}{HUD::Update}}(std::vector<Item>\& items, \textcolor{keywordtype}{float} playerHP) \{}
+\DoxyCodeLine{00062   \textcolor{keywordtype}{int} hp\_pots = 0;}
+\DoxyCodeLine{00063   \textcolor{keywordtype}{int} spd\_pots = 0;}
+\DoxyCodeLine{00064   \textcolor{keywordtype}{int} coins = 0;}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i : items) \{}
+\DoxyCodeLine{00066     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"hp\_pot"}) \{}
+\DoxyCodeLine{00067       hp\_pots++;}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"speed\_pot"}) \{}
+\DoxyCodeLine{00070       spd\_pots++;}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072     \textcolor{keywordflow}{if} (i.type == \textcolor{stringliteral}{"coin"}) \{}
+\DoxyCodeLine{00073       coins++;}
+\DoxyCodeLine{00074     \}}
+\DoxyCodeLine{00075   \}}
+\DoxyCodeLine{00076   std::stringstream ss;}
+\DoxyCodeLine{00077   ss << hp\_pots;}
+\DoxyCodeLine{00078   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[0].setString(ss.str());}
+\DoxyCodeLine{00079   std::stringstream ss2;}
+\DoxyCodeLine{00080   ss2 << spd\_pots;}
+\DoxyCodeLine{00081   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[1].setString(ss2.str());}
+\DoxyCodeLine{00082   std::stringstream ss3;}
+\DoxyCodeLine{00083   ss3 << coins;}
+\DoxyCodeLine{00084   \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}}[2].setString(ss3.str());}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086   \textcolor{keywordtype}{int} hp = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(playerHP);}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{switch} (hp) \{}
+\DoxyCodeLine{00088     \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00089       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00090       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00091       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00093     \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00094       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00095       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00096       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00097       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00099       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00100       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00101       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00102       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00103     \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00104       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00105       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00106       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00107       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108     \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00109       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00110       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00111       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[0]);}
+\DoxyCodeLine{00112       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00113     \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00114       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00115       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00116       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[1]);}
+\DoxyCodeLine{00117       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118     \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00119       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 1].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00120       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 2].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00121       \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}[\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}}.size() -\/ 3].setTexture(\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}}[2]);}
+\DoxyCodeLine{00122       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00123   \}}
+\DoxyCodeLine{00124 \}}
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{\Hypertarget{HUD_8cpp_source_l00126}\mbox{\hyperlink{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}{00126}} \mbox{\hyperlink{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}{HUD::\string~HUD}}() \{\}}
+
+\end{DoxyCode}

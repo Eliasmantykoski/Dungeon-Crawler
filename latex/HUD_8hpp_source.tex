@@ -1,0 +1,37 @@
+\hypertarget{HUD_8hpp_source}{}\doxysection{H\+U\+D.\+hpp}
+\label{HUD_8hpp_source}\index{src/HUD.hpp@{src/HUD.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{item_8hpp}{item.hpp}}"}}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#ifndef HUD\_CLASS}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#define HUD\_CLASS}}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00012}\mbox{\hyperlink{classHUD}{00012}} \textcolor{keyword}{class }\mbox{\hyperlink{classHUD}{HUD}} \{}
+\DoxyCodeLine{00013  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{  /**Constructs HUD*/}}
+\DoxyCodeLine{00015   \mbox{\hyperlink{classHUD_a4a8d844627be81ce4b532af5eb03a735}{HUD}}(sf::Font font, std::vector<sf::Texture*> hp, sf::Texture* background,}
+\DoxyCodeLine{00016       sf::Texture* inventory, std::vector<sf::Texture*> item\_textures);\textcolor{comment}{}}
+\DoxyCodeLine{00017 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00018   \mbox{\hyperlink{classHUD_a1e1140a40e4bf72a45acf9f7b2119323}{\string~HUD}}();\textcolor{comment}{}}
+\DoxyCodeLine{00019 \textcolor{comment}{  /**Rendrers the HUD*/}}
+\DoxyCodeLine{00020   \textcolor{keywordtype}{void} \mbox{\hyperlink{classHUD_aba4614524414cf22c6a4c3e880c35bc0}{Display}}(sf::RenderWindow\& window);\textcolor{comment}{}}
+\DoxyCodeLine{00021 \textcolor{comment}{  /**Updates the HUD*/}}
+\DoxyCodeLine{00022   \textcolor{keywordtype}{void} \mbox{\hyperlink{classHUD_a1fc971ef4e4ac57ac9812b3e8feddedc}{Update}}(std::vector<Item>\&, \textcolor{keywordtype}{float});}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00023}\mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{00023}}   sf::RectangleShape \mbox{\hyperlink{classHUD_a9000650ffe43b381e5056dae1ba16816}{background\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00024}\mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{00024}}   std::vector<sf::RectangleShape> \mbox{\hyperlink{classHUD_a8dfdff668d8562815c0256e7ed74149e}{hp\_bar\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00025}\mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{00025}}   std::vector<sf::RectangleShape> \mbox{\hyperlink{classHUD_acd52ff18f17a5890a0cd0c5e0ac8b248}{inventory\_bar\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00026}\mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{00026}}   std::vector<sf::RectangleShape> \mbox{\hyperlink{classHUD_a8cab5ae238dd0aab4073ee585e7c13d1}{hud\_items\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00027}\mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{00027}}   std::vector<sf::Text> \mbox{\hyperlink{classHUD_a1611e141128a6f0bd6b4fc68d0feaf88}{texts\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00028}\mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{00028}}   sf::Font \mbox{\hyperlink{classHUD_a35629007860cf7021c45ddaa2dc18b78}{font\_}};}
+\DoxyCodeLine{\Hypertarget{HUD_8hpp_source_l00029}\mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{00029}}   std::vector<sf::Texture*> \mbox{\hyperlink{classHUD_a1700f3180f55b3d033c9896019c6250d}{hp\_textures\_}};}
+\DoxyCodeLine{00030 \};}
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

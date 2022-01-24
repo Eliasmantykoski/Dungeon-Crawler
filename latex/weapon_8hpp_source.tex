@@ -1,0 +1,33 @@
+\hypertarget{weapon_8hpp_source}{}\doxysection{weapon.\+hpp}
+\label{weapon_8hpp_source}\index{src/weapon.hpp@{src/weapon.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{projectile_8hpp}{projectile.hpp}}"}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#ifndef WEAPON\_CLASS}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#define WEAPON\_CLASS}}
+\DoxyCodeLine{00010 \textcolor{comment}{/**Class for weapon*/}}
+\DoxyCodeLine{\Hypertarget{weapon_8hpp_source_l00011}\mbox{\hyperlink{classWeapon}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{classWeapon}{Weapon}} \{}
+\DoxyCodeLine{00012  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00013 \textcolor{comment}{  /**Constructor*/}}
+\DoxyCodeLine{00014   \mbox{\hyperlink{classWeapon_a345df9755278624480f7c41f036734ba}{Weapon}}(sf::Texture* texture, sf::Texture* proj\_texture);\textcolor{comment}{}}
+\DoxyCodeLine{00015 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00016   \mbox{\hyperlink{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}{\string~Weapon}}();}
+\DoxyCodeLine{00017 \textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{  /**Creates projectile*/}}
+\DoxyCodeLine{00019   \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}{Fire}}(sf::Vector2f fire\_position, sf::Vector2f fire\_trajectory);}
+\DoxyCodeLine{00020 }
+\DoxyCodeLine{\Hypertarget{weapon_8hpp_source_l00021}\mbox{\hyperlink{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}{00021}}   sf::RectangleShape \mbox{\hyperlink{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}{weapon\_body\_}};}
+\DoxyCodeLine{00022   \textcolor{comment}{//Projectile weapon\_projectile\_*;}}
+\DoxyCodeLine{\Hypertarget{weapon_8hpp_source_l00023}\mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{00023}}   std::vector<Projectile> \mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\_projectile\_}}; \textcolor{comment}{//This vector is used instead of a pointer, because pointers give compile errors}}
+\DoxyCodeLine{\Hypertarget{weapon_8hpp_source_l00024}\mbox{\hyperlink{classWeapon_a8ec8231e728cdef2a4bb7cfa55241e32}{00024}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classWeapon_a8ec8231e728cdef2a4bb7cfa55241e32}{fire\_rate\_}} = 0.1;}
+\DoxyCodeLine{00025 \};}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00027 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,171 @@
+\hypertarget{classCollider}{}\doxysection{Collider Class Reference}
+\label{classCollider}\index{Collider@{Collider}}
+
+
+{\ttfamily \#include $<$collider.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCollider_ab9849daa20222ab71134dde43abc573d}{Collider}} (sf\+::\+Rectangle\+Shape \&body)
+\item 
+\mbox{\hyperlink{classCollider_a564acde9860f875a32a6638c573d87be}{$\sim$\+Collider}} ()
+\item 
+void \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}} (float dx, float dy)
+\item 
+bool \mbox{\hyperlink{classCollider_a0c232a533214c61aa746bc0b9375d110}{check\+Collider}} (\mbox{\hyperlink{classCollider}{Collider}} \&other, float push)
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}{get\+Position}} ()
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classCollider_a5111d0456645b48f9a1c5e5674267887}{get\+Half\+Size}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for handling collisions 
+
+Definition at line \mbox{\hyperlink{collider_8hpp_source_l00006}{6}} of file \mbox{\hyperlink{collider_8hpp_source}{collider.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCollider_ab9849daa20222ab71134dde43abc573d}\label{classCollider_ab9849daa20222ab71134dde43abc573d}} 
+\index{Collider@{Collider}!Collider@{Collider}}
+\index{Collider@{Collider}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{Collider()}{Collider()}}
+{\footnotesize\ttfamily Collider\+::\+Collider (\begin{DoxyParamCaption}\item[{sf\+::\+Rectangle\+Shape \&}]{body }\end{DoxyParamCaption})}
+
+Constructor 
+
+Definition at line \mbox{\hyperlink{collider_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{collider_8cpp_source}{collider.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00003 : body\_(body) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCollider_a564acde9860f875a32a6638c573d87be}\label{classCollider_a564acde9860f875a32a6638c573d87be}} 
+\index{Collider@{Collider}!````~Collider@{$\sim$Collider}}
+\index{````~Collider@{$\sim$Collider}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{$\sim$Collider()}{~Collider()}}
+{\footnotesize\ttfamily Collider\+::$\sim$\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{collider_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{collider_8cpp_source}{collider.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005 \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCollider_a0c232a533214c61aa746bc0b9375d110}\label{classCollider_a0c232a533214c61aa746bc0b9375d110}} 
+\index{Collider@{Collider}!checkCollider@{checkCollider}}
+\index{checkCollider@{checkCollider}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{checkCollider()}{checkCollider()}}
+{\footnotesize\ttfamily bool Collider\+::check\+Collider (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCollider}{Collider}} \&}]{other,  }\item[{float}]{push }\end{DoxyParamCaption})}
+
+Checks if two colliders are colliding 
+
+Definition at line \mbox{\hyperlink{collider_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{collider_8cpp_source}{collider.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009                                                         \{}
+\DoxyCodeLine{00010   \textcolor{comment}{// get positions}}
+\DoxyCodeLine{00011   sf::Vector2f otherPosition = other.\mbox{\hyperlink{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}{getPosition}}();}
+\DoxyCodeLine{00012   sf::Vector2f otherHalfSize = other.\mbox{\hyperlink{classCollider_a5111d0456645b48f9a1c5e5674267887}{getHalfSize}}();}
+\DoxyCodeLine{00013   sf::Vector2f thisPosition = \mbox{\hyperlink{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}{getPosition}}();}
+\DoxyCodeLine{00014   sf::Vector2f thisHalfSize = \mbox{\hyperlink{classCollider_a5111d0456645b48f9a1c5e5674267887}{getHalfSize}}();}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016   \textcolor{comment}{// find differences in location}}
+\DoxyCodeLine{00017   \textcolor{keywordtype}{float} xdif = otherPosition.x -\/ thisPosition.x;}
+\DoxyCodeLine{00018   \textcolor{keywordtype}{float} ydif = otherPosition.y -\/ thisPosition.y;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020   \textcolor{keywordtype}{float} intersectX = abs(xdif) -\/ (otherHalfSize.x + thisHalfSize.x);}
+\DoxyCodeLine{00021   \textcolor{keywordtype}{float} intersectY = abs(ydif) -\/ (otherHalfSize.y + thisHalfSize.y);}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023   \textcolor{comment}{// if colliders intersect, move one of them based on push parameter and return}}
+\DoxyCodeLine{00024   \textcolor{comment}{// true}}
+\DoxyCodeLine{00025   \textcolor{keywordflow}{if} (intersectX < 0.0f \&\& intersectY < 0.0f) \{}
+\DoxyCodeLine{00026     push = std::min(std::max(push, 0.0f), 1.0f);}
+\DoxyCodeLine{00027 }
+\DoxyCodeLine{00028     \textcolor{keywordflow}{if} (abs(intersectX) < abs(intersectY)) \{}
+\DoxyCodeLine{00029       \textcolor{keywordflow}{if} (xdif > 0.0f) \{}
+\DoxyCodeLine{00030         \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(intersectX * (1.0f -\/ push), 0.0f);}
+\DoxyCodeLine{00031         other.\mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(-\/intersectX * push, 0.0f);}
+\DoxyCodeLine{00032       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00033         \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(-\/intersectX * (1.0f -\/ push), 0.0f);}
+\DoxyCodeLine{00034         other.\mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(intersectX * push, 0.0f);}
+\DoxyCodeLine{00035       \}}
+\DoxyCodeLine{00036     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00037       \textcolor{keywordflow}{if} (ydif > 0.0f) \{}
+\DoxyCodeLine{00038         \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(0.0f, intersectY * (1.0f -\/ push));}
+\DoxyCodeLine{00039         other.\mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(0.0f, -\/intersectY * push);}
+\DoxyCodeLine{00040       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00041         \mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(0.0f, -\/intersectY * (1.0f -\/ push));}
+\DoxyCodeLine{00042         other.\mbox{\hyperlink{classCollider_a4da64b55d477c31bd71f170cb2a712e9}{Move}}(0.0f, intersectY * push);}
+\DoxyCodeLine{00043       \}}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00047   \}}
+\DoxyCodeLine{00048 }
+\DoxyCodeLine{00049   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCollider_a5111d0456645b48f9a1c5e5674267887}\label{classCollider_a5111d0456645b48f9a1c5e5674267887}} 
+\index{Collider@{Collider}!getHalfSize@{getHalfSize}}
+\index{getHalfSize@{getHalfSize}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{getHalfSize()}{getHalfSize()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Collider\+::get\+Half\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns collider size divided by 2 
+
+Definition at line \mbox{\hyperlink{collider_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{collider_8hpp_source}{collider.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019 \{ \textcolor{keywordflow}{return} body\_.getSize() / 2.0f; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}\label{classCollider_a158e97afec743ee3bdd6a7a9c96ce3d5}} 
+\index{Collider@{Collider}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Collider\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns collider position 
+
+Definition at line \mbox{\hyperlink{collider_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{collider_8hpp_source}{collider.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{ \textcolor{keywordflow}{return} body\_.getPosition(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCollider_a4da64b55d477c31bd71f170cb2a712e9}\label{classCollider_a4da64b55d477c31bd71f170cb2a712e9}} 
+\index{Collider@{Collider}!Move@{Move}}
+\index{Move@{Move}!Collider@{Collider}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Collider\+::\+Move (\begin{DoxyParamCaption}\item[{float}]{dx,  }\item[{float}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Moves object out of collision 
+
+Definition at line \mbox{\hyperlink{collider_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{collider_8hpp_source}{collider.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{ body\_.move(dx, dy); \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{collider_8hpp}{collider.\+hpp}}\item 
+src/\mbox{\hyperlink{collider_8cpp}{collider.\+cpp}}\end{DoxyCompactItemize}

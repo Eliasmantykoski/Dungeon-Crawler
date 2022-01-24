@@ -1,0 +1,57 @@
+\hypertarget{map_8hpp_source}{}\doxysection{map.\+hpp}
+\label{map_8hpp_source}\index{src/map.hpp@{src/map.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{00006 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{animation_8hpp}{animation.hpp}}"}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{collider_8hpp}{collider.hpp}}"}}
+\DoxyCodeLine{00010 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{item_8hpp}{item.hpp}}"}}
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{room_8hpp}{room.hpp}}"}}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 \textcolor{preprocessor}{\#ifndef MAP\_CLASS}}
+\DoxyCodeLine{00014 \textcolor{preprocessor}{\#define MAP\_CLASS}}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016 \textcolor{keyword}{class }\mbox{\hyperlink{classProjectile}{Projectile}};  \textcolor{comment}{// Forward declaration is used here to avoid circular}}
+\DoxyCodeLine{00017                    \textcolor{comment}{// dependency with projectile class}\textcolor{comment}{}}
+\DoxyCodeLine{00018 \textcolor{comment}{/**Class for the map*/}}
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00019}\mbox{\hyperlink{classMap}{00019}} \textcolor{keyword}{class }\mbox{\hyperlink{classMap}{Map}} \{}
+\DoxyCodeLine{00020  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00021 \textcolor{comment}{  /**Constructor for map*/}}
+\DoxyCodeLine{00022   \mbox{\hyperlink{classMap_ab49268ea02be047c4f9f406bafccae53}{Map}}(sf::Texture* wall\_texture, \mbox{\hyperlink{classAnimation}{Animation}}* enemy\_animation,}
+\DoxyCodeLine{00023       \mbox{\hyperlink{classAnimation}{Animation}}* enemy\_animation2, \mbox{\hyperlink{classAnimation}{Animation}}* boss\_animation,}
+\DoxyCodeLine{00024       sf::Texture* enemy\_projectile\_texture);\textcolor{comment}{}}
+\DoxyCodeLine{00025 \textcolor{comment}{  /**Generates random dungeon and spawns random amount of enemies to each}}
+\DoxyCodeLine{00026 \textcolor{comment}{  /*room.*/}}
+\DoxyCodeLine{00027   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMap_a728349df8b6800ea77aa621e1b2c8820}{Generate}}(sf::Texture* wall\_texture, \mbox{\hyperlink{classAnimation}{Animation}}* enemy\_animation,}
+\DoxyCodeLine{00028                 \mbox{\hyperlink{classAnimation}{Animation}}* enemy\_animation2, \mbox{\hyperlink{classAnimation}{Animation}}* boss\_animation,}
+\DoxyCodeLine{00029                 sf::Texture* enemy\_projectile\_texture, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y,}
+\DoxyCodeLine{00030                 std::vector<int> openings,}
+\DoxyCodeLine{00031                 std::vector<std::pair<int, int>>\& visited);\textcolor{comment}{}}
+\DoxyCodeLine{00032 \textcolor{comment}{  /**Used for rendering the map*/}}
+\DoxyCodeLine{00033   \textcolor{keywordtype}{void} \mbox{\hyperlink{classMap_aa904875fef28ba8333cd985ca5986445}{Display}}(sf::RenderWindow\& window, \mbox{\hyperlink{classCollider}{Collider}} playerCollider);\textcolor{comment}{}}
+\DoxyCodeLine{00034 \textcolor{comment}{  /**Used for whern player traverses between rooms.*/}}
+\DoxyCodeLine{00035   \textcolor{keywordtype}{void} \mbox{\hyperlink{classMap_afba3624fbd2d0ecea30ff62511cb5026}{NextRoom}}(\textcolor{keywordtype}{int} direction);\textcolor{comment}{}}
+\DoxyCodeLine{00036 \textcolor{comment}{  /**Used for spawning random item*/}}
+\DoxyCodeLine{00037   \textcolor{keywordtype}{void} \mbox{\hyperlink{classMap_a52d93704f425542b92d8ea65f3012e55}{SpawnItem}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}\& i, sf::Texture* hp\_text, sf::Texture* speed\_text,}
+\DoxyCodeLine{00038                  sf::Texture* coin\_text);\textcolor{comment}{}}
+\DoxyCodeLine{00039 \textcolor{comment}{  /**Used for picking up items*/}}
+\DoxyCodeLine{00040   \textcolor{keywordtype}{void} \mbox{\hyperlink{classMap_ad8383a9b8c1542e4422d52018a169b28}{removeItem}}(std::vector<Item>::iterator i);}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00042}\mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{00042}}   std::vector<Room> \mbox{\hyperlink{classMap_a48446381b6817541d0a808d9aadd4835}{rooms}};}
+\DoxyCodeLine{00043   \textcolor{comment}{// std::vector<unique\_ptr<Enemy>> enemies;}}
+\DoxyCodeLine{00044   \textcolor{comment}{// std::vector<Enemy> enemies;}}
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00045}\mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{00045}}   std::vector<Enemy*> \mbox{\hyperlink{classMap_a35b2f7c7b789e84d47b1ec61632577c8}{enemies}};}
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00046}\mbox{\hyperlink{classMap_a9c5548a6f875f16e7faac5e45698321e}{00046}}   std::vector<std::vector<Room>> \mbox{\hyperlink{classMap_a9c5548a6f875f16e7faac5e45698321e}{layout}};}
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00047}\mbox{\hyperlink{classMap_a9980101117ce723ed3cdc911f3321b29}{00047}}   sf::Vector2f \mbox{\hyperlink{classMap_a9980101117ce723ed3cdc911f3321b29}{mapSize}} = sf::Vector2f(6.0f, 6.0f);}
+\DoxyCodeLine{\Hypertarget{map_8hpp_source_l00048}\mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{00048}}   std::vector<Item> \mbox{\hyperlink{classMap_a1c630654c6f91098c33122ae54c5e75f}{items}};}
+\DoxyCodeLine{00049 \};}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,225 @@
+\hypertarget{classAnimation}{}\doxysection{Animation Class Reference}
+\label{classAnimation}\index{Animation@{Animation}}
+
+
+{\ttfamily \#include $<$animation.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}{Animation}} (const std\+::string sprite\+\_\+sheets\+\_\+path, int frame\+\_\+x\+\_\+pos, int frame\+\_\+y\+\_\+pos)
+\item 
+\mbox{\hyperlink{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}{$\sim$\+Animation}} ()
+\item 
+void \mbox{\hyperlink{classAnimation_a83abb23dfd080038204fd69152d88d87}{set\+Animation\+Speed}} (float new\+\_\+speed)
+\item 
+sf\+::\+Texture $\ast$ \mbox{\hyperlink{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}{get\+Current\+Frame}} ()
+\item 
+void \mbox{\hyperlink{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}{reset\+Current\+Frame}} ()
+\item 
+bool \mbox{\hyperlink{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}{Update}} (float time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ sf\+::\+Texture $>$ \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\+\_\+frames\+\_\+}}
+\item 
+unsigned int \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\+\_\+frame\+\_\+}} = 0
+\item 
+unsigned int \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\+\_\+frame\+\_\+}}
+\item 
+float \mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\+\_\+speed\+\_\+}} = 0.\+2
+\item 
+float \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{action\+Timer\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00010}{10}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}\label{classAnimation_a5b749b52744c7fcc91bc69ef300b5f38}} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Animation()}{Animation()}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}\item[{const std\+::string}]{sprite\+\_\+sheets\+\_\+path,  }\item[{int}]{frame\+\_\+x\+\_\+pos,  }\item[{int}]{frame\+\_\+y\+\_\+pos }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classAnimation}{Animation}} constructor 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018                                                                                                              \{}
+\DoxyCodeLine{00019   sf::Texture temp\_texture;}
+\DoxyCodeLine{00020   temp\_texture.loadFromFile(sprite\_sheets\_path);}
+\DoxyCodeLine{00021   sf::Vector2u texture\_size = temp\_texture.getSize();}
+\DoxyCodeLine{00022   \textcolor{keywordtype}{int} amount\_of\_x\_offsets = (int(texture\_size.x) / texture\_crop\_scale\_x\_);}
+\DoxyCodeLine{00023   \textcolor{keywordtype}{int} amount\_of\_y\_offsets = (int(texture\_size.y) / texture\_crop\_scale\_y\_);}
+\DoxyCodeLine{00024   \textcolor{keywordtype}{int} x\_offset = 0; \textcolor{keywordtype}{int} y\_offset = 0;}
+\DoxyCodeLine{00025   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < amount\_of\_y\_offsets; j++) \{}
+\DoxyCodeLine{00026     y\_offset = j*texture\_crop\_scale\_y\_;}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < amount\_of\_x\_offsets; i++) \{}
+\DoxyCodeLine{00028       x\_offset = i*texture\_crop\_scale\_x\_;}
+\DoxyCodeLine{00029       sf::IntRect cropping(x\_offset, y\_offset, texture\_crop\_scale\_x\_, texture\_crop\_scale\_y\_);}
+\DoxyCodeLine{00030       sf::Texture frame\_texture;}
+\DoxyCodeLine{00031       frame\_texture.loadFromFile(sprite\_sheets\_path, cropping);}
+\DoxyCodeLine{00032       \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}.push\_back(frame\_texture);}
+\DoxyCodeLine{00033     \}}
+\DoxyCodeLine{00034   \}}
+\DoxyCodeLine{00035   \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\_frame\_}} = \mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}.size() -\/ 1;}
+\DoxyCodeLine{00036 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}\label{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}} 
+\index{Animation@{Animation}!````~Animation@{$\sim$Animation}}
+\index{````~Animation@{$\sim$Animation}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{$\sim$Animation()}{~Animation()}}
+{\footnotesize\ttfamily Animation\+::$\sim$\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}\label{classAnimation_a4ae4c9c246a6edc259e5f762bd68513d}} 
+\index{Animation@{Animation}!getCurrentFrame@{getCurrentFrame}}
+\index{getCurrentFrame@{getCurrentFrame}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{getCurrentFrame()}{getCurrentFrame()}}
+{\footnotesize\ttfamily sf\+::\+Texture $\ast$ Animation\+::get\+Current\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns current frame of the animation image as texture 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049 \{\textcolor{keywordflow}{return} \&\mbox{\hyperlink{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}{animation\_frames\_}}[\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}}];\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}\label{classAnimation_aa7051f1b697be754f11b0c87ac8c00fc}} 
+\index{Animation@{Animation}!resetCurrentFrame@{resetCurrentFrame}}
+\index{resetCurrentFrame@{resetCurrentFrame}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{resetCurrentFrame()}{resetCurrentFrame()}}
+{\footnotesize\ttfamily void Animation\+::reset\+Current\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the current frame 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} = 0;\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAnimation_a83abb23dfd080038204fd69152d88d87}\label{classAnimation_a83abb23dfd080038204fd69152d88d87}} 
+\index{Animation@{Animation}!setAnimationSpeed@{setAnimationSpeed}}
+\index{setAnimationSpeed@{setAnimationSpeed}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{setAnimationSpeed()}{setAnimationSpeed()}}
+{\footnotesize\ttfamily void Animation\+::set\+Animation\+Speed (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+speed }\end{DoxyParamCaption})}
+
+Sets the animation speed to new\+\_\+speed value 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{\mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\_speed\_}} = new\_speed;\};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}\label{classAnimation_a975bb4101648d4a5bc66bf9e4d5e899b}} 
+\index{Animation@{Animation}!Update@{Update}}
+\index{Update@{Update}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool Animation\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{time }\end{DoxyParamCaption})}
+
+Updates the frame 
+
+Definition at line \mbox{\hyperlink{animation_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{animation_8cpp_source}{animation.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062                                  \{}
+\DoxyCodeLine{00063   \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} += time;}
+\DoxyCodeLine{00064   \textcolor{keywordflow}{if}(\mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} >= \mbox{\hyperlink{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}{animation\_speed\_}})\{}
+\DoxyCodeLine{00065     \mbox{\hyperlink{classAnimation_a61a26a04bf1519025db252245704e0ee}{actionTimer\_}} = 0;}
+\DoxyCodeLine{00066     \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} += 1;}
+\DoxyCodeLine{00067     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} > \mbox{\hyperlink{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}{last\_frame\_}})\{}
+\DoxyCodeLine{00068       \mbox{\hyperlink{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}{current\_frame\_}} = 0;}
+\DoxyCodeLine{00069     \}}
+\DoxyCodeLine{00070     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00071   \}}
+\DoxyCodeLine{00072   \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00073 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAnimation_a61a26a04bf1519025db252245704e0ee}\label{classAnimation_a61a26a04bf1519025db252245704e0ee}} 
+\index{Animation@{Animation}!actionTimer\_@{actionTimer\_}}
+\index{actionTimer\_@{actionTimer\_}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{actionTimer\_}{actionTimer\_}}
+{\footnotesize\ttfamily float Animation\+::action\+Timer\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+\mbox{\Hypertarget{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}\label{classAnimation_a75f0ee3fbdd1b0e7cdf5b094aa1b0421}} 
+\index{Animation@{Animation}!animation\_frames\_@{animation\_frames\_}}
+\index{animation\_frames\_@{animation\_frames\_}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{animation\_frames\_}{animation\_frames\_}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Texture$>$ Animation\+::animation\+\_\+frames\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+\mbox{\Hypertarget{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}\label{classAnimation_a7c09a22c79489e09bb5ae6c767b706ce}} 
+\index{Animation@{Animation}!animation\_speed\_@{animation\_speed\_}}
+\index{animation\_speed\_@{animation\_speed\_}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{animation\_speed\_}{animation\_speed\_}}
+{\footnotesize\ttfamily float Animation\+::animation\+\_\+speed\+\_\+ = 0.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00028}{28}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+\mbox{\Hypertarget{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}\label{classAnimation_abbd743c6e9a2290ff1079b197c8d70ec}} 
+\index{Animation@{Animation}!current\_frame\_@{current\_frame\_}}
+\index{current\_frame\_@{current\_frame\_}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{current\_frame\_}{current\_frame\_}}
+{\footnotesize\ttfamily unsigned int Animation\+::current\+\_\+frame\+\_\+ = 0}
+
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00026}{26}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+\mbox{\Hypertarget{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}\label{classAnimation_ad9a7b25d9c21790cc26df7020a558fe1}} 
+\index{Animation@{Animation}!last\_frame\_@{last\_frame\_}}
+\index{last\_frame\_@{last\_frame\_}!Animation@{Animation}}
+\doxysubsubsection{\texorpdfstring{last\_frame\_}{last\_frame\_}}
+{\footnotesize\ttfamily unsigned int Animation\+::last\+\_\+frame\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{animation_8hpp_source_l00027}{27}} of file \mbox{\hyperlink{animation_8hpp_source}{animation.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{animation_8hpp}{animation.\+hpp}}\item 
+src/\mbox{\hyperlink{animation_8cpp}{animation.\+cpp}}\end{DoxyCompactItemize}

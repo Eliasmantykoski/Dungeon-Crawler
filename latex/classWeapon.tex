@@ -1,0 +1,135 @@
+\hypertarget{classWeapon}{}\doxysection{Weapon Class Reference}
+\label{classWeapon}\index{Weapon@{Weapon}}
+
+
+{\ttfamily \#include $<$weapon.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWeapon_a345df9755278624480f7c41f036734ba}{Weapon}} (sf\+::\+Texture $\ast$texture, sf\+::\+Texture $\ast$proj\+\_\+texture)
+\item 
+\mbox{\hyperlink{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}{$\sim$\+Weapon}} ()
+\item 
+\mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}{Fire}} (sf\+::\+Vector2f fire\+\_\+position, sf\+::\+Vector2f fire\+\_\+trajectory)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Rectangle\+Shape \mbox{\hyperlink{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}{weapon\+\_\+body\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\+\_\+projectile\+\_\+}}
+\item 
+float \mbox{\hyperlink{classWeapon_a8ec8231e728cdef2a4bb7cfa55241e32}{fire\+\_\+rate\+\_\+}} = 0.\+1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for weapon 
+
+Definition at line \mbox{\hyperlink{weapon_8hpp_source_l00011}{11}} of file \mbox{\hyperlink{weapon_8hpp_source}{weapon.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWeapon_a345df9755278624480f7c41f036734ba}\label{classWeapon_a345df9755278624480f7c41f036734ba}} 
+\index{Weapon@{Weapon}!Weapon@{Weapon}}
+\index{Weapon@{Weapon}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{Weapon()}{Weapon()}}
+{\footnotesize\ttfamily Weapon\+::\+Weapon (\begin{DoxyParamCaption}\item[{sf\+::\+Texture $\ast$}]{texture,  }\item[{sf\+::\+Texture $\ast$}]{proj\+\_\+texture }\end{DoxyParamCaption})}
+
+Constructor 
+
+Definition at line \mbox{\hyperlink{weapon_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{weapon_8cpp_source}{weapon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007                                                           \{}
+\DoxyCodeLine{00008   \mbox{\hyperlink{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}{weapon\_body\_}}.setTexture(texture);}
+\DoxyCodeLine{00009   \mbox{\hyperlink{classProjectile}{Projectile}} new\_projectile = \mbox{\hyperlink{classProjectile}{Projectile}}(proj\_texture);}
+\DoxyCodeLine{00010   \mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\_projectile\_}}.push\_back(new\_projectile);}
+\DoxyCodeLine{00011 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}\label{classWeapon_a420e7ba3d2017e6de3e93eb579cfd3fa}} 
+\index{Weapon@{Weapon}!````~Weapon@{$\sim$Weapon}}
+\index{````~Weapon@{$\sim$Weapon}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{$\sim$Weapon()}{~Weapon()}}
+{\footnotesize\ttfamily Weapon\+::$\sim$\+Weapon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default destructor 
+
+Definition at line \mbox{\hyperlink{weapon_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{weapon_8cpp_source}{weapon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00013 \{\};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}\label{classWeapon_a6ec0f81b95ee933448b663d34f2f0e56}} 
+\index{Weapon@{Weapon}!Fire@{Fire}}
+\index{Fire@{Fire}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{Fire()}{Fire()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProjectile}{Projectile}} Weapon\+::\+Fire (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{fire\+\_\+position,  }\item[{sf\+::\+Vector2f}]{fire\+\_\+trajectory }\end{DoxyParamCaption})}
+
+Creates projectile 
+
+Definition at line \mbox{\hyperlink{weapon_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{weapon_8cpp_source}{weapon.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024                                                                             \{}
+\DoxyCodeLine{00025   \mbox{\hyperlink{classProjectile}{Projectile}} proj(\mbox{\hyperlink{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}{weapon\_projectile\_}}[0].projectile\_texture\_);}
+\DoxyCodeLine{00026   proj.active\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{00027   proj.body\_.setTexture(proj.projectile\_texture\_);}
+\DoxyCodeLine{00028   proj.body\_.setOrigin(proj.body\_.getSize() / 2.0f);}
+\DoxyCodeLine{00029   proj.body\_.setPosition(fire\_position);}
+\DoxyCodeLine{00030   proj.body\_.setSize(sf::Vector2f(25.0f, 25.0f));}
+\DoxyCodeLine{00031   proj.projectile\_trajectory\_ = fire\_trajectory\textcolor{comment}{/* * proj.velocity\_multiplier\_*/};}
+\DoxyCodeLine{00032   proj.body\_.move(proj.projectile\_trajectory\_);}
+\DoxyCodeLine{00033   \textcolor{keywordflow}{return} proj;}
+\DoxyCodeLine{00034 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWeapon_a8ec8231e728cdef2a4bb7cfa55241e32}\label{classWeapon_a8ec8231e728cdef2a4bb7cfa55241e32}} 
+\index{Weapon@{Weapon}!fire\_rate\_@{fire\_rate\_}}
+\index{fire\_rate\_@{fire\_rate\_}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{fire\_rate\_}{fire\_rate\_}}
+{\footnotesize\ttfamily float Weapon\+::fire\+\_\+rate\+\_\+ = 0.\+1}
+
+
+
+Definition at line \mbox{\hyperlink{weapon_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{weapon_8hpp_source}{weapon.\+hpp}}.
+
+\mbox{\Hypertarget{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}\label{classWeapon_a737fce897a514c6c5c04ffd8b35020a4}} 
+\index{Weapon@{Weapon}!weapon\_body\_@{weapon\_body\_}}
+\index{weapon\_body\_@{weapon\_body\_}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{weapon\_body\_}{weapon\_body\_}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape Weapon\+::weapon\+\_\+body\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{weapon_8hpp_source_l00021}{21}} of file \mbox{\hyperlink{weapon_8hpp_source}{weapon.\+hpp}}.
+
+\mbox{\Hypertarget{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}\label{classWeapon_a62d1f4d6c3ae804586d69a67a655d55d}} 
+\index{Weapon@{Weapon}!weapon\_projectile\_@{weapon\_projectile\_}}
+\index{weapon\_projectile\_@{weapon\_projectile\_}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{weapon\_projectile\_}{weapon\_projectile\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classProjectile}{Projectile}}$>$ Weapon\+::weapon\+\_\+projectile\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{weapon_8hpp_source_l00023}{23}} of file \mbox{\hyperlink{weapon_8hpp_source}{weapon.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{weapon_8hpp}{weapon.\+hpp}}\item 
+src/\mbox{\hyperlink{weapon_8cpp}{weapon.\+cpp}}\end{DoxyCompactItemize}

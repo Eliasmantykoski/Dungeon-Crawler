@@ -1,0 +1,522 @@
+\begin{theindex}
+
+  \item {$\sim$Animation}
+    \subitem {Animation}, \hyperpage{10}
+  \item {$\sim$ChasingEnemy}
+    \subitem {ChasingEnemy}, \hyperpage{13}
+  \item {$\sim$Collider}
+    \subitem {Collider}, \hyperpage{15}
+  \item {$\sim$Enemy}
+    \subitem {Enemy}, \hyperpage{18}
+  \item {$\sim$HUD}
+    \subitem {HUD}, \hyperpage{28}
+  \item {$\sim$Item}
+    \subitem {Item}, \hyperpage{31}
+  \item {$\sim$Menu}
+    \subitem {Menu}, \hyperpage{39}
+  \item {$\sim$Player}
+    \subitem {Player}, \hyperpage{42}
+  \item {$\sim$Projectile}
+    \subitem {Projectile}, \hyperpage{51}
+  \item {$\sim$RangedEnemy}
+    \subitem {RangedEnemy}, \hyperpage{55}
+  \item {$\sim$Room}
+    \subitem {Room}, \hyperpage{59}
+  \item {$\sim$Weapon}
+    \subitem {Weapon}, \hyperpage{66}
+
+  \indexspace
+
+  \item {actionTimer\_}
+    \subitem {Animation}, \hyperpage{11}
+    \subitem {Enemy}, \hyperpage{20}
+    \subitem {Player}, \hyperpage{47}
+    \subitem {Projectile}, \hyperpage{53}
+  \item {Activate}
+    \subitem {Room}, \hyperpage{59}
+  \item {activate}
+    \subitem {Projectile}, \hyperpage{51}
+  \item {active}
+    \subitem {Room}, \hyperpage{61}
+  \item {active\_}
+    \subitem {Menu}, \hyperpage{40}
+    \subitem {Projectile}, \hyperpage{53}
+  \item {alive\_}
+    \subitem {Enemy}, \hyperpage{21}
+    \subitem {Player}, \hyperpage{47}
+  \item {Animation}, \hyperpage{9}
+    \subitem {$\sim$Animation}, \hyperpage{10}
+    \subitem {actionTimer\_}, \hyperpage{11}
+    \subitem {Animation}, \hyperpage{9}
+    \subitem {animation\_frames\_}, \hyperpage{11}
+    \subitem {animation\_speed\_}, \hyperpage{12}
+    \subitem {current\_frame\_}, \hyperpage{12}
+    \subitem {getCurrentFrame}, \hyperpage{10}
+    \subitem {last\_frame\_}, \hyperpage{12}
+    \subitem {resetCurrentFrame}, \hyperpage{10}
+    \subitem {setAnimationSpeed}, \hyperpage{11}
+    \subitem {Update}, \hyperpage{11}
+  \item {animation\_frames\_}
+    \subitem {Animation}, \hyperpage{11}
+  \item {animation\_speed\_}
+    \subitem {Animation}, \hyperpage{12}
+  \item {attacking\_player\_}
+    \subitem {Enemy}, \hyperpage{21}
+
+  \indexspace
+
+  \item {background\_}
+    \subitem {HUD}, \hyperpage{29}
+    \subitem {Menu}, \hyperpage{40}
+  \item {body}
+    \subitem {Item}, \hyperpage{32}
+    \subitem {Wall}, \hyperpage{64}
+  \item {body\_}
+    \subitem {Enemy}, \hyperpage{21}
+    \subitem {Player}, \hyperpage{47}
+    \subitem {Projectile}, \hyperpage{53}
+
+  \indexspace
+
+  \item {ChasingEnemy}, \hyperpage{12}
+    \subitem {$\sim$ChasingEnemy}, \hyperpage{13}
+    \subitem {ChasingEnemy}, \hyperpage{13}
+    \subitem {Update}, \hyperpage{13}
+  \item {checkCollider}
+    \subitem {Collider}, \hyperpage{15}
+  \item {checkCollision}
+    \subitem {Room}, \hyperpage{60}
+    \subitem {Wall}, \hyperpage{63}
+  \item {chosen\_weapon\_}
+    \subitem {Player}, \hyperpage{47}
+  \item {Collider}, \hyperpage{15}
+    \subitem {$\sim$Collider}, \hyperpage{15}
+    \subitem {checkCollider}, \hyperpage{15}
+    \subitem {Collider}, \hyperpage{15}
+    \subitem {getHalfSize}, \hyperpage{16}
+    \subitem {getPosition}, \hyperpage{16}
+    \subitem {Move}, \hyperpage{16}
+  \item {current\_frame\_}
+    \subitem {Animation}, \hyperpage{12}
+  \item {currentSpeed\_}
+    \subitem {Enemy}, \hyperpage{21}
+    \subitem {Player}, \hyperpage{48}
+
+  \indexspace
+
+  \item {Damage}
+    \subitem {Enemy}, \hyperpage{18}
+    \subitem {Player}, \hyperpage{42}
+  \item {damage\_}
+    \subitem {Enemy}, \hyperpage{21}
+  \item {damaged\_}
+    \subitem {Player}, \hyperpage{48}
+  \item {Deactivate}
+    \subitem {Room}, \hyperpage{60}
+  \item {deActivate}
+    \subitem {Projectile}, \hyperpage{51}
+  \item {dead\_}
+    \subitem {Player}, \hyperpage{48}
+  \item {death\_texture\_}
+    \subitem {Player}, \hyperpage{48}
+  \item {depth\_}
+    \subitem {Room}, \hyperpage{61}
+  \item {direction\_}
+    \subitem {Enemy}, \hyperpage{21}
+    \subitem {Player}, \hyperpage{48}
+  \item {Display}
+    \subitem {HUD}, \hyperpage{28}
+    \subitem {Map}, \hyperpage{34}
+    \subitem {Menu}, \hyperpage{39}
+    \subitem {Room}, \hyperpage{60}
+  \item {Draw}
+    \subitem {Enemy}, \hyperpage{18}
+    \subitem {Item}, \hyperpage{32}
+    \subitem {Player}, \hyperpage{43}
+    \subitem {Projectile}, \hyperpage{51}
+    \subitem {Wall}, \hyperpage{64}
+
+  \indexspace
+
+  \item {enemies}
+    \subitem {Map}, \hyperpage{37}
+  \item {Enemy}, \hyperpage{17}
+    \subitem {$\sim$Enemy}, \hyperpage{18}
+    \subitem {actionTimer\_}, \hyperpage{20}
+    \subitem {alive\_}, \hyperpage{21}
+    \subitem {attacking\_player\_}, \hyperpage{21}
+    \subitem {body\_}, \hyperpage{21}
+    \subitem {currentSpeed\_}, \hyperpage{21}
+    \subitem {Damage}, \hyperpage{18}
+    \subitem {damage\_}, \hyperpage{21}
+    \subitem {direction\_}, \hyperpage{21}
+    \subitem {Draw}, \hyperpage{18}
+    \subitem {Enemy}, \hyperpage{18}
+    \subitem {enemy\_animations\_}, \hyperpage{22}
+    \subitem {getCollider}, \hyperpage{19}
+    \subitem {getPosition}, \hyperpage{19}
+    \subitem {hp\_}, \hyperpage{22}
+    \subitem {is\_ranged\_type\_}, \hyperpage{22}
+    \subitem {isRanged}, \hyperpage{19}
+    \subitem {MoveRoom}, \hyperpage{19}
+    \subitem {speed\_}, \hyperpage{22}
+    \subitem {Update}, \hyperpage{20}
+    \subitem {Update2}, \hyperpage{20}
+    \subitem {walk\_}, \hyperpage{22}
+    \subitem {walkInterval\_}, \hyperpage{22}
+  \item {enemy\_animations\_}
+    \subitem {Enemy}, \hyperpage{22}
+  \item {enemy\_projectile\_texture\_}
+    \subitem {FinalBoss}, \hyperpage{26}
+    \subitem {RangedEnemy}, \hyperpage{57}
+
+  \indexspace
+
+  \item {FinalBoss}, \hyperpage{23}
+    \subitem {enemy\_projectile\_texture\_}, \hyperpage{26}
+    \subitem {FinalBoss}, \hyperpage{23}
+    \subitem {ShootAtDirection}, \hyperpage{24}
+    \subitem {Update}, \hyperpage{24}
+    \subitem {Update2}, \hyperpage{25}
+  \item {Fire}
+    \subitem {Weapon}, \hyperpage{66}
+  \item {fire\_rate\_}
+    \subitem {Weapon}, \hyperpage{66}
+  \item {font\_}
+    \subitem {HUD}, \hyperpage{30}
+    \subitem {Menu}, \hyperpage{40}
+
+  \indexspace
+
+  \item {Generate}
+    \subitem {Map}, \hyperpage{34}
+  \item {getCollider}
+    \subitem {Enemy}, \hyperpage{19}
+    \subitem {Item}, \hyperpage{32}
+    \subitem {Player}, \hyperpage{43}
+    \subitem {Projectile}, \hyperpage{52}
+    \subitem {Wall}, \hyperpage{64}
+  \item {getCurrentFrame}
+    \subitem {Animation}, \hyperpage{10}
+  \item {getHalfSize}
+    \subitem {Collider}, \hyperpage{16}
+  \item {getHp}
+    \subitem {Player}, \hyperpage{43}
+  \item {getPosition}
+    \subitem {Collider}, \hyperpage{16}
+    \subitem {Enemy}, \hyperpage{19}
+    \subitem {Player}, \hyperpage{43}
+  \item {getShield}
+    \subitem {Player}, \hyperpage{44}
+
+  \indexspace
+
+  \item {HEIGHT}
+    \subitem {main.cpp}, \hyperpage{86}
+  \item {hp\_}
+    \subitem {Enemy}, \hyperpage{22}
+    \subitem {Player}, \hyperpage{48}
+  \item {hp\_bar\_}
+    \subitem {HUD}, \hyperpage{30}
+  \item {hp\_textures\_}
+    \subitem {HUD}, \hyperpage{30}
+  \item {HUD}, \hyperpage{26}
+    \subitem {$\sim$HUD}, \hyperpage{28}
+    \subitem {background\_}, \hyperpage{29}
+    \subitem {Display}, \hyperpage{28}
+    \subitem {font\_}, \hyperpage{30}
+    \subitem {hp\_bar\_}, \hyperpage{30}
+    \subitem {hp\_textures\_}, \hyperpage{30}
+    \subitem {HUD}, \hyperpage{27}
+    \subitem {hud\_items\_}, \hyperpage{30}
+    \subitem {inventory\_bar\_}, \hyperpage{30}
+    \subitem {texts\_}, \hyperpage{30}
+    \subitem {Update}, \hyperpage{28}
+  \item {hud\_items\_}
+    \subitem {HUD}, \hyperpage{30}
+
+  \indexspace
+
+  \item {inventory\_bar\_}
+    \subitem {HUD}, \hyperpage{30}
+  \item {is\_ranged\_type\_}
+    \subitem {Enemy}, \hyperpage{22}
+  \item {isAlive}
+    \subitem {Player}, \hyperpage{44}
+  \item {isRanged}
+    \subitem {Enemy}, \hyperpage{19}
+  \item {Item}, \hyperpage{31}
+    \subitem {$\sim$Item}, \hyperpage{31}
+    \subitem {body}, \hyperpage{32}
+    \subitem {Draw}, \hyperpage{32}
+    \subitem {getCollider}, \hyperpage{32}
+    \subitem {Item}, \hyperpage{31}
+    \subitem {type}, \hyperpage{32}
+  \item {items}
+    \subitem {Map}, \hyperpage{37}
+  \item {items\_}
+    \subitem {Player}, \hyperpage{49}
+  \item {itemTimer}
+    \subitem {Player}, \hyperpage{49}
+
+  \indexspace
+
+  \item {last\_frame\_}
+    \subitem {Animation}, \hyperpage{12}
+  \item {layout}
+    \subitem {Map}, \hyperpage{37}
+
+  \indexspace
+
+  \item {main}
+    \subitem {main.cpp}, \hyperpage{83}
+  \item {main.cpp}
+    \subitem {HEIGHT}, \hyperpage{86}
+    \subitem {main}, \hyperpage{83}
+    \subitem {WIDTH}, \hyperpage{86}
+  \item {Map}, \hyperpage{33}
+    \subitem {Display}, \hyperpage{34}
+    \subitem {enemies}, \hyperpage{37}
+    \subitem {Generate}, \hyperpage{34}
+    \subitem {items}, \hyperpage{37}
+    \subitem {layout}, \hyperpage{37}
+    \subitem {Map}, \hyperpage{33}
+    \subitem {mapSize}, \hyperpage{37}
+    \subitem {NextRoom}, \hyperpage{36}
+    \subitem {removeItem}, \hyperpage{36}
+    \subitem {rooms}, \hyperpage{38}
+    \subitem {SpawnItem}, \hyperpage{36}
+  \item {mapSize}
+    \subitem {Map}, \hyperpage{37}
+  \item {maxSize}
+    \subitem {Room}, \hyperpage{61}
+  \item {Menu}, \hyperpage{38}
+    \subitem {$\sim$Menu}, \hyperpage{39}
+    \subitem {active\_}, \hyperpage{40}
+    \subitem {background\_}, \hyperpage{40}
+    \subitem {Display}, \hyperpage{39}
+    \subitem {font\_}, \hyperpage{40}
+    \subitem {Menu}, \hyperpage{38}
+    \subitem {texts\_}, \hyperpage{40}
+    \subitem {Update}, \hyperpage{39}
+  \item {Move}
+    \subitem {Collider}, \hyperpage{16}
+  \item {Move2}
+    \subitem {Wall}, \hyperpage{64}
+  \item {MoveRoom}
+    \subitem {Enemy}, \hyperpage{19}
+    \subitem {Room}, \hyperpage{60}
+
+  \indexspace
+
+  \item {NextRoom}
+    \subitem {Map}, \hyperpage{36}
+
+  \indexspace
+
+  \item {Player}, \hyperpage{41}
+    \subitem {$\sim$Player}, \hyperpage{42}
+    \subitem {actionTimer\_}, \hyperpage{47}
+    \subitem {alive\_}, \hyperpage{47}
+    \subitem {body\_}, \hyperpage{47}
+    \subitem {chosen\_weapon\_}, \hyperpage{47}
+    \subitem {currentSpeed\_}, \hyperpage{48}
+    \subitem {Damage}, \hyperpage{42}
+    \subitem {damaged\_}, \hyperpage{48}
+    \subitem {dead\_}, \hyperpage{48}
+    \subitem {death\_texture\_}, \hyperpage{48}
+    \subitem {direction\_}, \hyperpage{48}
+    \subitem {Draw}, \hyperpage{43}
+    \subitem {getCollider}, \hyperpage{43}
+    \subitem {getHp}, \hyperpage{43}
+    \subitem {getPosition}, \hyperpage{43}
+    \subitem {getShield}, \hyperpage{44}
+    \subitem {hp\_}, \hyperpage{48}
+    \subitem {isAlive}, \hyperpage{44}
+    \subitem {items\_}, \hyperpage{49}
+    \subitem {itemTimer}, \hyperpage{49}
+    \subitem {Player}, \hyperpage{42}
+    \subitem {player\_weapons\_}, \hyperpage{49}
+    \subitem {shield\_}, \hyperpage{49}
+    \subitem {shot\_}, \hyperpage{49}
+    \subitem {speed\_}, \hyperpage{49}
+    \subitem {speedTimer}, \hyperpage{50}
+    \subitem {Traverse}, \hyperpage{44}
+    \subitem {Update}, \hyperpage{44}
+    \subitem {useItem}, \hyperpage{46}
+    \subitem {UseWeapon}, \hyperpage{47}
+  \item {player\_weapons\_}
+    \subitem {Player}, \hyperpage{49}
+  \item {Projectile}, \hyperpage{50}
+    \subitem {$\sim$Projectile}, \hyperpage{51}
+    \subitem {actionTimer\_}, \hyperpage{53}
+    \subitem {activate}, \hyperpage{51}
+    \subitem {active\_}, \hyperpage{53}
+    \subitem {body\_}, \hyperpage{53}
+    \subitem {deActivate}, \hyperpage{51}
+    \subitem {Draw}, \hyperpage{51}
+    \subitem {getCollider}, \hyperpage{52}
+    \subitem {Projectile}, \hyperpage{51}
+    \subitem {projectile\_texture\_}, \hyperpage{53}
+    \subitem {projectile\_trajectory\_}, \hyperpage{53}
+    \subitem {Update}, \hyperpage{52}
+  \item {projectile\_texture\_}
+    \subitem {Projectile}, \hyperpage{53}
+  \item {projectile\_trajectory\_}
+    \subitem {Projectile}, \hyperpage{53}
+
+  \indexspace
+
+  \item {RangedEnemy}, \hyperpage{54}
+    \subitem {$\sim$RangedEnemy}, \hyperpage{55}
+    \subitem {enemy\_projectile\_texture\_}, \hyperpage{57}
+    \subitem {RangedEnemy}, \hyperpage{54}
+    \subitem {ShootAtDirection}, \hyperpage{55}
+    \subitem {Update}, \hyperpage{55}
+    \subitem {Update2}, \hyperpage{56}
+  \item {removeItem}
+    \subitem {Map}, \hyperpage{36}
+  \item {resetCurrentFrame}
+    \subitem {Animation}, \hyperpage{10}
+  \item {Room}, \hyperpage{58}
+    \subitem {$\sim$Room}, \hyperpage{59}
+    \subitem {Activate}, \hyperpage{59}
+    \subitem {active}, \hyperpage{61}
+    \subitem {checkCollision}, \hyperpage{60}
+    \subitem {Deactivate}, \hyperpage{60}
+    \subitem {depth\_}, \hyperpage{61}
+    \subitem {Display}, \hyperpage{60}
+    \subitem {maxSize}, \hyperpage{61}
+    \subitem {MoveRoom}, \hyperpage{60}
+    \subitem {Room}, \hyperpage{58}
+    \subitem {walls}, \hyperpage{61}
+    \subitem {xBound1}, \hyperpage{62}
+    \subitem {xBound2}, \hyperpage{62}
+    \subitem {yBound1}, \hyperpage{62}
+    \subitem {yBound2}, \hyperpage{62}
+  \item {rooms}
+    \subitem {Map}, \hyperpage{38}
+
+  \indexspace
+
+  \item {setAnimationSpeed}
+    \subitem {Animation}, \hyperpage{11}
+  \item {shield\_}
+    \subitem {Player}, \hyperpage{49}
+  \item {ShootAtDirection}
+    \subitem {FinalBoss}, \hyperpage{24}
+    \subitem {RangedEnemy}, \hyperpage{55}
+  \item {shot\_}
+    \subitem {Player}, \hyperpage{49}
+  \item {SpawnItem}
+    \subitem {Map}, \hyperpage{36}
+  \item {speed\_}
+    \subitem {Enemy}, \hyperpage{22}
+    \subitem {Player}, \hyperpage{49}
+  \item {speedTimer}
+    \subitem {Player}, \hyperpage{50}
+  \item {src/animation.cpp}, \hyperpage{69}
+  \item {src/animation.hpp}, \hyperpage{70}
+  \item {src/collider.cpp}, \hyperpage{71}
+  \item {src/collider.hpp}, \hyperpage{71, 72}
+  \item {src/enemy.cpp}, \hyperpage{72}
+  \item {src/enemy.hpp}, \hyperpage{77, 78}
+  \item {src/HUD.cpp}, \hyperpage{79}
+  \item {src/HUD.hpp}, \hyperpage{81}
+  \item {src/item.cpp}, \hyperpage{81, 82}
+  \item {src/item.hpp}, \hyperpage{82}
+  \item {src/main.cpp}, \hyperpage{82}, \hyperpage{86}
+  \item {src/map.cpp}, \hyperpage{90}
+  \item {src/map.hpp}, \hyperpage{92, 93}
+  \item {src/menu.cpp}, \hyperpage{93, 94}
+  \item {src/menu.hpp}, \hyperpage{94, 95}
+  \item {src/player.cpp}, \hyperpage{95}
+  \item {src/player.hpp}, \hyperpage{98}
+  \item {src/projectile.cpp}, \hyperpage{99}
+  \item {src/projectile.hpp}, \hyperpage{100}
+  \item {src/readme.md}, \hyperpage{101}
+  \item {src/room.cpp}, \hyperpage{101}
+  \item {src/room.hpp}, \hyperpage{103}
+  \item {src/wall.cpp}, \hyperpage{104}
+  \item {src/wall.hpp}, \hyperpage{104, 105}
+  \item {src/weapon.cpp}, \hyperpage{105}
+  \item {src/weapon.hpp}, \hyperpage{106}
+
+  \indexspace
+
+  \item {texts\_}
+    \subitem {HUD}, \hyperpage{30}
+    \subitem {Menu}, \hyperpage{40}
+  \item {Traverse}
+    \subitem {Player}, \hyperpage{44}
+  \item {type}
+    \subitem {Item}, \hyperpage{32}
+  \item {type\_}
+    \subitem {Wall}, \hyperpage{65}
+
+  \indexspace
+
+  \item {Update}
+    \subitem {Animation}, \hyperpage{11}
+    \subitem {ChasingEnemy}, \hyperpage{13}
+    \subitem {Enemy}, \hyperpage{20}
+    \subitem {FinalBoss}, \hyperpage{24}
+    \subitem {HUD}, \hyperpage{28}
+    \subitem {Menu}, \hyperpage{39}
+    \subitem {Player}, \hyperpage{44}
+    \subitem {Projectile}, \hyperpage{52}
+    \subitem {RangedEnemy}, \hyperpage{55}
+  \item {Update2}
+    \subitem {Enemy}, \hyperpage{20}
+    \subitem {FinalBoss}, \hyperpage{25}
+    \subitem {RangedEnemy}, \hyperpage{56}
+  \item {useItem}
+    \subitem {Player}, \hyperpage{46}
+  \item {UseWeapon}
+    \subitem {Player}, \hyperpage{47}
+
+  \indexspace
+
+  \item {walk\_}
+    \subitem {Enemy}, \hyperpage{22}
+  \item {walkInterval\_}
+    \subitem {Enemy}, \hyperpage{22}
+  \item {Wall}, \hyperpage{62}
+    \subitem {body}, \hyperpage{64}
+    \subitem {checkCollision}, \hyperpage{63}
+    \subitem {Draw}, \hyperpage{64}
+    \subitem {getCollider}, \hyperpage{64}
+    \subitem {Move2}, \hyperpage{64}
+    \subitem {type\_}, \hyperpage{65}
+    \subitem {Wall}, \hyperpage{63}
+  \item {walls}
+    \subitem {Room}, \hyperpage{61}
+  \item {Weapon}, \hyperpage{65}
+    \subitem {$\sim$Weapon}, \hyperpage{66}
+    \subitem {Fire}, \hyperpage{66}
+    \subitem {fire\_rate\_}, \hyperpage{66}
+    \subitem {Weapon}, \hyperpage{65}
+    \subitem {weapon\_body\_}, \hyperpage{67}
+    \subitem {weapon\_projectile\_}, \hyperpage{67}
+  \item {weapon\_body\_}
+    \subitem {Weapon}, \hyperpage{67}
+  \item {weapon\_projectile\_}
+    \subitem {Weapon}, \hyperpage{67}
+  \item {WIDTH}
+    \subitem {main.cpp}, \hyperpage{86}
+
+  \indexspace
+
+  \item {xBound1}
+    \subitem {Room}, \hyperpage{62}
+  \item {xBound2}
+    \subitem {Room}, \hyperpage{62}
+
+  \indexspace
+
+  \item {yBound1}
+    \subitem {Room}, \hyperpage{62}
+  \item {yBound2}
+    \subitem {Room}, \hyperpage{62}
+
+\end{theindex}

@@ -1,0 +1,114 @@
+\hypertarget{enemy_8hpp_source}{}\doxysection{enemy.\+hpp}
+\label{enemy_8hpp_source}\index{src/enemy.hpp@{src/enemy.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00002 \textcolor{preprocessor}{\#include <SFML/Graphics/RenderWindow.hpp>}}
+\DoxyCodeLine{00003 \textcolor{preprocessor}{\#include <SFML/Graphics/Texture.hpp>}}
+\DoxyCodeLine{00004 \textcolor{preprocessor}{\#include <SFML/System/Vector2.hpp>}}
+\DoxyCodeLine{00005 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{00006 \textcolor{comment}{//\#include <memory>}}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{animation_8hpp}{animation.hpp}}"}}
+\DoxyCodeLine{00009 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{collider_8hpp}{collider.hpp}}"}}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011 \textcolor{preprocessor}{\#ifndef ENEMY\_CLASS}}
+\DoxyCodeLine{00012 \textcolor{preprocessor}{\#define ENEMY\_CLASS}}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \textcolor{keyword}{class }\mbox{\hyperlink{classProjectile}{Projectile}}; \textcolor{comment}{//Forward declaration is used here to avoid circular dependency with projectile class}}
+\DoxyCodeLine{00015 \textcolor{comment}{}}
+\DoxyCodeLine{00016 \textcolor{comment}{/**Virtual class for enemies*/}}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00017}\mbox{\hyperlink{classEnemy}{00017}} \textcolor{keyword}{class }\mbox{\hyperlink{classEnemy}{Enemy}} \{}
+\DoxyCodeLine{00018  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{00019 \textcolor{comment}{  /**Constructor*/}}
+\DoxyCodeLine{00020   \mbox{\hyperlink{classEnemy_a24605b1ab3387e0a6b8a11314451cefc}{Enemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed);\textcolor{comment}{}}
+\DoxyCodeLine{00021 \textcolor{comment}{  /**Default destructor*/}}
+\DoxyCodeLine{00022   \mbox{\hyperlink{classEnemy_ac0eec4755e28c02688065f9657150ac3}{\string~Enemy}}();\textcolor{comment}{}}
+\DoxyCodeLine{00023 \textcolor{comment}{  /**Returns enemy position*/}}
+\DoxyCodeLine{00024   sf::Vector2f \mbox{\hyperlink{classEnemy_a7b692953befb7b2c061a544ecf5a1e0b}{getPosition}}();\textcolor{comment}{}}
+\DoxyCodeLine{00025 \textcolor{comment}{  /**Check if enemy is ranged*/}}
+\DoxyCodeLine{00026   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_acb7a5d073feab4fca880f0375b1e83c2}{isRanged}}();\textcolor{comment}{}}
+\DoxyCodeLine{00027 \textcolor{comment}{  /**Returns enemy collider*/}}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00028}\mbox{\hyperlink{classEnemy_a5f81829a93a94fce3205445f6db5531c}{00028}}   \mbox{\hyperlink{classCollider}{Collider}} \mbox{\hyperlink{classEnemy_a5f81829a93a94fce3205445f6db5531c}{getCollider}}()}
+\DoxyCodeLine{00029   \{}
+\DoxyCodeLine{00030     \textcolor{keywordflow}{return} \mbox{\hyperlink{classCollider}{Collider}}(\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}});}
+\DoxyCodeLine{00031   \};\textcolor{comment}{}}
+\DoxyCodeLine{00032 \textcolor{comment}{  /**Moves enemy when player is traversing between rooms*/}}
+\DoxyCodeLine{00033   \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_ab6f125b03da91406b9a9772c46d33912}{MoveRoom}}(\textcolor{keywordtype}{int} dir);\textcolor{comment}{}}
+\DoxyCodeLine{00034 \textcolor{comment}{  /**Used for rendering the enemy*/}}
+\DoxyCodeLine{00035   \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_a4c56b4deb278d2bcbc5a1d8dd30c5c2c}{Draw}}(sf::RenderWindow\& window);\textcolor{comment}{}}
+\DoxyCodeLine{00036 \textcolor{comment}{  /**Reduces enemy hp*/}}
+\DoxyCodeLine{00037   \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_aee36c80f958b8e91041adc975b3872f4}{Damage}}(\textcolor{keywordtype}{float} dmg);\textcolor{comment}{}}
+\DoxyCodeLine{00038 \textcolor{comment}{  /**Virtual function for updating enemy position*/}}
+\DoxyCodeLine{00039   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_aff50813cdd7f2d2a4cadc1136f2730c9}{Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) = 0;}
+\DoxyCodeLine{00040 }
+\DoxyCodeLine{00041   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classEnemy_a28b3499f73798548e034f4129fefced4}{Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles);}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00043}\mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{00043}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_a4dc9c8392c2b9394036adb361302b192}{walk\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00044}\mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{00044}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_ae8e6892cba4ea99d683afe70ee971e7a}{attacking\_player\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00045}\mbox{\hyperlink{classEnemy_a48f7f805125fc4e9281c04eac9053578}{00045}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_a48f7f805125fc4e9281c04eac9053578}{is\_ranged\_type\_}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00046}\mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{00046}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_aa6095c4482546cb82c3a58cd19aa254b}{speed\_}} = 100;}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00047}\mbox{\hyperlink{classEnemy_aa14fd3863fd152d02da86e564190301b}{00047}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_aa14fd3863fd152d02da86e564190301b}{hp\_}} = 100;}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00048}\mbox{\hyperlink{classEnemy_a3515fc58f0512018415b456fc51660f7}{00048}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_a3515fc58f0512018415b456fc51660f7}{damage\_}} = 1;}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00049}\mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{00049}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_a4af8edef148986e56b03ff98879393ee}{currentSpeed\_}};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00050}\mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{00050}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_adb9b64adf19a98f6f5e658933103f7e2}{actionTimer\_}};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00051}\mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{00051}}   \textcolor{keywordtype}{float} \mbox{\hyperlink{classEnemy_a0fa7df7140e4e867fe2f786eb75e9657}{walkInterval\_}} = 2;}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00052}\mbox{\hyperlink{classEnemy_a6fb12aa574f0c986a2344ff9aa53eff7}{00052}}   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classEnemy_a6fb12aa574f0c986a2344ff9aa53eff7}{alive\_}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00053}\mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{00053}}   sf::RectangleShape \mbox{\hyperlink{classEnemy_aa608dc677c7ed06ce4dc8dc703ed6198}{body\_}};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00054}\mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{00054}}   sf::Vector2f \mbox{\hyperlink{classEnemy_a42460a156863b4e214d5c642524f1db9}{direction\_}};}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00055}\mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{00055}}   std::vector<Animation> \mbox{\hyperlink{classEnemy_addcf473bf1620fd94666c29734b8a78e}{enemy\_animations\_}};}
+\DoxyCodeLine{00056 \};}
+\DoxyCodeLine{00057 \textcolor{comment}{}}
+\DoxyCodeLine{00058 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00059 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00060 \textcolor{comment}{}\textcolor{comment}{/**Class for enemy that chases the player*/}}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00061}\mbox{\hyperlink{classChasingEnemy}{00061}} \textcolor{keyword}{class }\mbox{\hyperlink{classChasingEnemy}{ChasingEnemy}} : \textcolor{keyword}{public} \mbox{\hyperlink{classEnemy}{Enemy}}\{}
+\DoxyCodeLine{00062  \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063   \mbox{\hyperlink{classChasingEnemy_a6d56bc161f0013648620ae790b680854}{ChasingEnemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed);}
+\DoxyCodeLine{00064 }
+\DoxyCodeLine{00065   \mbox{\hyperlink{classChasingEnemy_aabc378d911b3ddf47896accb03a87786}{\string~ChasingEnemy}}();}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classChasingEnemy_a0cd5a102174a1a5a4de28d6341734915}{Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \textcolor{keyword}{override};}
+\DoxyCodeLine{00068 \};}
+\DoxyCodeLine{00069 \textcolor{comment}{}}
+\DoxyCodeLine{00070 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00071 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00072 \textcolor{comment}{}}
+\DoxyCodeLine{00073 \textcolor{keyword}{class }\mbox{\hyperlink{classProjectile}{Projectile}};\textcolor{comment}{}}
+\DoxyCodeLine{00074 \textcolor{comment}{/**Class for enemy that shoots projectiles*/}}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00075}\mbox{\hyperlink{classRangedEnemy}{00075}} \textcolor{keyword}{class }\mbox{\hyperlink{classRangedEnemy}{RangedEnemy}} : \textcolor{keyword}{public} \mbox{\hyperlink{classEnemy}{Enemy}}\{}
+\DoxyCodeLine{00076  \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077   \mbox{\hyperlink{classRangedEnemy_a664f410436b5baab26755193c429dfc8}{RangedEnemy}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed,}
+\DoxyCodeLine{00078   sf::Texture* enemy\_projectile\_texture);}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080   \mbox{\hyperlink{classRangedEnemy_a279c0a52b816a9e22922fd4ab283df8a}{\string~RangedEnemy}}();}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classRangedEnemy_a96cb0ed8ed6c3e0a51f8d49d39a31284}{Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \textcolor{keyword}{override};}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   \textcolor{keywordtype}{void} \mbox{\hyperlink{classRangedEnemy_a5a55fedf0b3901be36bdadd06b60757a}{Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles);\textcolor{comment}{}}
+\DoxyCodeLine{00085 \textcolor{comment}{  /**Used to shoot projetiles towards direction*/}}
+\DoxyCodeLine{00086   \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classRangedEnemy_ae2cf51dac578f0c4dadd2deffcddc7c9}{ShootAtDirection}}(sf::Vector2f direction);}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00088}\mbox{\hyperlink{classRangedEnemy_a3d2e120fe07c2e64c029e8007e8c5c4b}{00088}}   sf::Texture* \mbox{\hyperlink{classRangedEnemy_a3d2e120fe07c2e64c029e8007e8c5c4b}{enemy\_projectile\_texture\_}};}
+\DoxyCodeLine{00089 \};}
+\DoxyCodeLine{00090 \textcolor{comment}{}}
+\DoxyCodeLine{00091 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00092 \textcolor{comment}{/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////}}
+\DoxyCodeLine{00093 \textcolor{comment}{}\textcolor{comment}{/**Class for the finall Boss*/}}
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00094}\mbox{\hyperlink{classFinalBoss}{00094}} \textcolor{keyword}{class }\mbox{\hyperlink{classFinalBoss}{FinalBoss}} : \textcolor{keyword}{public} \mbox{\hyperlink{classEnemy}{Enemy}}\{}
+\DoxyCodeLine{00095 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097   \mbox{\hyperlink{classFinalBoss_a39d7a0fdfab7abdbe408b2f07abedf27}{FinalBoss}}(\mbox{\hyperlink{classAnimation}{Animation}} *enemy\_animation, sf::Vector2f spawnPos, \textcolor{keywordtype}{float} speed,}
+\DoxyCodeLine{00098   sf::Texture* enemy\_projectile\_texture);}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFinalBoss_a467bbf209cdec5f778bbe1fdf4c08675}{Update}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position) \textcolor{keyword}{override};}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102   \textcolor{keywordtype}{void} \mbox{\hyperlink{classFinalBoss_af181f9f8dd39fd3e25a967aa7b3a02e7}{Update2}}(\textcolor{keywordtype}{float} time, sf::Vector2f player\_position, std::vector<Projectile>\& active\_projectiles);\textcolor{comment}{}}
+\DoxyCodeLine{00103 \textcolor{comment}{  /**Used to shoot projetiles towards direction*/}}
+\DoxyCodeLine{00104   \mbox{\hyperlink{classProjectile}{Projectile}} \mbox{\hyperlink{classFinalBoss_a2db7530ed6af5088a145b0eb89d2bb5c}{ShootAtDirection}}(sf::Vector2f direction);}
+\DoxyCodeLine{00105   }
+\DoxyCodeLine{\Hypertarget{enemy_8hpp_source_l00106}\mbox{\hyperlink{classFinalBoss_a74a766aea3a8e6d5c3fbe9f234f3e22e}{00106}}   sf::Texture* \mbox{\hyperlink{classFinalBoss_a74a766aea3a8e6d5c3fbe9f234f3e22e}{enemy\_projectile\_texture\_}};}
+\DoxyCodeLine{00107 \};}
+\DoxyCodeLine{00108 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
